@@ -216,7 +216,7 @@ const QuizScreen = () => {
     return (
         // RENDER ONE QUESTION AT A TIME
         <QuizChoice
-            scenarios={scenario_custom}
+            scenarios={scenario_1}
         />
     );
 };
