@@ -3,7 +3,7 @@
 export const scenario_1 = [
     { isFinal: false, // Scenario
         c1: 1, c2: 2, c3: 0, c4: 0, 
-        question: "Janet notices that her daughter Jackie is texting a lot. She wonders if Jackie has a boyfriend. What should Janet do?", 
+        question: "Janet notices that her Jackie Jackie is texting a lot. She wonders if Jackie has a boyfriend. What should Janet do?", 
         choices: ["Talk to Jackie.", "Secretly get Jackie's phone and look at her texts.", "", ""], 
         answer: "Talk to Jackie." },
     { isFinal: false, // A
@@ -126,49 +126,50 @@ export const scenario_custom = [
         choices: ["Finish game", "", "", ""], 
         answer: "Finish game" }
 ];
+
 // Scenario 2
 export const scenario_2 = [
     { isFinal: false, // Scenario
-        c1: 1, c2: 2, c3: 0, c4: 0, 
-        question: "Daughter has been hanging out with her male classmate, Joe. They have been studying and hanging out together more and more often. They both have feelings for each other. Daughter is thinking to tell her mother that she likes Joe, and she wants to have an advice from her mother.", 
-        choices: ["One choice is daughter talks about Joe, and how they have been spending time together and her feelings.", "Second choice is daughter hesitates to talk with her mother about Joe, and she doesn’t tell her mother about Joe and keeps seeing him.", "", ""], 
-        answer: "One choice is daughter talks about Joe, and how they have been spending time together and her feelings." }, 
+        c1: 1, c2: 7, c3: 0, c4: 0, 
+        question: "Jackie has been hanging out with her male classmate, Joe. They have been studying and hanging out together more and more often. They both have feelings for each other. Jackie is thinking to tell her mother that she likes Joe, and she wants to get advice from her mother.", 
+        choices: ["Jackie talks about Joe, and how they have been spending time together and her feelings.", "Jackie hesitates to talk with her mother about Joe, and she doesn't tell her mother about Joe and keeps seeing him.", "", ""], 
+        answer: "Jackie talks about Joe, and how they have been spending time together and her feelings." }, 
     { isFinal: false, // A
-        c1: 3, c2: 4, c3: 1, c4: 1, 
-        question: "Daughter talks to mother about Joe. What might happen?", 
-        choices: ["Mother initiates open communication and gives her information about healthy relationships.", "Mother initiates the conversation with veiled messages – “be careful.”", "Mother becomes angry and tells her that seeing a guy is not an option. Mother says about the importance of school than boyfriend.", ""], 
+        c1: 2, c2: 3, c3: 4, c4: 1, 
+        question: "Jackie talks to her mother about Joe. What might happen?", 
+        choices: ["Mother initiates open communication and gives her information about healthy relationships.", "Mother initiates the conversation with veiled messages – “be careful.”", "Mother becomes angry and tells her that seeing a guy is not an option. Mother says school is more important than having a boyfriend.", ""], 
         answer: "Finish game" }, 
-    { isFinal: false, // A1 outcome, game over
-        c1: 9, c2: 10, c3: 2, c4: 2, 
-        question: "Daughter listens her mother’s advice, and daughter feels more comfortable and asks and talks more frequently.", 
+    { isFinal: true, // A1
+        c1: 2, c2: 2, c3: 2, c4: 2, 
+        question: "Jackie listens to her mother's advice. Jackie feels more comfortable and asks and talks more frequently.", 
         choices: ["Finish game", "", "", ""], 
+        answer: "Finish game" }, 
+    { isFinal: true, // A2
+        c1: 3, c2: 3, c3: 3, c4: 3, 
+        question: "Jackie gets confused by her mother's unclear message. She's not satisfied with the conversation, and she thinks she should ask her friends.", 
+        choices: ["Finish game", "", "", ""], 
+        answer: "Finish game" }, 
+    { isFinal: false, // A3
+        c1: 5, c2: 6, c3: 4, c4: 4, 
+        question: "Jackie listens to her mother tell her having a boyfriend is not an option. What might happen?", 
+        choices: ["Jackie agrees with her mother.", "Jackie is upset.", "", ""], 
+        answer: "Finish game" }, 
+    { isFinal: true, // A3 a outcome
+        c1: 5, c2: 5, c3: 5, c4: 5, 
+        question: "Jackie says okay and decides to continue to see Joe secretly.", 
+        choices: ["Finish game", "", "", ""], 
+        answer: "Finish game" }, 
+    { isFinal: true, // A3 b outcome
+        c1: 6, c2: 6, c3: 6, c4: 6, 
+        question: "Jackie gets upset by the way of mother's reaction being angry. Jackie goes to her room and decides not to talk about anything with her mother.", 
+        choices: ["Finish game", "", "", ""], 
+        answer: "Finish game" }, 
+    { isFinal: false, // B
+        c1: 7, c2: 7, c3: 7, c4: 7, 
+        question: "Jackie hesitates to talk with her mother about Joe, and she doesn't tell her mother about Joe and keeps seeing him.", 
+        choices: ["Daughter keeps lying that she is spending time together with her girls’ friends, and the communication between daughter and mother is getting shorter.", "Mother finds out that her daughter has been lying about Joe.", "", ""], 
         answer: "Finish game" }, 
     { isFinal: false, // A2 outcome, game over
-        c1: 5, c2: 6, c3: 3, c4: 3, 
-        question: "Daughter gets confused by her mother’s unclear message. She’s not satisfied with the conversation, and she thinks she should ask her friends.", 
-        choices: ["Finish game", "", "", ""], 
-        answer: "Finish game" }, 
-    { isFinal: false, // A2
-        c1: 7, c2: 8, c3: 4, c4: 4, 
-        question: "", 
-        choices: ["", "", "", ""], 
-        answer: "Finish game" }, 
-    { isFinal: true, // A1 outcome, game over
-        c1: 5, c2: 5, c3: 5, c4: 5, 
-        question: "", 
-        choices: ["", "", "", ""], 
-        answer: "Finish game" }, 
-    { isFinal: true, // A1 outcome, game over
-        c1: 6, c2: 6, c3: 6, c4: 6, 
-        question: "", 
-        choices: ["", "", "", ""], 
-        answer: "Finish game" }, 
-    { isFinal: true, // A2 outcome, game over
-        c1: 7, c2: 7, c3: 7, c4: 7, 
-        question: "Jackie walks home and tries to enter the house quietly, hoping her mom doesn't catch her. Janet confronts her, and they have an argument.", 
-        choices: ["Finish game", "", "", ""], 
-        answer: "Finish game" }, 
-    { isFinal: true, // A2 outcome, game over
         c1: 8, c2: 8, c3: 8, c4: 8, 
         question: "", 
         choices: ["", "", "", ""], 
@@ -183,12 +184,12 @@ export const scenario_2 = [
         question: "", 
         choices: ["", "", "", ""], 
         answer: "Finish game" }, 
-    { isFinal: true, // B1 outcome, game over
+    { isFinal: false, // B1 outcome, game over
         c1: 11, c2: 11, c3: 11, c4: 11, 
         question: "", 
         choices: ["", "", "", ""], 
         answer: "Finish game" }, 
-    { isFinal: true, // B2 outcome, game over
+    { isFinal: false, // B2 outcome, game over
         c1: 12, c2: 12, c3: 12, c4: 12, 
         question: "", 
         choices: ["", "", "", ""], 

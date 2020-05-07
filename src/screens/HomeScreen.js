@@ -4,7 +4,7 @@ import { Text, StyleSheet, View, Button, TouchableOpacity } from "react-native";
 const HomeScreen = ({ navigation }) => {
   return (
     <View style={styles.padding}>
-      <Text style={[styles.text, styles.margin]}>Quiz</Text>
+      <Text style={[styles.text, styles.margin]}>Quiz Demo</Text>
       <Button 
         onPress={() => navigation.navigate("Quiz") }
         title="Go to Quiz Demo" 
