@@ -10,7 +10,6 @@ const HomeScreen = ({ navigation }) => {
         onPress={() => {
           navigation.navigate("Quiz", {
             itemId: 1,
-            otherParam: "anything you want here",
           });
         }}
         title="Scenario 1" 
@@ -19,7 +18,6 @@ const HomeScreen = ({ navigation }) => {
         onPress={() => {
           navigation.navigate("Quiz", {
             itemId: 2,
-            otherParam: "anything you want here",
           });
         }}
         title="Scenario 2" 
