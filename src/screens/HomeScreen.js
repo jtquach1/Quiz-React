@@ -1,13 +1,28 @@
 import React from "react";
-import { Text, StyleSheet, View, Button, TouchableOpacity } from "react-native";
+import { Text, StyleSheet, View, Button } from "react-native";
 
 const HomeScreen = ({ navigation }) => {
+  // Generate scenarios based on id
   return (
     <View style={styles.padding}>
-      <Text style={[styles.text, styles.margin]}>Quiz Demo</Text>
+      <Text style={[styles.text, styles.margin]}>Quiz Demos</Text>
       <Button 
-        onPress={() => navigation.navigate("Quiz") }
-        title="Go to Quiz Demo" 
+        onPress={() => {
+          navigation.navigate("Quiz", {
+            itemId: 1,
+            otherParam: "anything you want here",
+          });
+        }}
+        title="Scenario 1" 
+      />
+      <Button 
+        onPress={() => {
+          navigation.navigate("Quiz", {
+            itemId: 2,
+            otherParam: "anything you want here",
+          });
+        }}
+        title="Scenario 2" 
       />
     </View>
   );

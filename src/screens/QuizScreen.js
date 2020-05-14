@@ -1,13 +1,12 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import QuizChoice from "../components/QuizChoice";
-import { scenario_1, scenario_2, scenario_custom } from "../components/Scenarios";
+import { scenario_1, scenario_2 } from "../components/Scenarios";
 
-const QuizScreen = () => {
-
-    // console.log("--------- Printing out all scenarios for debugging");
-    // console.log(scenarios);
-    // console.log("--------- Done printing all scenarios");
+const QuizScreen = ({ route, navigation }) => {
+    const { params } = navigation.state;
+    const itemId = params ? params.itemId : null;
+    const otherParam = params ? params.otherParam : null;
 
     const renderScenario = ( index ) => {
         switch (index) {
@@ -17,12 +16,15 @@ const QuizScreen = () => {
                 return <QuizChoice scenarios={ scenario_2 } />;
             // case 3: 
                 // return <QuizChoice scenarios={ scenario_3 } />;
+            // For error handling
+            default:
+                return <View><Text>Scenario not rendered</Text></View>
         }
     }
 
+    // RENDER ONE QUESTION AT A TIME
     return (
-        // RENDER ONE QUESTION AT A TIME
-        renderScenario(2)
+        renderScenario(itemId)
     );
 };
 
