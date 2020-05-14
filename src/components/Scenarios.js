@@ -138,13 +138,13 @@ export const scenario_2 = [
         c1: 2, c2: 3, c3: 4, c4: 1, 
         question: "Jackie talks to her mother about Joe. What might happen?", 
         choices: ["Mother initiates open communication and gives her information about healthy relationships.", "Mother initiates the conversation with veiled messages – “be careful.”", "Mother becomes angry and tells her that seeing a guy is not an option. Mother says school is more important than having a boyfriend.", ""], 
-        answer: "Finish game" }, 
-    { isFinal: true, // A1
+        answer: "Mother initiates open communication and gives her information about healthy relationships." }, 
+    { isFinal: true, // A1 outcome
         c1: 2, c2: 2, c3: 2, c4: 2, 
         question: "Jackie listens to her mother's advice. Jackie feels more comfortable and asks and talks more frequently.", 
         choices: ["Finish game", "", "", ""], 
         answer: "Finish game" }, 
-    { isFinal: true, // A2
+    { isFinal: true, // A2 outcome
         c1: 3, c2: 3, c3: 3, c4: 3, 
         question: "Jackie gets confused by her mother's unclear message. She's not satisfied with the conversation, and she thinks she should ask her friends.", 
         choices: ["Finish game", "", "", ""], 
@@ -152,8 +152,8 @@ export const scenario_2 = [
     { isFinal: false, // A3
         c1: 5, c2: 6, c3: 4, c4: 4, 
         question: "Jackie listens to her mother tell her having a boyfriend is not an option. What might happen?", 
-        choices: ["Jackie agrees with her mother.", "Jackie is upset.", "", ""], 
-        answer: "Finish game" }, 
+        choices: ["Jackie agrees with her mother.", "Jackie gets upset.", "", ""], 
+        answer: "Jackie gets upset." }, 
     { isFinal: true, // A3 a outcome
         c1: 5, c2: 5, c3: 5, c4: 5, 
         question: "Jackie says okay and decides to continue to see Joe secretly.", 
@@ -165,35 +165,30 @@ export const scenario_2 = [
         choices: ["Finish game", "", "", ""], 
         answer: "Finish game" }, 
     { isFinal: false, // B
-        c1: 7, c2: 7, c3: 7, c4: 7, 
+        c1: 8, c2: 9, c3: 7, c4: 7, 
         question: "Jackie hesitates to talk with her mother about Joe, and she doesn't tell her mother about Joe and keeps seeing him.", 
-        choices: ["Daughter keeps lying that she is spending time together with her girls’ friends, and the communication between daughter and mother is getting shorter.", "Mother finds out that her daughter has been lying about Joe.", "", ""], 
-        answer: "Finish game" }, 
-    { isFinal: false, // A2 outcome, game over
+        choices: ["Jackie keeps lying that she is spending time together with her girls’ friends.", "Mother finds out that her daughter has been lying about Joe.", "", ""], 
+        answer: "Mother finds out that her daughter has been lying about Joe." }, 
+    { isFinal: true, // B1 outcome
         c1: 8, c2: 8, c3: 8, c4: 8, 
-        question: "", 
-        choices: ["", "", "", ""], 
-        answer: "Finish game" }, 
-    { isFinal: false, // B1
-        c1: 11, c2: 11, c3: 9, c4: 9, 
-        question: "", 
-        choices: ["", "", "", ""], 
+        question: "Jackie makes a habit of hiding her relationship with Joe to her mother, and the communication between her and her mother is getting shorter.", 
+        choices: ["Finish game", "", "", ""], 
         answer: "Finish game" }, 
     { isFinal: false, // B2
-        c1: 12, c2: 12, c3: 10, c4: 10, 
-        question: "", 
-        choices: ["", "", "", ""], 
+        c1: 10, c2: 11, c3: 9, c4: 9, 
+        question: "Mother finds out that Jackie has been lying about Joe.", 
+        choices: ["Mother becomes angry and grounds Jackie for punishment with no communication", "Mother tries to give Jackie a chance to explain what happened", "", ""], 
+        answer: "Mother tries to give Jackie a chance to explain what happened" }, 
+    { isFinal: false, // B2 outcome, leads to A3: A3a, A3b
+        c1: 4, c2: 10, c3: 10, c4: 10, 
+        question: "After Jackie's mother grounds her, what might happen next?", 
+        choices: ["Mother becomes angry and tells her that seeing a guy is not an option. Mother says school is more important than having a boyfriend.", "", "", ""], 
         answer: "Finish game" }, 
-    { isFinal: false, // B1 outcome, game over
-        c1: 11, c2: 11, c3: 11, c4: 11, 
-        question: "", 
-        choices: ["", "", "", ""], 
-        answer: "Finish game" }, 
-    { isFinal: false, // B2 outcome, game over
-        c1: 12, c2: 12, c3: 12, c4: 12, 
-        question: "", 
-        choices: ["", "", "", ""], 
-        answer: "Finish game" } 
+    { isFinal: false, // B2 outcome, leads to A: A1, A2
+        c1: 1, c2: 11, c3: 11, c4: 11, 
+        question: "Jackie's mother tries to give her a chance to explain what happened. What might happen next?", 
+        choices: ["Jackie talks about Joe, and how they have been spending time together and her feelings.", "", "", ""], 
+        answer: "Jackie talks about Joe, and how they have been spending time together and her feelings." } 
 ];
 
 // Scenario 3
