@@ -8,14 +8,9 @@ const QuizChoice = ({ scenarios }) => {
     const [score, setScore] = useState(0);
 
     // Update the question listing based on the current question and the score
-    const update = (index, choice) => {
-        // Choice that was selected
-        const comparedString = q.choices[index];
-
+    const update = (choice) => {
         // Check if an answer is correct
-        if (comparedString == q.answer) {
-            setScore(score + q.score);
-        }
+        setScore(score + q.score);
 
         // Update question from scenarios
         setQuestion(scenarios[choice]);
@@ -32,7 +27,7 @@ const QuizChoice = ({ scenarios }) => {
             <Button 
                 style={styles.margin}
                 title={choices[index]}
-                onPress={() => {update(index, choice)}}
+                onPress={() => {update(choice)}}
             />
         );
     }
