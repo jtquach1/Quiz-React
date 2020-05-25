@@ -1,49 +1,40 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Button } from 'react-native';
+import { SafeAreaView, View, Text, StyleSheet, Button } from 'react-native';
 import Inputs from './Inputs.js';
 
 const QuizChoice = ({ scenarios }) => {
-    // Current question to be displayed
+    // Current question and score
     const [q, setQuestion] = useState(scenarios[0]);
     const [score, setScore] = useState(0);
 
-    console.log(q);
-    console.log(score);
-
     // Update the question listing based on the current question and the score
-    const update = (choice) => {
-        checkAnswer(choice);
-        setQuestion(scenarios[choice]);
-        return;
-    }
+    const update = (index, choice) => {
+        // Choice that was selected
+        const comparedString = q.choices[index];
 
-    // Check if an answer is correct
-    // NOT WORKING!!!
-    const checkAnswer = (choice) => {
-        if (choice == q.answer) {
-            setScore(score + 5);
-            console.log(score);
+        // Check if an answer is correct
+        if (comparedString == q.answer) {
+            setScore(score + q.score);
         }
+
+        // Update question from scenarios
+        setQuestion(scenarios[choice]);
         return;
     }
     
     // Toggles display based on whether any of the question's choices are ""
-    const hideOrShow = (question, index) => {
+    const hideOrShow = (choices, index, choice) => {
         // Choice is empty string, so render nothing
-        if (question.choices[index] == "") {
-            return;
-        }
+        if (choices[index] == "") { return; }
+
         // Choice is not empty, so render Button
-        switch (index) {
-            case 0:
-                return <Button style={styles.margin} title={q.choices[0]} onPress={() => {update(q.c1)}} />;
-            case 1:
-                return <Button style={styles.margin} title={q.choices[1]} onPress={() => {update(q.c2)}} />; 
-            case 2:
-                return <Button style={styles.margin} title={q.choices[2]} onPress={() => {update(q.c3)}} />;
-            case 3:
-                return <Button style={styles.margin} title={q.choices[3]} onPress={() => {update(q.c4)}} />;
-        }
+        return (
+            <Button 
+                style={styles.margin}
+                title={choices[index]}
+                onPress={() => {update(index, choice)}}
+            />
+        );
     }
 
     // Checks if a question is the final one for its scenario
@@ -52,15 +43,15 @@ const QuizChoice = ({ scenarios }) => {
     }
 
     return (
-        <View style={styles.padding}>
+        <SafeAreaView style={styles.padding}>
             <Text style={[styles.scoreStyle, styles.margin]}>Score: {score}</Text>
             <Text style={[styles.textStyle, styles.margin]}>{q.question}</Text>
-            {hideOrShow(q, 0)}
-            {hideOrShow(q, 1)}
-            {hideOrShow(q, 2)}
-            {hideOrShow(q, 3)}
+            {hideOrShow(q.choices, 0, q.c1)}
+            {hideOrShow(q.choices, 1, q.c2)}
+            {hideOrShow(q.choices, 2, q.c3)}
+            {hideOrShow(q.choices, 3, q.c4)}
             <Inputs />
-        </View>
+        </SafeAreaView>
     );
 };
 
@@ -76,10 +67,7 @@ const styles = StyleSheet.create({
     paddingVertical: 20
   },
   margin: {
-    // marginHorizontal: 20,
-    // marginVertical: 20
-    // marginTop: 20,
-    marginBottom: 20
+    marginBottom: 20, 
   }
 });
 
