@@ -268,82 +268,51 @@ export const scenario_4 = [
 // Scenario 5
 export const scenario_5 = [
     { isFinal: false, // Scenario
-        c1: 1, c2: 2, c3: 0, c4: 0, score: 0, 
-        question: "", 
-        choices: ["Finish game", "", "", ""], 
+        c1: 1, c2: 0, c3: 0, c4: 0, score: 0, 
+        question: "One day, the daughter talks to her mother about the conversation with her female friend at school. Her friend told her that recently she and her boyfriend had sex (without using a condom) first time. Her friend was worried about being pregnant. But she’s sure that she does not have Gonorrhea because she does not have any symptoms and she learned that people can know by look at their body whether they have Gonorrhea or not.", 
+        choices: ["Mother listens her story about her friend.", "", "", ""], 
+    },
+    { isFinal: false, // Scenario, continued.
+        c1: 2, c2: 4, c3: 1, c4: 1, score: 0, 
+        question: "After listening to her daughter, the mother asks her daughter what Gonorrhea is. How might the daughter respond?", 
+        choices: ["I don't know", "I know", "", ""], 
     },
     { isFinal: false, // A
-        c1: 1, c2: 2, c3: 0, c4: 0, score: 0, 
-        question: "", 
-        choices: ["Finish game", "", "", ""], 
+        c1: 3, c2: 2, c3: 2, c4: 2, score: 0, 
+        question: "Daughter tells her mother she doesn’t know what it is.", 
+        choices: ["Mother knows how to inform her daughter", "", "", ""], 
     },
-    { isFinal: true, // A1
-        c1: 1, c2: 2, c3: 0, c4: 0, score: 0, 
-        question: "", 
-        choices: ["Finish game", "", "", ""], 
-    },
-    { isFinal: true, // A2
-        c1: 1, c2: 2, c3: 0, c4: 0, score: 0, 
-        question: "", 
-        choices: ["Finish game", "", "", ""], 
-    },
-    { isFinal: false, // A3
-        c1: 1, c2: 2, c3: 0, c4: 0, score: 0, 
-        question: "", 
-        choices: ["Finish game", "", "", ""], 
-    },
-    { isFinal: true, // A3 a outcome
-        c1: 1, c2: 2, c3: 0, c4: 0, score: 0, 
-        question: "", 
-        choices: ["Finish game", "", "", ""], 
-    },
-    { isFinal: true, // A3 b outcome
-        c1: 1, c2: 2, c3: 0, c4: 0, score: 0, 
-        question: "", 
-        choices: ["Finish game", "", "", ""], 
+    { isFinal: false, // A1
+        c1: 6, c2: 3, c3: 3, c4: 3, score: 0, 
+        question: "Mother sits with her daughter and initiate the conversation about STIs, specifically Gonorrhea. Mother talks about STIs including Gonorrhea how this is transmitted, and how to protect from getting it.", 
+        choices: ["Continue", "", "", ""], 
     },
     { isFinal: false, // B
-        c1: 1, c2: 2, c3: 0, c4: 0, score: 0, 
-        question: "", 
-        choices: ["Finish game", "", "", ""], 
-    },
-    { isFinal: false, // A2 outcome, game over
-        c1: 1, c2: 2, c3: 0, c4: 0, score: 0, 
-        question: "", 
-        choices: ["Finish game", "", "", ""], 
+        c1: 5, c2: 4, c3: 4, c4: 4, score: 0, 
+        question: "Daughter says, 'You can get Gonorrhea from sex, but if you don’t have symptoms, you don’t have it. Right?' How might the mother respond?", 
+        choices: ["Knows daughter is incorrect, but doesn't know how to tell her", "", "", ""], 
     },
     { isFinal: false, // B1
-        c1: 11, c2: 11, c3: 9, c4: 9, score: 0, 
-        question: "", 
-        choices: ["", "", "", ""], 
+        c1: 6, c2: 5, c3: 5, c4: 5, score: 0, 
+        question: "Mother understands her daughter has the wrong information and she wants to educate her with the correct information. But she does not know how to.", 
+        choices: ["Continue", "", "", ""], 
     },
-    { isFinal: false, // B2
-        c1: 12, c2: 12, c3: 10, c4: 10, score: 0, 
-        question: "", 
-        choices: ["", "", "", ""], 
+    { isFinal: false, // C
+        c1: 7, c2: 6, c3: 6, c4: 6, score: +5, 
+        question: "Rationale & Resources: Gonorrhea is one of the sexually transmitted infections (STIs), and second most common STIs in the U.S. It is asymptomatic, which means most of the time people will not have symptom when they are infected. For female, gonorrhea can spread through vaginal fluids, semen during vaginal, anal, or oral sex with an infected person. It grows in the genital tract and can be found in the mouth, eyes, throat, and anus. Left untreated, this damage can lead to a difficult pregnancy or prevent her from ever having a baby. CDC resources about Gonorrhea https://www.cdc.gov/std/gonorrhea/Gonorrhea-FS.pdf", 
+        choices: ["Continue", "", "", ""], 
     },
-    { isFinal: false, // B1 outcome, game over
-        c1: 11, c2: 11, c3: 11, c4: 11, score: 0, 
-        question: "", 
-        choices: ["", "", "", ""], 
-    },
-    { isFinal: false, // B2 outcome, game over
-        c1: 12, c2: 12, c3: 12, c4: 12, score: 0, 
-        question: "", 
-        choices: ["", "", "", ""], 
+    { isFinal: true, // C1 outcome, game over
+        c1: 7, c2: 7, c3: 7, c4: 7, score: +5, 
+        question: "Mother got information through “Rationale & guided resources”; she educates her daughter with the correct information.", 
+        choices: ["Finish game", "", "", ""], 
     },
 ];
 
 
 // template for scenario object
 /*
-    { isFinal: true, 
-        c1: 10, c2: 10, c3: 10, c4: 10, score: 0, 
-        question: "", 
-        choices: ["", "", "", ""], 
-    },
-/////////
-export const scenario_3 = [
+export const scenario_6 = [
     { isFinal: false, // Scenario
         c1: 1, c2: 2, c3: 0, c4: 0, score: 0, 
         question: "", 
