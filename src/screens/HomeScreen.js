@@ -1,43 +1,31 @@
 import React from "react";
-import { Text, StyleSheet, View, Button } from "react-native";
+import { Text, StyleSheet, View, Button, ScrollView, SafeAreaView } from "react-native";
 
 const HomeScreen = ({ navigation }) => {
+  const makeButton = (id) => {
+    return (
+      <Button 
+        onPress={() => {
+          navigation.navigate("Quiz", {
+            itemId: id,
+          });
+        }}
+        title={"Scenario " + id} 
+      />
+    );
+  }
+
+
   // Generate scenarios based on id
   return (
     <View style={styles.padding}>
       <Text style={[styles.text, styles.margin]}>Quiz Demos</Text>
-      <Button 
-        onPress={() => {
-          navigation.navigate("Quiz", {
-            itemId: 1,
-          });
-        }}
-        title="Scenario 1" 
-      />
-      <Button 
-        onPress={() => {
-          navigation.navigate("Quiz", {
-            itemId: 2,
-          });
-        }}
-        title="Scenario 2" 
-      />
-      <Button 
-        onPress={() => {
-          navigation.navigate("Quiz", {
-            itemId: 3,
-          });
-        }}
-        title="Scenario 3" 
-      />
-      <Button 
-        onPress={() => {
-          navigation.navigate("Quiz", {
-            itemId: 4,
-          });
-        }}
-        title="Scenario 4" 
-      />
+      {makeButton(1)}
+      {makeButton(2)}
+      {makeButton(3)}
+      {makeButton(4)}
+      {makeButton(5)}
+      {makeButton(6)}
     </View>
   );
 };
