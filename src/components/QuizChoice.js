@@ -51,13 +51,10 @@ const QuizChoice = ({ scenarios }) => {
                     <Text style={[styles.headerStyle]}>{question.h1}</Text>
                     <Text style={[styles.textStyle]}>{question.p1}</Text>
                     <Text style={[styles.headerStyle]}>{question.h2}</Text>
-                    <FlatList 
-                        data={question.list.split('|')}
-                        renderItem={(item, index) => (
-                            <Text style={[styles.textStyle]}>{item}</Text>
-                        )}
-                        keyExtractor={(item, key) => key}
-                    />
+                    {
+                        question.list.split('|').map((item, key) => <Text key={key} style={[styles.textStyle]}>{item}</Text>)
+
+                    }
                     <Text style={[styles.textStyle]}>{question.p2}</Text>   
                 </ScrollView>
             );
