@@ -13,8 +13,12 @@ const QuizScreen = ({ navigation }) => {
                 return <QuizChoice scenarios={ scenarios.scenario_1 } />;
             case 2: 
                 return <QuizChoice scenarios={ scenarios.scenario_2 } />;
-            // case 3: 
-                // return <QuizChoice scenarios={ scenario_3 } />;
+            case 3: 
+                return <QuizChoice scenarios={ scenarios.scenario_3 } />;
+            case 4: 
+                return <QuizChoice scenarios={ scenarios.scenario_4 } />;
+            case 5: 
+                return <QuizChoice scenarios={ scenarios.scenario_5 } />;
             // For error handling
             default:
                 return <View><Text>Scenario not rendered</Text></View>

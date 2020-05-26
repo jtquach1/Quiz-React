@@ -22,6 +22,22 @@ const HomeScreen = ({ navigation }) => {
         }}
         title="Scenario 2" 
       />
+      <Button 
+        onPress={() => {
+          navigation.navigate("Quiz", {
+            itemId: 3,
+          });
+        }}
+        title="Scenario 3" 
+      />
+      <Button 
+        onPress={() => {
+          navigation.navigate("Quiz", {
+            itemId: 4,
+          });
+        }}
+        title="Scenario 4" 
+      />
     </View>
   );
 };
