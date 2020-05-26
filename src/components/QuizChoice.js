@@ -47,14 +47,18 @@ const QuizChoice = ({ scenarios }) => {
         // This is an infobox
         if (question.isInfobox == true) {
             return (
-                <ScrollView>
-                    <Text style={[styles.headerStyle]}>{question.h1}</Text>
-                    <Text style={[styles.textStyle]}>{question.p1}</Text>
-                    <Text style={[styles.headerStyle]}>{question.h2}</Text>
+                <View style={styles.margin}>
+                    <Text style={[styles.scoreStyle, styles.margin]}>Score: {score}</Text>
+                    <Text style={styles.headerStyle}>{question.h1}</Text>
+                    <Text style={styles.textStyle}>{question.p1}</Text>
+                    <Text style={styles.headerStyle}>{question.h2}</Text>
                     {question.list.split('|').map((item, key) => 
-                        <Text key={key} style={[styles.textStyle]}>{item}</Text>)}
-                    <Text style={[styles.textStyle]}>{question.p2}</Text>   
-                </ScrollView>
+                        <Text key={key} style={[styles.listStyle]}>
+                            {'\u2022'}
+                            {item}
+                        </Text>)}
+                    <Text style={styles.textStyle}>{question.p2}</Text>   
+                </View>
             );
         }
         // This is a question
@@ -85,7 +89,7 @@ const styles = StyleSheet.create({
         fontSize: 30
     }, 
     textStyle: {
-        fontSize: 20
+        fontSize: 15
     },
     listStyle: {
         fontSize: 20

@@ -367,6 +367,7 @@ export const scenario_6 = [
         h1: "What is Chlamydia?",
         p1: "Chlamydia is one of the sexually transmitted infections (STIs). You can get chlamydia during oral, vaginal, or anal sex with someone who has the infection. Chlamydia doesn't usually cause any symptoms. So, you may not realize that you have it. People with chlamydia who have no symptoms can still pass the disease to others.",
         h2: "Symptoms of Chlamydia for girls are",
+        // use | delimiter to separate bullet points
         list: "Abnormal vaginal discharge, which may have a strong smell|A burning sensation when urinating|Pain during intercourse",
         p2: "If it is not treated, the infection can spread, and you might get lower abdominal pain, pain during sex, nausea, or fever.",
         choices: ["Finish game", "", "", ""], 
