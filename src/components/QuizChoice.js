@@ -9,7 +9,7 @@ const QuizChoice = ({ scenarios }) => {
 
     // Update the question listing based on the current question and the score
     const update = (choice) => {
-        // Check if an answer is correct
+        // Update score
         setScore(score + q.score);
 
         // Update question from scenarios
