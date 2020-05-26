@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { ScrollView, SafeAreaView, View, Text, StyleSheet, Button } from 'react-native';
+import { ScrollView, SafeAreaView, View, Text, StyleSheet, Button, Linking } from 'react-native';
 import Inputs from './Inputs.js';
-import { FlatList } from 'react-native-gesture-handler';
 
 const QuizChoice = ({ scenarios }) => {
     // Current question and score
@@ -33,14 +32,15 @@ const QuizChoice = ({ scenarios }) => {
         );
     }
 
-    // Checks if a question is the final one for its scenario
-    const isFinal = (question) => {
-        return question.isFinal;
-    }
-
-    const split = (string, delimiter) => {
-        const arr = string.split(delimiter);
-        
+    const renderText = (prop, style) => {
+        // prop was defined in the object
+        if (prop != undefined) {
+            return (
+                <Text style={style}>{prop}</Text>
+            );
+        }
+        // prop was not defined, don't render anything
+        return;
     }
 
     const renderQuestion = (question) => {
@@ -49,15 +49,18 @@ const QuizChoice = ({ scenarios }) => {
             return (
                 <View style={styles.margin}>
                     <Text style={[styles.scoreStyle, styles.margin]}>Score: {score}</Text>
-                    <Text style={styles.headerStyle}>{question.h1}</Text>
-                    <Text style={styles.textStyle}>{question.p1}</Text>
-                    <Text style={styles.headerStyle}>{question.h2}</Text>
+                    {renderText(question.h1, styles.headerStyle)}
+                    {renderText(question.p1, styles.textStyle)}
+                    {renderText(question.h2, styles.headerStyle)}
                     {question.list.split('|').map((item, key) => 
                         <Text key={key} style={[styles.listStyle]}>
                             {'\u2022'}
                             {item}
                         </Text>)}
-                    <Text style={styles.textStyle}>{question.p2}</Text>   
+                    {renderText(question.h3, styles.headerStyle)}
+                    {renderText(question.p2, styles.textStyle)}
+                    {renderText(question.resourceText, styles.headerStyle)}
+                    {renderText(question.resourceLink, styles.textStyle)}
                 </View>
             );
         }
@@ -86,16 +89,16 @@ const QuizChoice = ({ scenarios }) => {
 
 const styles = StyleSheet.create({
     headerStyle : {
-        fontSize: 30
+        fontSize: 20
     }, 
     textStyle: {
         fontSize: 15
     },
     listStyle: {
-        fontSize: 20
+        fontSize: 15
     },    
     scoreStyle: {
-        fontSize: 30
+        fontSize: 25
     }, 
     padding: {
         paddingHorizontal: 20,

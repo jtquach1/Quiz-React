@@ -235,7 +235,7 @@ export const scenario_4 = [
     },
     { isFinal: true, // A2 b, game over
         c1: 8, c2: 8, c3: 8, c4: 8, score: +5, 
-        question: "Mother correctly provides the menstruation information but doesn’t provide in-depth educational information.", 
+        question: "Mother correctly provides the menstruation information but doesn't provide in-depth educational information.", 
         choices: ["Finish game", "", "", ""], 
     },
     { isFinal: false, // B
@@ -250,7 +250,7 @@ export const scenario_4 = [
     },
     { isFinal: false, // B1 a
         c1: 12, c2: 11, c3: 11, c4: 11, score: -5, 
-        question: "Daughter doesn’t know about menstruation prior to starting her menarche.", 
+        question: "Daughter doesn't know about menstruation prior to starting her menarche.", 
         choices: ["Continue", "", "", ""], 
     },
     { isFinal: true, // B1 i outcome, game over
@@ -269,7 +269,7 @@ export const scenario_4 = [
 export const scenario_5 = [
     { isFinal: false, // Scenario
         c1: 1, c2: 0, c3: 0, c4: 0, score: 0, 
-        question: "One day, the daughter talks to her mother about the conversation with her female friend at school. Her friend told her that recently she and her boyfriend had sex (without using a condom) first time. Her friend was worried about being pregnant. But she’s sure that she does not have Gonorrhea because she does not have any symptoms and she learned that people can know by look at their body whether they have Gonorrhea or not.", 
+        question: "One day, the daughter talks to her mother about the conversation with her female friend at school. Her friend told her that recently she and her boyfriend had sex (without using a condom) first time. Her friend was worried about being pregnant. But she's sure that she does not have Gonorrhea because she does not have any symptoms and she learned that people can know by look at their body whether they have Gonorrhea or not.", 
         choices: ["Mother listens to her story about her friend.", "", "", ""], 
     },
     { isFinal: false, // Scenario, continued.
@@ -279,7 +279,7 @@ export const scenario_5 = [
     },
     { isFinal: false, // A
         c1: 3, c2: 2, c3: 2, c4: 2, score: 0, 
-        question: "Daughter tells her mother she doesn’t know what it is.", 
+        question: "Daughter tells her mother she doesn't know what it is.", 
         choices: ["Mother knows how to inform her daughter", "", "", ""], 
     },
     { isFinal: false, // A1
@@ -289,7 +289,7 @@ export const scenario_5 = [
     },
     { isFinal: false, // B
         c1: 5, c2: 4, c3: 4, c4: 4, score: 0, 
-        question: "Daughter says, 'You can get Gonorrhea from sex, but if you don’t have symptoms, you don’t have it. Right?' How might the mother respond?", 
+        question: "Daughter says, 'You can get Gonorrhea from sex, but if you don't have symptoms, you don't have it. Right?' How might the mother respond?", 
         choices: ["Knows daughter is incorrect, but doesn't know how to tell her", "", "", ""], 
     },
     { isFinal: false, // B1
@@ -301,11 +301,10 @@ export const scenario_5 = [
         c1: 7, c2: 6, c3: 6, c4: 6, score: +5, 
         isInfobox: true,
         h1: "Rationale & Resources",
-        p1: "Gonorrhea is one of the sexually transmitted infections (STIs), and second most common STIs in the U.S. It is asymptomatic, which means most of the time people will not have symptom when they are infected. For female, gonorrhea can spread through vaginal fluids, semen during vaginal, anal, or oral sex with an infected person. It grows in the genital tract and can be found in the mouth, eyes, throat, and anus. Left untreated, this damage can lead to a difficult pregnancy or prevent her from ever having a baby.", 
-        h2: "CDC resources about Gonorrhea",
         // use | delimiter to separate bullet points
-        list: "https://www.cdc.gov/std/gonorrhea/Gonorrhea-FS.pdf",
-        p2: "",
+        list: "Gonorrhea is one of the sexually transmitted infections (STIs), and second most common STIs in the U.S. It is asymptomatic, which means most of the time people will not have symptom when they are infected.|For female, gonorrhea can spread through vaginal fluids, semen during vaginal, anal, or oral sex with an infected person. It grows in the genital tract and can be found in the mouth, eyes, throat, and anus.|Left untreated, this damage can lead to a difficult pregnancy or prevent her from ever having a baby.",
+        resourceText: "CDC resources about Gonorrhea", 
+        resourceLink: "https://www.cdc.gov/std/gonorrhea/Gonorrhea-FS.pdf",
         choices: ["Continue", "", "", ""], 
     },
     { isFinal: true, // C1 outcome, game over
@@ -324,12 +323,12 @@ export const scenario_6 = [
     },
     { isFinal: false, // Scenario cont.
         c1: 2, c2: 8, c3: 1, c4: 1, score: +5, 
-        question: "Jennie decides to talk with her mother about Charline’s problem and the history of sex. How might Jennie's mom respond?", 
+        question: "Jennie decides to talk with her mother about Charline's problem and the history of sex. How might Jennie's mom respond?", 
         choices: ["Start a conversation", "Ignore Charline", "", ""], 
     },
     { isFinal: false, // A
         c1: 3, c2: 2, c3: 2, c4: 2, score: +5, 
-        question: "Jennie and her mom start a conversation about different types of STI’s, focusing on Chlamydia, modes of transmission, symptoms and methods of protection", 
+        question: "Jennie and her mom start a conversation about different types of STI's, focusing on Chlamydia, modes of transmission, symptoms and methods of protection", 
         choices: ["Continue", "", "", ""], 
     },
     { isFinal: false, // A1
@@ -347,9 +346,10 @@ export const scenario_6 = [
         isInfobox: true,
         h1: "What is Chlamydia?",
         p1: "Chlamydia is one of the sexually transmitted infections (STIs). You can get chlamydia during oral, vaginal, or anal sex with someone who has the infection. Chlamydia doesn't usually cause any symptoms. So, you may not realize that you have it. People with chlamydia who have no symptoms can still pass the disease to others.",
-        h2: "Symptoms of Chlamydia for girls are",
+        h2: "Symptoms of Chlamydia for girls",
         // use | delimiter to separate bullet points
         list: "Abnormal vaginal discharge, which may have a strong smell|A burning sensation when urinating|Pain during intercourse",
+        h3: "What happens when the infection is not treated?", 
         p2: "If it is not treated, the infection can spread, and you might get lower abdominal pain, pain during sex, nausea, or fever.",
         choices: ["Continue", "", "", ""], 
     },
@@ -365,7 +365,7 @@ export const scenario_6 = [
     },
     { isFinal: false, // B
         c1: 9, c2: 8, c3: 8, c4: 8, score: -10, 
-        question: "Jennie’s mom tells her that Charline’s problem is not her responsibility and she should stop talking with her.", 
+        question: "Jennie's mom tells her that Charline's problem is not her responsibility and she should stop talking with her.", 
         choices: ["Continue", "", "", ""], 
     },
     { isFinal: true, // B1 outcome, game over
@@ -376,6 +376,7 @@ export const scenario_6 = [
         h2: "Symptoms of Chlamydia for girls are",
         // use | delimiter to separate bullet points
         list: "Abnormal vaginal discharge, which may have a strong smell|A burning sensation when urinating|Pain during intercourse",
+        h3: "What happens when the infection is not treated?", 
         p2: "If it is not treated, the infection can spread, and you might get lower abdominal pain, pain during sex, nausea, or fever.",
         choices: ["Finish game", "", "", ""], 
     },
@@ -384,69 +385,52 @@ export const scenario_6 = [
 // Scenario 7
 export const scenario_7 = [
     { isFinal: false, // Scenario
-        c1: 1, c2: 2, c3: 0, c4: 0, score: 0, 
-        question: "", 
-        choices: ["Finish game", "", "", ""], 
+        c1: 1, c2: 0, c3: 0, c4: 0, score: +5, 
+        question: "Mother and daughter found out that her uncle is diagnosed with HIV+. This news prompts the mother and daughter to communicate about HIV, what HIV positive means, and how people live with HIV+.", 
+        choices: ["Mother starts the conversation", "", "", ""], 
+    },
+    { isFinal: false, // Scenario cont.
+        c1: 2, c2: 3, c3: 1, c4: 1, score: +5, 
+        question: "Mother explains to her daughter about HIV. What happens next?", 
+        choices: ["Refer to Mother's Resources", "Daughter asks her mother how people get infected.", "", ""], 
     },
     { isFinal: false, // A
-        c1: 1, c2: 2, c3: 0, c4: 0, score: 0, 
-        question: "", 
-        choices: ["Finish game", "", "", ""], 
-    },
-    { isFinal: true, // A1
-        c1: 1, c2: 2, c3: 0, c4: 0, score: 0, 
-        question: "", 
-        choices: ["Finish game", "", "", ""], 
-    },
-    { isFinal: true, // A2
-        c1: 1, c2: 2, c3: 0, c4: 0, score: 0, 
-        question: "", 
-        choices: ["Finish game", "", "", ""], 
-    },
-    { isFinal: false, // A3
-        c1: 1, c2: 2, c3: 0, c4: 0, score: 0, 
-        question: "", 
-        choices: ["Finish game", "", "", ""], 
-    },
-    { isFinal: true, // A3 a outcome
-        c1: 1, c2: 2, c3: 0, c4: 0, score: 0, 
-        question: "", 
-        choices: ["Finish game", "", "", ""], 
-    },
-    { isFinal: true, // A3 b outcome
-        c1: 1, c2: 2, c3: 0, c4: 0, score: 0, 
-        question: "", 
-        choices: ["Finish game", "", "", ""], 
+        c1: 3, c2: 2, c3: 2, c4: 2, score: +5, 
+        isInfobox: true,
+        h1: "Mother's Resources",
+        h2: "HIV≠AIDS",
+        // use | delimiter to separate bullet points
+        list: "Human immunodeficiency virus (HIV) is a virus that attacks the immune system.|AIDS (acquired immune deficiency syndrome) is referred to as advanced HIV infection or latestage HIV.|HIV can hide long period time in T-cell or CD4 cell in the body|HIV can destroy many CD4 cells, so that the body can't fight infections and diseases anymore; at this point, HIV infection can lead to AIDS.",
+        choices: ["Daughter asks her mother how people get infected.", "", "", ""], 
     },
     { isFinal: false, // B
-        c1: 1, c2: 2, c3: 0, c4: 0, score: 0, 
-        question: "", 
-        choices: ["Finish game", "", "", ""], 
-    },
-    { isFinal: false, // A2 outcome, game over
-        c1: 1, c2: 2, c3: 0, c4: 0, score: 0, 
-        question: "", 
-        choices: ["Finish game", "", "", ""], 
+        c1: 4, c2: 3, c3: 3, c4: 3, score: 0, 
+        question: "Daughter asks, 'How do people get HIV?", 
+        choices: ["Mother responds to her question.", "", "", ""], 
     },
     { isFinal: false, // B1
-        c1: 11, c2: 11, c3: 9, c4: 9, score: 0, 
-        question: "", 
-        choices: ["", "", "", ""], 
+        c1: 5, c2: 4, c3: 4, c4: 4, score: 0, 
+        isInfobox: true,
+        h1: "Mother's Resources",
+        h2: "How do people get HIV?",
+        // use | delimiter to separate bullet points
+        list: "HIV is spread through certain body fluids – blood, breast milk, semen, pre-cum, and vaginal fluids that must come in contact with a mucous membrane (found in mouth, vagina, penis, and rectum) or damaged tissue or be directly injected into the bloodstream.|You can get HIV from unprotected sex (vaginal, anal, or oral) (without using condom) and from shared needles used for injecting drugs.|HIV does not survive long outside of the human body. It is not transmitted by touching, insect bites, toilet seats, sharing dishes, or kissing.",
+        choices: ["Daughter asks her mother what HIV positive means.", "", "", ""], 
     },
     { isFinal: false, // B2
-        c1: 12, c2: 12, c3: 10, c4: 10, score: 0, 
-        question: "", 
-        choices: ["", "", "", ""], 
+        c1: 6, c2: 5, c3: 5, c4: 5, score: 0, 
+        question: "Daughter asks, 'Uncle has HIV now. Is he going to be sick right away? How will he live with HIV?'", 
+        choices: ["Mother explains.", "", "", ""], 
     },
-    { isFinal: false, // B1 outcome, game over
-        c1: 11, c2: 11, c3: 11, c4: 11, score: 0, 
-        question: "", 
-        choices: ["", "", "", ""], 
-    },
-    { isFinal: false, // B2 outcome, game over
-        c1: 12, c2: 12, c3: 12, c4: 12, score: 0, 
-        question: "", 
-        choices: ["", "", "", ""], 
+    { isFinal: true, // B2a
+        c1: 6, c2: 6, c3: 6, c4: 6, score: 0, 
+        isInfobox: true,
+        h1: "Mother's Resources",
+        // use | delimiter to separate bullet points
+        list: "People who are HIV positive means they have HIV in their body. Some people get flu-like symptoms, but they go away. These people are infected but may not look or feel sick, and not everyone will get sick immediately.|Unlike other viruses, the body cannot get rid of HIV completely, which means once people have HIV, they will live with it for their lives.|Although currently there is no effective cure for HIV, it can be controlled with proper antiretroviral therapy treatment, and people can live long and healthy lives.",
+        resourceText: "CDC resources about HIV:",
+        resourceLink: "https://www.cdc.gov/hiv/pdf/library/",
+        choices: ["Finish game", "", "", ""],
     },
 ];
 
@@ -519,4 +503,22 @@ export const scenario_7 = [
         choices: ["", "", "", ""], 
     },
 ];
+*/
+
+// template for infobox in a scenario object
+// omit props that aren't used
+// otherwise using empty string is rendered, creates big blank space
+/*
+    { isFinal: true, // B2a
+        c1: 6, c2: 6, c3: 6, c4: 6, score: 0, 
+        isInfobox: true,
+        h1: "Mother's Resources",
+        p1: "Paragraph 1",
+        h2: "Header 2",
+        // use | delimiter to separate bullet points
+        list: "foo|bar|baz",
+        h3: "Header 3",
+        p2: "Paragraph 2",
+        choices: ["Finish game", "", "", ""], 
+    },
 */
