@@ -51,10 +51,7 @@ const QuizChoice = ({ scenarios }) => {
                     <Text style={[styles.headerStyle]}>{question.h1}</Text>
                     <Text style={[styles.textStyle]}>{question.p1}</Text>
                     <Text style={[styles.headerStyle]}>{question.h2}</Text>
-                    {
-                        question.list.split('|').map((item, key) => <Text key={key} style={[styles.textStyle]}>{item}</Text>)
-
-                    }
+                    {question.list.split('|').map(line => <Text style={[styles.listStyle]}>{line}</Text>)}
                     <Text style={[styles.textStyle]}>{question.p2}</Text>   
                 </ScrollView>
             );
