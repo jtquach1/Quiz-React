@@ -299,12 +299,18 @@ export const scenario_5 = [
     },
     { isFinal: false, // C
         c1: 7, c2: 6, c3: 6, c4: 6, score: +5, 
-        question: "Rationale & Resources: Gonorrhea is one of the sexually transmitted infections (STIs), and second most common STIs in the U.S. It is asymptomatic, which means most of the time people will not have symptom when they are infected. For female, gonorrhea can spread through vaginal fluids, semen during vaginal, anal, or oral sex with an infected person. It grows in the genital tract and can be found in the mouth, eyes, throat, and anus. Left untreated, this damage can lead to a difficult pregnancy or prevent her from ever having a baby. CDC resources about Gonorrhea https://www.cdc.gov/std/gonorrhea/Gonorrhea-FS.pdf", 
+        isInfobox: true,
+        h1: "Rationale & Resources",
+        p1: "Gonorrhea is one of the sexually transmitted infections (STIs), and second most common STIs in the U.S. It is asymptomatic, which means most of the time people will not have symptom when they are infected. For female, gonorrhea can spread through vaginal fluids, semen during vaginal, anal, or oral sex with an infected person. It grows in the genital tract and can be found in the mouth, eyes, throat, and anus. Left untreated, this damage can lead to a difficult pregnancy or prevent her from ever having a baby.", 
+        h2: "CDC resources about Gonorrhea",
+        // use | delimiter to separate bullet points
+        list: "https://www.cdc.gov/std/gonorrhea/Gonorrhea-FS.pdf",
+        p2: "",
         choices: ["Continue", "", "", ""], 
     },
     { isFinal: true, // C1 outcome, game over
         c1: 7, c2: 7, c3: 7, c4: 7, score: +5, 
-        question: "Mother got information through “Rationale & guided resources”; she educates her daughter with the correct information.", 
+        question: "Mother got information through “Rationale & Resources”; she educates her daughter with the correct information.", 
         choices: ["Finish game", "", "", ""], 
     },
 ];
@@ -327,7 +333,7 @@ export const scenario_6 = [
         choices: ["Continue", "", "", ""], 
     },
     { isFinal: false, // A1
-        c1: 4, c2: 4, c3: 3, c4: 3, score: 0, 
+        c1: 4, c2: 4, c3: 3, c4: 3, score: +5, 
         question: "Mom asks, 'Jennie, what do you know about Chlamydia?' How might Jennie respond?", 
         choices: ["It comes from sex?", "I don't know anything about it", "", ""], 
     },
@@ -337,27 +343,28 @@ export const scenario_6 = [
         choices: ["Continue", "", "", ""], 
     },
     { isFinal: false, // A1 cont. 2, not a question
-        c1: 6, c2: 5, c3: 5, c4: 5, score: 0, 
+        c1: 6, c2: 5, c3: 5, c4: 5, score: +5, 
         isInfobox: true,
         h1: "What is Chlamydia?",
         p1: "Chlamydia is one of the sexually transmitted infections (STIs). You can get chlamydia during oral, vaginal, or anal sex with someone who has the infection. Chlamydia doesn't usually cause any symptoms. So, you may not realize that you have it. People with chlamydia who have no symptoms can still pass the disease to others.",
         h2: "Symptoms of Chlamydia for girls are",
+        // use | delimiter to separate bullet points
         list: "Abnormal vaginal discharge, which may have a strong smell|A burning sensation when urinating|Pain during intercourse",
         p2: "If it is not treated, the infection can spread, and you might get lower abdominal pain, pain during sex, nausea, or fever.",
         choices: ["Continue", "", "", ""], 
     },
     { isFinal: false, // A1 cont. 3
-        c1: 7, c2: 6, c3: 6, c4: 6, score: 0, 
+        c1: 7, c2: 6, c3: 6, c4: 6, score: +5, 
         question: "Jennie says, 'Thanks mom! How can we help Charline?'", 
         choices: ["Continue", "", "", ""], 
     },
     { isFinal: true, // A1 outcome, game over
-        c1: 7, c2: 7, c3: 7, c4: 7, score: 0, 
+        c1: 7, c2: 7, c3: 7, c4: 7, score: +5, 
         question: "Jennie's mother says, 'You should advise her to see a physician.'", 
         choices: ["Finish game", "", "", ""], 
     },
     { isFinal: false, // B
-        c1: 9, c2: 8, c3: 8, c4: 8, score: -5, 
+        c1: 9, c2: 8, c3: 8, c4: 8, score: -10, 
         question: "Jennie’s mom tells her that Charline’s problem is not her responsibility and she should stop talking with her.", 
         choices: ["Continue", "", "", ""], 
     },
@@ -374,10 +381,78 @@ export const scenario_6 = [
     },
 ];
 
+// Scenario 7
+export const scenario_7 = [
+    { isFinal: false, // Scenario
+        c1: 1, c2: 2, c3: 0, c4: 0, score: 0, 
+        question: "", 
+        choices: ["Finish game", "", "", ""], 
+    },
+    { isFinal: false, // A
+        c1: 1, c2: 2, c3: 0, c4: 0, score: 0, 
+        question: "", 
+        choices: ["Finish game", "", "", ""], 
+    },
+    { isFinal: true, // A1
+        c1: 1, c2: 2, c3: 0, c4: 0, score: 0, 
+        question: "", 
+        choices: ["Finish game", "", "", ""], 
+    },
+    { isFinal: true, // A2
+        c1: 1, c2: 2, c3: 0, c4: 0, score: 0, 
+        question: "", 
+        choices: ["Finish game", "", "", ""], 
+    },
+    { isFinal: false, // A3
+        c1: 1, c2: 2, c3: 0, c4: 0, score: 0, 
+        question: "", 
+        choices: ["Finish game", "", "", ""], 
+    },
+    { isFinal: true, // A3 a outcome
+        c1: 1, c2: 2, c3: 0, c4: 0, score: 0, 
+        question: "", 
+        choices: ["Finish game", "", "", ""], 
+    },
+    { isFinal: true, // A3 b outcome
+        c1: 1, c2: 2, c3: 0, c4: 0, score: 0, 
+        question: "", 
+        choices: ["Finish game", "", "", ""], 
+    },
+    { isFinal: false, // B
+        c1: 1, c2: 2, c3: 0, c4: 0, score: 0, 
+        question: "", 
+        choices: ["Finish game", "", "", ""], 
+    },
+    { isFinal: false, // A2 outcome, game over
+        c1: 1, c2: 2, c3: 0, c4: 0, score: 0, 
+        question: "", 
+        choices: ["Finish game", "", "", ""], 
+    },
+    { isFinal: false, // B1
+        c1: 11, c2: 11, c3: 9, c4: 9, score: 0, 
+        question: "", 
+        choices: ["", "", "", ""], 
+    },
+    { isFinal: false, // B2
+        c1: 12, c2: 12, c3: 10, c4: 10, score: 0, 
+        question: "", 
+        choices: ["", "", "", ""], 
+    },
+    { isFinal: false, // B1 outcome, game over
+        c1: 11, c2: 11, c3: 11, c4: 11, score: 0, 
+        question: "", 
+        choices: ["", "", "", ""], 
+    },
+    { isFinal: false, // B2 outcome, game over
+        c1: 12, c2: 12, c3: 12, c4: 12, score: 0, 
+        question: "", 
+        choices: ["", "", "", ""], 
+    },
+];
 
 // template for scenario object
 /*
-export const scenario_6 = [
+export const scenario_7 = [
     { isFinal: false, // Scenario
         c1: 1, c2: 2, c3: 0, c4: 0, score: 0, 
         question: "", 

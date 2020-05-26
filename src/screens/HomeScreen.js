@@ -26,6 +26,7 @@ const HomeScreen = ({ navigation }) => {
       {makeButton(4)}
       {makeButton(5)}
       {makeButton(6)}
+      {makeButton(7)}
     </View>
   );
 };
