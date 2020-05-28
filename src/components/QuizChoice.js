@@ -19,8 +19,8 @@ const QuizChoice = ({ scenarios }) => {
     
     // Toggles display based on whether any of the question's choices are ""
     const hideOrShow = (choices, index, choice) => {
-        // Choice is empty string, so render nothing
-        if (choices[index] == "") { return; }
+        // No choice at index, so render nothing
+        if (choices[index] == undefined) { return; }
 
         // Choice is not empty, so render Button
         return (
@@ -73,6 +73,8 @@ const QuizChoice = ({ scenarios }) => {
         );
     }
 
+    // Currently renders 4 choices, but can add more
+    // Given how hideOrShow works
     return (
         <ScrollView>
             <SafeAreaView style={styles.padding}>
