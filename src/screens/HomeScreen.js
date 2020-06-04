@@ -1,5 +1,6 @@
 import React from "react";
 import { Text, StyleSheet, View, Button, ScrollView, SafeAreaView } from "react-native";
+import Daughter from "../components/Daughter";
 
 const HomeScreen = ({ navigation }) => {
   const makeButton = (id) => {
@@ -27,6 +28,7 @@ const HomeScreen = ({ navigation }) => {
       {makeButton(5)}
       {makeButton(6)}
       {makeButton(7)}
+      <Daughter />
     </View>
   );
 };
