@@ -1,7 +1,5 @@
 import React from "react";
-import { Text, StyleSheet, View, Button, ScrollView } from "react-native";
-import Daughter from "../components/Daughter";
-import Mother from "../components/Mother";
+import { Text, StyleSheet, Button, ScrollView } from "react-native";
 
 const HomeScreen = ({ navigation }) => {
 
@@ -21,7 +19,16 @@ const HomeScreen = ({ navigation }) => {
 
   // Interactive scenario
   const makeNew = (id) => {
-    
+    return (
+      <Button 
+        onPress={() => {
+          navigation.navigate("Comic", {
+            itemId: id,
+          });
+        }}
+        title={"Scenario " + id} 
+      />
+    );    
   }
 
 
@@ -36,6 +43,7 @@ const HomeScreen = ({ navigation }) => {
       {makeButton(5)}
       {makeButton(6)}
       {makeButton(7)}
+      {makeNew(1)}
     </ScrollView>
   );
 };
