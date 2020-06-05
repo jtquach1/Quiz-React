@@ -1,9 +1,7 @@
 import React from 'react';
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
-import Daughter from "../components/Daughter";
-import Mother from "../components/Mother";
+import { StyleSheet, Text, View} from 'react-native';
+import ComicChoice from "../components/ComicChoice";
 import * as scenarios from "../components/ComicScenarios";
-
 
 const ComicScreen = ({ navigation }) => {
     const { params } = navigation.state;
@@ -12,7 +10,7 @@ const ComicScreen = ({ navigation }) => {
     const renderScenario = ( index ) => {
         switch (index) {
             case 1:
-                return <QuizChoice scenarios={ scenarios.scenario_6D } />;
+                return <ComicChoice scenarios={ scenarios.scenario_6D } />;
             // For error handling
             default:
                 return <View><Text>Scenario not rendered</Text></View>
@@ -25,12 +23,6 @@ const ComicScreen = ({ navigation }) => {
     );
 };
 
-const styles = StyleSheet.create({
-    row: {
-        alignItems: 'center',
-        flexDirection: 'row',
-    },
-
-});
+const styles = StyleSheet.create({});
 
 export default ComicScreen;

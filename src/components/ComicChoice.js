@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { ScrollView, SafeAreaView, View, Text, StyleSheet, Button, Linking } from 'react-native';
 import Inputs from './Inputs.js';
+import Daughter from "../components/Daughter";
+import Mother from "../components/Mother";
 
 const QuizChoice = ({ scenarios }) => {
     // Current question and score
@@ -76,18 +78,21 @@ const QuizChoice = ({ scenarios }) => {
     // Currently renders 4 choices, but can add more
     // Given how hideOrShow works
     return (
-        <ScrollView style={[styles.row]}>
-            {/* dialogue box */}
-            <View>
-                <Text></Text>
-            </View>
-            {/* avatar */}
-            <View>
-                <Daughter />
-            </View>
-            {/* options, next */}
-            <View>
-
+        <ScrollView>
+            <View style={styles.column}>
+                {/* dialogue box */}
+                <View style={styles.rowItem}>
+                    <Text style={styles.textStyle}>Hello world!</Text>
+                </View>
+                {/* avatar */}
+                <View style={styles.rowItem}>
+                    <Daughter />
+                </View>
+                {/* options, next */}
+                <View style={styles.rowItem}>
+                    <Text style={styles.textStyle}>Hello world!</Text>
+                    <Text style={styles.textStyle}>Hello world!</Text>
+                </View>
             </View>
         </ScrollView>
     );
@@ -112,7 +117,14 @@ const styles = StyleSheet.create({
     },
     margin: {
         marginBottom: 20, 
-    }
+    },
+    column: {
+        alignItems: 'center',
+        flexDirection: 'column',
+    },
+    rowItem: {
+        flex: 1,
+    },
 });
 
 export default QuizChoice;
