@@ -142,6 +142,8 @@ export const scenario_6D = [
     {
         speaker: "Mother",
         dialogue: "Sweetie, what do you know about chlamydia?",
+        choice: ["It comes from sex?", "I don't know"],
+        c1: 29,
         c2: 30,
     },
     {
