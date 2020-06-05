@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, StyleSheet, View, Button, ScrollView, SafeAreaView } from "react-native";
+import { Text, StyleSheet, View, Button, ScrollView } from "react-native";
 import Daughter from "../components/Daughter";
 import Mother from "../components/Mother";
 
@@ -20,8 +20,8 @@ const HomeScreen = ({ navigation }) => {
 
   // Generate scenarios based on id
   return (
-    <ScrollView style={[styles.margin]}>
-      <Text style={[styles.text, styles.margin]}>Quiz Demos</Text>
+    <ScrollView style={[styles.marginHorizontal]}>
+      <Text style={[styles.text, styles.marginVertical]}>Quiz Demos</Text>
       {makeButton(1)}
       {makeButton(2)}
       {makeButton(3)}
@@ -29,10 +29,6 @@ const HomeScreen = ({ navigation }) => {
       {makeButton(5)}
       {makeButton(6)}
       {makeButton(7)}
-      <View style={[styles.row]}>
-        <Daughter />
-        <Mother />
-      </View>
     </ScrollView>
   );
 };
@@ -45,8 +41,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 20
   },
-  margin: {
+  marginHorizontal: {
     marginHorizontal: 20,
+  },
+  marginVertical: {
+    marginVertical: 20,
   },
   row: {
     alignItems: 'center',
