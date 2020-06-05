@@ -1,6 +1,8 @@
 import React from "react";
 import { StyleSheet, Image } from "react-native";
 
+// To destructure, use { arg1, arg2, ... } format, 
+// and in parent, do <Daughter arg1=... arg2=... /> 
 const Daughter = () => {
     return (
         <Image 

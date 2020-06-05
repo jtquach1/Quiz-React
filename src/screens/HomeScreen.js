@@ -4,6 +4,8 @@ import Daughter from "../components/Daughter";
 import Mother from "../components/Mother";
 
 const HomeScreen = ({ navigation }) => {
+
+  // Generic scenario, non-interactive 
   const makeButton = (id) => {
     return (
       <Button 
@@ -15,6 +17,11 @@ const HomeScreen = ({ navigation }) => {
         title={"Scenario " + id} 
       />
     );
+  }
+
+  // Interactive scenario
+  const makeNew = (id) => {
+    
   }
 
 
