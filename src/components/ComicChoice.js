@@ -7,12 +7,12 @@ import Mother from "../components/Mother";
 const QuizChoice = ({ scenarios }) => {
     // Current question and score
     const [q, setQuestion] = useState(scenarios[0]);
-    const [score, setScore] = useState(0);
+    const [s, setScore] = useState(0);
 
     // Update the question listing based on the current question and the score
     const update = (choice) => {
         // Update score
-        setScore(score + q.score);
+        setScore(s + q.score);
 
         // Update question from scenarios
         setQuestion(scenarios[choice]);
@@ -45,44 +45,49 @@ const QuizChoice = ({ scenarios }) => {
         return;
     }
 
-    const renderQuestion = (question) => {
-        // This is an infobox
-        if (question.isInfobox == true) {
-            return (
-                <View style={styles.margin}>
-                    <Text style={[styles.scoreStyle, styles.margin]}>Score: {score}</Text>
-                    {renderText(question.h1, styles.headerStyle)}
-                    {renderText(question.p1, styles.textStyle)}
-                    {renderText(question.h2, styles.headerStyle)}
-                    {question.list.split('|').map((item, key) => 
-                        <Text key={key} style={[styles.listStyle]}>
-                            {'\u2022'}
-                            {item}
-                        </Text>)}
-                    {renderText(question.h3, styles.headerStyle)}
-                    {renderText(question.p2, styles.textStyle)}
-                    {renderText(question.resourceText, styles.headerStyle)}
-                    {renderText(question.resourceLink, styles.textStyle)}
-                </View>
-            );
-        }
-        // This is a question
+    const renderButton = (index, text) => {
         return (
-            <View>
-                <Text style={[styles.scoreStyle, styles.margin]}>Score: {score}</Text>
-                <Text style={[styles.textStyle, styles.margin]}>{q.question}</Text>
-            </View>
+            <Button 
+                style={styles.margin}
+                title={text}
+                onPress={() => {update(index)}}
+            />
         );
     }
 
-    // Currently renders 4 choices, but can add more
-    // Given how hideOrShow works
-    return (
-        <ScrollView>
+    const renderScore = (score) => {
+        return (
+            <Text style={styles.scoreStyle}>Score: {score}</Text>
+        );
+    }
+
+    const renderQuestion = (question) => {
+        // This is background information, no dialogue
+        if (question.background != undefined) {
+            return (
+                <View style={styles.background}>
+                    {renderText(question.background, styles.headerStyle)}
+                    {renderButton(question.next, "Next")}
+                </View>
+            );
+        }
+
+        // This is scene text, no dialogue
+        if (question.text != undefined) {
+            return (
+                <View style={styles.text}>
+                    {renderText(question.text, styles.headerStyle)}
+                    {renderButton(question.next, "Next")}
+                </View>
+            );
+        }
+
+        // This is a dialogue, with/without choices
+        return (
             <View style={styles.column}>
                 {/* dialogue box */}
                 <View style={styles.rowItem}>
-                    <Text style={styles.textStyle}>Hello world!</Text>
+                    <Text style={styles.textStyle}>Hello world!!</Text>
                 </View>
                 {/* avatar */}
                 <View style={styles.rowItem}>
@@ -91,14 +96,29 @@ const QuizChoice = ({ scenarios }) => {
                 {/* options, next */}
                 <View style={styles.rowItem}>
                     <Text style={styles.textStyle}>Hello world!</Text>
-                    <Text style={styles.textStyle}>Hello world!</Text>
+                    {renderButton(question.next, "Next")}
                 </View>
             </View>
+        );
+    }
+
+    // Currently renders 4 choices, but can add more
+    // Given how hideOrShow works
+    return (
+        <ScrollView>
+            {renderScore(s)}
+            {renderQuestion(q)}
         </ScrollView>
     );
 };
 
 const styles = StyleSheet.create({
+    background: {
+        borderWidth: 5,
+        padding: 20,
+        fontSize: 30,
+        flex: 1,
+    },
     headerStyle : {
         fontSize: 20
     }, 

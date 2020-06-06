@@ -128,16 +128,16 @@ export const scenario_6D = [
     {
         speaker: "Mother",
         dialogue: "Well, it seems like her vaginal discharge has a bad smell. It also must be making her feel really uncomfortable, too. And since she's sexually active too, those are some probable signs that she has an STI.",
-        choices: ["How do you get an STI?", "How can I help Jennie?", "Never mind"],
+        choices: ["How do you get an STI?", "Never mind"],
         c1: 27,
-        c2: ...,
-        c3: ...,
+        c2: 63,
     },
     // Option 1
     {
         speaker: "Daughter",
         dialogue: "Oh, OK. So, my friend might have an STI. How does one get STI? Will she be okay? Do I have STI now after hugging her because she was crying?",
         next: 28,
+        score: +5,
     },
     {
         speaker: "Mother",
@@ -246,7 +246,7 @@ export const scenario_6D = [
     },
     {
         speaker: "Daughter",
-        dialogue: "But mom, what should my friend do? How does she get tested? Is it a painful test?",
+        dialogue: "But mom, what should my friend do? How can she get tested? Is it a painful test?",
         next: 49,
     },
     {
@@ -260,169 +260,70 @@ export const scenario_6D = [
         next: 51,
     },
     {
+        speaker: "Daughter",
+        dialogue: "And what's the treatment? Should someone who has chlamydia be admitted to the hospital?",
+        next: 52,
+    },
+    {
         speaker: "Mother",
-        dialogue: "",
-        next: ,
+        dialogue: "No. Chlamydia can be easily treated with antibiotics.",
+        next: 53,
     },
     {
         speaker: "Daughter",
-        dialogue: "",
-        next: ,
+        dialogue: "Okay. Mom, thank you so much for telling me about this. I had no idea this was what chlamydia was all about.",
+        next: 54,
     },
     {
         speaker: "Mother",
-        dialogue: "",
-        next: ,
+        dialogue: "You're welcome, sweetie! And don't forget- I'm here to talk with you about your problems and help you, regardless of the topic.",
+        next: 55,
     },
     {
         speaker: "Daughter",
-        dialogue: "",
-        next: ,
+        dialogue: "Thanks, mom!",
+        next: 56,
     },
     {
         speaker: "Mother",
-        dialogue: "",
-        next: ,
+        dialogue: "Did you have anything else on your mind?",
+        choices: ["How can I help Jennie?", "Forget it"],
+        c1: 57,
+        c2: 63,
+    },
+    // Option 1a
+    {
+        speaker: "Daughter",
+        dialogue: "So mom, how can I help my friend? What can I do? What's wrong with her?",
+        next: 58,
+        score: +5,
+    },
+    {
+        speaker: "Mother",
+        dialogue: "Well sweetie, the most important thing is that she gets checked by a nurse practitioner or physician. She can go to any Planned Parenthood center and get checked.",
+        next: 59,
     },
     {
         speaker: "Daughter",
-        dialogue: "",
-        next: ,
+        dialogue: "Hmm... is it something serious?!",
+        next: 60,
     },
     {
         speaker: "Mother",
-        dialogue: "",
-        next: ,
+        dialogue: "It might just be that Jennie has chlamydia. Luckily, chlamydia is treatable. It's better for her to get treated as soon as possible.",
+        next: 61,
     },
+    // game over
     {
         speaker: "Daughter",
-        dialogue: "",
-        next: ,
+        dialogue: "Okay. I'll let her know. Thanks, mom!",
+        gameOver: true,
     },
-    {
-        speaker: "Mother",
-        dialogue: "",
-        next: ,
-    },
+    // Option 2: Daughter refuses to help Jennie
     {
         speaker: "Daughter",
-        dialogue: "",
-        next: ,
-    },
-    {
-        speaker: "Mother",
-        dialogue: "",
-        next: ,
-    },
-    {
-        speaker: "Daughter",
-        dialogue: "",
-        next: ,
-    },
-    {
-        speaker: "Mother",
-        dialogue: "",
-        next: ,
-    },
-    {
-        speaker: "Daughter",
-        dialogue: "",
-        next: ,
-    },
-    {
-        speaker: "Mother",
-        dialogue: "",
-        next: ,
-    },
-    {
-        speaker: "Daughter",
-        dialogue: "",
-        next: ,
-    },
-    {
-        speaker: "Mother",
-        dialogue: "",
-        next: ,
-    },
-    {
-        speaker: "Daughter",
-        dialogue: "",
-        next: ,
-    },
-    {
-        speaker: "Mother",
-        dialogue: "",
-        next: ,
-    },
-    {
-        speaker: "Daughter",
-        dialogue: "",
-        next: ,
-    },
-    {
-        speaker: "Mother",
-        dialogue: "",
-        next: ,
-    },
-    {
-        speaker: "Daughter",
-        dialogue: "",
-        next: ,
-    },
-    {
-        speaker: "Mother",
-        dialogue: "",
-        next: ,
-    },
-    {
-        speaker: "Daughter",
-        dialogue: "",
-        next: ,
-    },
-    {
-        speaker: "Mother",
-        dialogue: "",
-        next: ,
-    },
-    {
-        speaker: "Daughter",
-        dialogue: "",
-        next: ,
-    },
-    {
-        speaker: "Mother",
-        dialogue: "",
-        next: ,
-    },
-    {
-        speaker: "Daughter",
-        dialogue: "",
-        next: ,
-    },
-    {
-        speaker: "Mother",
-        dialogue: "",
-        next: ,
+        dialogue: "Um... Actually, I guess I should focus on my studies and forget about her problems. It's almost the end of the year, and I need to be ready for exams.",
+        gameOver: true,
+        score: -10,
     },
 ];
-
-/*
-    { isFinal: false, // Scenario
-        c1: 1, score: 0, 
-        question: "Charline and Jennie are best friends in middle school. Charline has been having vaginal discharge for a while now. She has told Jennie that she has had sex with her boyfriend last month for the first time. Today, during break, she sits in a private area with Jennie and talks about her vaginal discharge and how she is scared but cannot tell her mom about it.", 
-        choices: ["Jennie is concerned and talks to her own mom"], 
-    },
-    { isFinal: false, // A1 cont. 2, not a question
-        c1: 6, score: +5, 
-        isInfobox: true,
-        h1: "What is Chlamydia?",
-        p1: "Chlamydia is one of the sexually transmitted infections (STIs). You can get chlamydia during oral, vaginal, or anal sex with someone who has the infection. Chlamydia doesn't usually cause any symptoms. So, you may not realize that you have it. People with chlamydia who have no symptoms can still pass the disease to others.",
-        h2: "Symptoms of Chlamydia for girls",
-        // use | delimiter to separate bullet points
-        list: "Abnormal vaginal discharge, which may have a strong smell|A burning sensation when urinating|Pain during intercourse",
-        h3: "What happens when the infection is not treated?", 
-        p2: "If it is not treated, the infection can spread, and you might get lower abdominal pain, pain during sex, nausea, or fever.",
-        choices: ["Continue"], 
-    }
-
-*/
