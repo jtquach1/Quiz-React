@@ -35,7 +35,7 @@ const HomeScreen = ({ navigation }) => {
   // Generate scenarios based on id
   return (
     <ScrollView style={[styles.marginHorizontal]}>
-      <Text style={[styles.text, styles.marginVertical]}>Quiz Demos</Text>
+      <Text style={[styles.text, styles.marginVertical]}>Quiz Text Demos</Text>
       {makeButton(1)}
       {makeButton(2)}
       {makeButton(3)}
@@ -43,6 +43,7 @@ const HomeScreen = ({ navigation }) => {
       {makeButton(5)}
       {makeButton(6)}
       {makeButton(7)}
+      <Text style={[styles.text, styles.marginVertical]}>Quiz Dialogue Demos</Text>
       {makeNew(1)}
     </ScrollView>
   );

@@ -1,7 +1,7 @@
 import React from "react";
-import { Text, StyleSheet, View, Button, ScrollView } from "react-native";
-import Daughter from "../components/Daughter";
-import Mother from "../components/Mother";
+import { StyleSheet, View, Button, ScrollView } from "react-native";
+import Daughter from "../avatars/Daughter";
+import Mother from "../avatars/Mother";
 
 const MenuScreen = ({ navigation }) => {
   const makeButton = (id) => {

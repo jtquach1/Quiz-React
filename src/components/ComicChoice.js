@@ -1,37 +1,27 @@
 import React, { useState } from 'react';
-import { ScrollView, SafeAreaView, View, Text, StyleSheet, Button, Linking } from 'react-native';
-import Inputs from './Inputs.js';
-import Daughter from "../components/Daughter";
-import Mother from "../components/Mother";
+import { ScrollView, View, Text, StyleSheet, Button, } from 'react-native';
+import Daughter from "../avatars/Daughter";
+import Mother from "../avatars/Mother";
+import Friend from "../avatars/Friend";
+import TestAvatar from "../avatars/TestAvatar";
 
-const QuizChoice = ({ scenarios }) => {
+const ComicChoice = ({ scenarios }) => {
     // Current question and score
-    const [q, setQuestion] = useState(scenarios[0]);
+    // const [q, setQuestion] = useState(scenarios[0]);
+    const [q, setQuestion] = useState(scenarios[24]); // debugging purposes
     const [s, setScore] = useState(0);
 
     // Update the question listing based on the current question and the score
     const update = (choice) => {
         // Update score
-        setScore(s + q.score);
+        // Score not defined in scenario object, then don't modify score
+        if (q.score != undefined) {
+            setScore(s + q.score);
+        }
 
         // Update question from scenarios
         setQuestion(scenarios[choice]);
         return;
-    }
-    
-    // Toggles display based on whether any of the question's choices are ""
-    const hideOrShow = (choices, index, choice) => {
-        // No choice at index, so render nothing
-        if (choices[index] == undefined) { return; }
-
-        // Choice is not empty, so render Button
-        return (
-            <Button 
-                style={styles.margin}
-                title={choices[index]}
-                onPress={() => {update(choice)}}
-            />
-        );
     }
 
     const renderText = (prop, style) => {
@@ -46,59 +36,115 @@ const QuizChoice = ({ scenarios }) => {
     }
 
     const renderButton = (index, text) => {
-        return (
-            <Button 
-                style={styles.margin}
-                title={text}
-                onPress={() => {update(index)}}
-            />
-        );
+        // is c1, c2, c3, c4 a valid index in the scenario? 
+        if (scenarios[index] != undefined) {
+            return (
+                <Button 
+                    style={styles.margin}
+                    title={text}
+                    onPress={() => {update(index)}}
+                />
+            );    
+        }
+        // no, return nothing
+        return;
     }
+    
 
     const renderScore = (score) => {
         return (
-            <Text style={styles.scoreStyle}>Score: {score}</Text>
+            <Text style={[styles.scoreStyle, styles.margin]}>
+                Score: {score}
+            </Text>
         );
     }
 
-    const renderQuestion = (question) => {
-        // This is background information, no dialogue
-        if (question.background != undefined) {
-            return (
-                <View style={styles.background}>
-                    {renderText(question.background, styles.headerStyle)}
-                    {renderButton(question.next, "Next")}
-                </View>
-            );
+    const renderAvatar = (speaker) => {
+        switch (speaker) {
+            case 'Daughter':
+                return <Daughter />;
+            case 'Mother':
+                return <Mother />;
+            case 'Friend':
+                return <Friend />;
+            default:
+                return <TestAvatar />;
         }
+    }
 
-        // This is scene text, no dialogue
-        if (question.text != undefined) {
-            return (
-                <View style={styles.text}>
-                    {renderText(question.text, styles.headerStyle)}
-                    {renderButton(question.next, "Next")}
-                </View>
-            );
-        }
-
-        // This is a dialogue, with/without choices
+    const renderWithChoices = (question, speaker) => {
         return (
             <View style={styles.column}>
                 {/* dialogue box */}
-                <View style={styles.rowItem}>
-                    <Text style={styles.textStyle}>Hello world!!</Text>
+                <View style={[styles.rowItem, styles.rowOne]}>
+                    <Text style={styles.text}>{question.speaker}: {question.dialogue}</Text>
                 </View>
                 {/* avatar */}
                 <View style={styles.rowItem}>
-                    <Daughter />
+                    {renderAvatar(speaker)}
                 </View>
                 {/* options, next */}
                 <View style={styles.rowItem}>
-                    <Text style={styles.textStyle}>Hello world!</Text>
+                    <View>
+                        {renderButton(question.c1, scenarios[question.c1])}
+                        {renderButton(question.c2, scenarios[question.c2])}
+                        {renderButton(question.c3, scenarios[question.c3])}
+                        {renderButton(question.c4, scenarios[question.c4])}
+                    </View>
                     {renderButton(question.next, "Next")}
                 </View>
             </View>
+        );
+    }
+
+    const renderWithoutChoices = (question, speaker) => {
+        return (
+            <View style={styles.column}>
+                {/* dialogue box */}
+                <View style={[styles.rowItem, styles.rowOne]}>
+                    <Text style={styles.text}>{question.speaker}: {question.dialogue}</Text>
+                </View>
+                {/* avatar */}
+                <View style={styles.rowItem}>
+                    {renderAvatar(speaker)}
+                </View>
+                {/* options, next */}
+                <View style={styles.rowItem}>
+                    <View></View>
+                    {renderButton(question.next, "Next")}
+                </View>
+            </View>
+        );
+    }
+
+    const renderQuestion = (question, avatar) => {
+        // Background information, no dialogue
+        if (question.background != undefined) {
+            return (
+                <View style={styles.background}>
+                    {renderText(question.background, styles.text)}
+                    {renderButton(question.next, "Next")}
+                </View>
+            );
+        }
+
+        // Scene text, no dialogue
+        if (question.text != undefined) {
+            return (
+                <View style={styles.background}>
+                    {renderText(question.text, styles.text)}
+                    {renderButton(question.next, "Next")}
+                </View>
+            );
+        }
+        // Dialogue with choices
+        if (question.choices != undefined) {
+            renderWithChoices(question, question.speaker);            
+        }
+
+        // Dialogue without choices
+        return (
+            renderWithoutChoices(question, question.speaker)
         );
     }
 
@@ -107,7 +153,7 @@ const QuizChoice = ({ scenarios }) => {
     return (
         <ScrollView>
             {renderScore(s)}
-            {renderQuestion(q)}
+            {renderQuestion(q, q.speaker)}
         </ScrollView>
     );
 };
@@ -117,7 +163,12 @@ const styles = StyleSheet.create({
         borderWidth: 5,
         padding: 20,
         fontSize: 30,
+        fontStyle: 'italic',
         flex: 1,
+    },
+    text: {
+        fontSize: 20,
+        marginBottom: 20,
     },
     headerStyle : {
         fontSize: 20
@@ -132,11 +183,10 @@ const styles = StyleSheet.create({
         fontSize: 25
     }, 
     padding: {
-        paddingHorizontal: 20,
-        paddingVertical: 20
+        padding: 20,
     },
     margin: {
-        marginBottom: 20, 
+        marginVertical: 20, 
     },
     column: {
         alignItems: 'center',
@@ -145,8 +195,13 @@ const styles = StyleSheet.create({
     rowItem: {
         flex: 1,
     },
+    rowOne: {
+        // flex: 1,
+        flexDirection: 'row',
+        flexWrap: 'wrap',    
+    }
 });
 
-export default QuizChoice;
+export default ComicChoice;
 
 
