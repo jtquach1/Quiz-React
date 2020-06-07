@@ -6,6 +6,8 @@ import Friend from "../avatars/Friend";
 import TestAvatar from "../avatars/TestAvatar";
 
 const ComicChoice = ({ scenarios }) => {
+    // scenarios: array populated by question objects
+
     // Current question and score
     // const [q, setQuestion] = useState(scenarios[0]);
     const [q, setQuestion] = useState(scenarios[24]); // debugging purposes
@@ -36,28 +38,18 @@ const ComicChoice = ({ scenarios }) => {
     }
 
     const renderButton = (index, text) => {
-        // is c1, c2, c3, c4 a valid index in the scenario? 
-        if (scenarios[index] != undefined) {
-            return (
-                <Button 
-                    style={styles.margin}
-                    title={text}
-                    onPress={() => {update(index)}}
-                />
-            );    
+        // are c1, c2, c3, c4 valid indices? 
+        if (scenarios[index] == undefined || text == undefined) {
+            return;
         }
-        // no, return nothing
-        // return;
 
-        // debugging purposes
         return (
-        <Button 
-            style={styles.margin}
-            title={"DUMMY TEXT"}
-            onPress={() => {update(index)}}
-        />
-
-        );
+            <Button 
+                style={styles.margin}
+                title={text}
+                onPress={() => {update(index)}}
+            />
+        );    
     }
     
 
@@ -97,10 +89,16 @@ const ComicChoice = ({ scenarios }) => {
                 <View style={styles.rowItem}>
                     <Text>renderWithChoices</Text>
                     <View>
-                        {renderButton(question.c1, scenarios[question.c1])}
-                        {renderButton(question.c2, scenarios[question.c2])}
-                        {renderButton(question.c3, scenarios[question.c3])}
-                        {renderButton(question.c4, scenarios[question.c4])}
+                        {console.log("Inside renderButton")}
+                        {console.log("question.c1: ", question.c1)}
+                        {console.log("question.choices[0]: ", question.choices[0])}
+                        {console.log("scenarios[c1]: ", scenarios[c1])}
+
+
+                        {renderButton(question.c1, question.choices[0])}
+                        {renderButton(question.c2, question.choices[1])}
+                        {renderButton(question.c3, question.choices[2])}
+                        {renderButton(question.c4, question.choices[3])}
                     </View>
                     {renderButton(question.next, "Next")}
                 </View>
@@ -149,13 +147,14 @@ const ComicChoice = ({ scenarios }) => {
                 </View>
             );
         }
+
         // Dialogue with choices
         if (question.choices != undefined) {
-        // if ("choices" in question) {
-            renderWithChoices(question);
+            return (
+                renderWithChoices(question)
+            );
         }
 
-        // Never reaches this branch..??
         // Dialogue without choices
         return (
             renderWithoutChoices(question)
