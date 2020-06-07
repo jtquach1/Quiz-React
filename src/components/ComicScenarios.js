@@ -127,7 +127,7 @@ export const scenario_6D = [
     },
     {
         speaker: "Mother",
-        dialogue: "Well, it seems like her vaginal discharge has a bad smell. It also must be making her feel really uncomfortable, too. And since she's sexually active too, those are some probable signs that she has an STI.",
+        dialogue: "Well, it seems like her vaginal discharge has a bad smell. It also must be making her feel really uncomfortable, too. And since she's also sexually active, those are some probable signs that she has an STI.",
         choices: ["How do you get an STI?", "Never mind"],
         c1: 27,
         c2: 63,

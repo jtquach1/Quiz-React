@@ -47,7 +47,17 @@ const ComicChoice = ({ scenarios }) => {
             );    
         }
         // no, return nothing
-        return;
+        // return;
+
+        // debugging purposes
+        return (
+        <Button 
+            style={styles.margin}
+            title={"DUMMY TEXT"}
+            onPress={() => {update(index)}}
+        />
+
+        );
     }
     
 
@@ -72,7 +82,7 @@ const ComicChoice = ({ scenarios }) => {
         }
     }
 
-    const renderWithChoices = (question, speaker) => {
+    const renderWithChoices = (question) => {
         return (
             <View style={styles.column}>
                 {/* dialogue box */}
@@ -81,10 +91,11 @@ const ComicChoice = ({ scenarios }) => {
                 </View>
                 {/* avatar */}
                 <View style={styles.rowItem}>
-                    {renderAvatar(speaker)}
+                    {renderAvatar(question.speaker)}
                 </View>
                 {/* options, next */}
                 <View style={styles.rowItem}>
+                    <Text>renderWithChoices</Text>
                     <View>
                         {renderButton(question.c1, scenarios[question.c1])}
                         {renderButton(question.c2, scenarios[question.c2])}
@@ -97,7 +108,7 @@ const ComicChoice = ({ scenarios }) => {
         );
     }
 
-    const renderWithoutChoices = (question, speaker) => {
+    const renderWithoutChoices = (question) => {
         return (
             <View style={styles.column}>
                 {/* dialogue box */}
@@ -106,10 +117,11 @@ const ComicChoice = ({ scenarios }) => {
                 </View>
                 {/* avatar */}
                 <View style={styles.rowItem}>
-                    {renderAvatar(speaker)}
+                    {renderAvatar(question.speaker)}
                 </View>
                 {/* options, next */}
                 <View style={styles.rowItem}>
+                    <Text>renderWithoutChoices</Text>
                     <View></View>
                     {renderButton(question.next, "Next")}
                 </View>
@@ -117,7 +129,7 @@ const ComicChoice = ({ scenarios }) => {
         );
     }
 
-    const renderQuestion = (question, avatar) => {
+    const renderQuestion = (question) => {
         // Background information, no dialogue
         if (question.background != undefined) {
             return (
@@ -139,21 +151,21 @@ const ComicChoice = ({ scenarios }) => {
         }
         // Dialogue with choices
         if (question.choices != undefined) {
-            renderWithChoices(question, question.speaker);            
+        // if ("choices" in question) {
+            renderWithChoices(question);
         }
 
+        // Never reaches this branch..??
         // Dialogue without choices
         return (
-            renderWithoutChoices(question, question.speaker)
+            renderWithoutChoices(question)
         );
     }
 
-    // Currently renders 4 choices, but can add more
-    // Given how hideOrShow works
     return (
         <ScrollView>
             {renderScore(s)}
-            {renderQuestion(q, q.speaker)}
+            {renderQuestion(q)}
         </ScrollView>
     );
 };
