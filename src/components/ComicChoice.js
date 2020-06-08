@@ -65,48 +65,28 @@ const ComicChoice = ({ scenarios }) => {
         }
     }
 
-    const renderWithChoices = (question) => {
-        // options
-        return (
-            <View style={styles.rowItem}>
+    const renderRow = (question) => {
+        return (question.gameOver == true)
+            // Final question -> results
+            ? <View style={styles.rowItem}>
+                <Button 
+                    style={styles.margin}
+                    title={"See results"}
+                    onPress={() => {update(-1)}} 
+                />
+            </View>
+            // Dialogue with choices -> options
+            : (question.choices != undefined)
+            ? <View style={styles.rowItem}>
                 {renderButton(question.c1, question.choices[0])}
                 {renderButton(question.c2, question.choices[1])}
                 {renderButton(question.c3, question.choices[2])}
                 {renderButton(question.c4, question.choices[3])}
             </View>
-        );
-    }
-
-    const renderWithoutChoices = (question) => {
-        // next
-        return (
-            <View style={styles.rowItem}>
+            // Dialogue without choices -> next
+            : <View style={styles.rowItem}>
                 {renderButton(question.next, "Next")}
-            </View>
-        );
-    }
-
-    const renderFinal = () => {
-        // results
-        return (
-            <View style={styles.rowItem}>
-                <Button 
-                    style={styles.margin}
-                    title={"See results"}
-                    onPress={() => {update(-1)}}
-                />
-            </View>
-        );
-    }
-
-    const renderRow = (question) => {
-        return (question.gameOver == true)
-            ? renderFinal(question)
-            : (question.choices != undefined)
-                // Dialogue with choices
-                ? renderWithChoices(question)
-                // Dialogue without choices
-                : renderWithoutChoices(question);
+            </View>;
     }
 
     const renderQuestion = (question) => {
@@ -124,17 +104,14 @@ const ComicChoice = ({ scenarios }) => {
             </View>
             // Render dialogue, avatar, buttons
             : <View style={styles.column}>
-                {/* dialogue box */}
                 <View style={[styles.rowItem, styles.rowOne]}>
                     <Text style={styles.text}>
                         {question.speaker}: {question.dialogue}
                     </Text>
                 </View>
-                {/* avatar */}
                 <View style={styles.rowItem}>
                     {renderAvatar(question.speaker)}
                 </View>
-                {/* buttons */}
                 {renderRow(question)}
             </View>
     }
