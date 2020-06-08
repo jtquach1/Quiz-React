@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, StyleSheet, Button, ScrollView } from "react-native";
 
-const HomeScreen = ({ navigation }) => {
+const MenuScreen = ({ navigation }) => {
 
   // Generic scenario, non-interactive 
   const makeButton = (id) => {
@@ -69,4 +69,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default HomeScreen;
+export default MenuScreen;

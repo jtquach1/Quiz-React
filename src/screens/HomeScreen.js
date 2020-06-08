@@ -3,7 +3,7 @@ import { StyleSheet, View, Button, ScrollView } from "react-native";
 import Daughter from "../avatars/Daughter";
 import Mother from "../avatars/Mother";
 
-const MenuScreen = ({ navigation }) => {
+const HomeScreen = ({ navigation }) => {
   const makeButton = (id) => {
     return (
       <Button 
@@ -62,4 +62,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default MenuScreen;
+export default HomeScreen;
