@@ -1,9 +1,9 @@
 import React from "react";
-import { Text, StyleSheet, Button, ScrollView } from "react-native";
+import { StyleSheet, View, Button, ScrollView } from "react-native";
+import Daughter from "../avatars/Daughter";
+import Mother from "../avatars/Mother";
 
-const HomeScreen = ({ navigation }) => {
-
-  // Generic scenario, non-interactive 
+const MenuScreen = ({ navigation }) => {
   const makeButton = (id) => {
     return (
       <Button 
@@ -17,34 +17,26 @@ const HomeScreen = ({ navigation }) => {
     );
   }
 
-  // Interactive scenario
-  const makeNew = (id) => {
-    return (
-      <Button 
-        onPress={() => {
-          navigation.navigate("Comic", {
-            itemId: id,
-          });
-        }}
-        title={"Scenario " + id} 
-      />
-    );    
-  }
-
 
   // Generate scenarios based on id
   return (
-    <ScrollView style={[styles.marginHorizontal]}>
-      <Text style={[styles.text, styles.marginVertical]}>Quiz Text Demos</Text>
-      {makeButton(1)}
-      {makeButton(2)}
-      {makeButton(3)}
-      {makeButton(4)}
-      {makeButton(5)}
-      {makeButton(6)}
-      {makeButton(7)}
-      <Text style={[styles.text, styles.marginVertical]}>Quiz Dialogue Demos</Text>
-      {makeNew(1)}
+    <ScrollView>
+        <View style={[styles.column, styles.margin]}>
+            <View style={styles.margin}>
+                <Button 
+                    style={styles.text} 
+                    title="Play as mother" 
+                    onPress={() => {navigation.navigate("Menu")}}/>
+                <Mother />
+            </View>
+            <View style={styles.margin}>
+                <Button 
+                    style={styles.text} 
+                    title="Play as daughter" 
+                    onPress={() => {navigation.navigate("Menu")}}/>
+                <Daughter />
+            </View>
+        </View>
     </ScrollView>
   );
 };
@@ -57,16 +49,17 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 20
   },
-  marginHorizontal: {
-    marginHorizontal: 20,
-  },
-  marginVertical: {
+  margin: {
     marginVertical: 20,
   },
   row: {
     alignItems: 'center',
     flexDirection: 'row',
-  }
+  },
+  column: {
+    alignItems: 'center',
+    flexDirection: 'column',
+  },
 });
 
-export default HomeScreen;
+export default MenuScreen;
