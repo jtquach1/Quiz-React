@@ -190,12 +190,10 @@ const styles = StyleSheet.create({
     },
     column: {
         alignItems: 'center',
-        // flexDirection: 'column',
-        justifyContent: 'space-between',
-        height: 400,
+        flexDirection: 'column',
     },
     rowItem: {
-        // flex: 1,
+        flex: 1,
     },
     rowOne: {
         // flex: 1,
