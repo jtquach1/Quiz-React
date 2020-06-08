@@ -5,11 +5,11 @@ import Mother from "../avatars/Mother";
 import Friend from "../avatars/Friend";
 import TestAvatar from "../avatars/TestAvatar";
 
+// scenarios: array populated by question objects
 const ComicChoice = ({ scenarios }) => {
-    // scenarios: array populated by question objects
 
     // Current question and score
-    const [q, setQuestion] = useState(scenarios[0]);
+    const [q, setQuestion] = useState(scenarios[26]);
     const [s, setScore] = useState(0);
     const [g, setGameOver] = useState(false);
 
@@ -17,15 +17,10 @@ const ComicChoice = ({ scenarios }) => {
     const update = (index) => {
 
         // Update overall score if question score is defined
-        if (q.score != undefined) {
-            setScore(s + q.score);
-        }
+        q.score != undefined ? setScore(s + q.score) : null;
 
         // Reached final question, do not update scenario
-        if (q.gameOver == true) {
-            setGameOver(true);
-            return;
-        }
+        q.gameOver ? setGameOver(true) : null;
 
         // Update question from scenarios
         setQuestion(scenarios[index]);
@@ -33,29 +28,20 @@ const ComicChoice = ({ scenarios }) => {
     }
 
     const renderText = (prop, style) => {
-        // prop was defined in the object
-        if (prop != undefined) {
-            return (
-                <Text style={style}>{prop}</Text>
-            );
-        }
-        // prop was not defined, don't render anything
-        return;
+        // if prop was defined, render it
+        return (prop != undefined)
+            ? <Text style={style}>{prop}</Text>
+            : null;
     }
 
     const renderButton = (index, text) => {
         // are c1, c2, c3, c4 valid indices? 
-        if (scenarios[index] == undefined || text == undefined) {
-            return;
-        }
-
-        return (
-            <Button 
+        return (scenarios[index] == undefined || text == undefined)
+            ? null
+            : <Button 
                 style={styles.margin}
                 title={text}
-                onPress={() => {update(index)}}
-            />
-        );    
+                onPress={() => {update(index)}} />;
     }
 
     const renderScore = (score) => {
@@ -174,39 +160,30 @@ const ComicChoice = ({ scenarios }) => {
             );
         }
 
-        // Dialogue with choices
-        if (question.choices != undefined) {
-            return (renderWithChoices(question));
-        }
-
-        // Dialogue without choices
-        return (renderWithoutChoices(question));
+        return (question.choices != undefined)
+            // Dialogue with choices
+            ? renderWithChoices(question)
+            // Dialogue without choices
+            : renderWithoutChoices(question);
     }
 
     const renderScreen = () => {
-
-        if (g == true) {
-            return (
-                <ScrollView>
-                    {renderScore(s)}
-                    <Text style={[styles.textStyle, styles.margin]}>
-                        You have reached the end of the game! Play again?
-                    </Text>
-                </ScrollView>
-            );
-        }
-
-        return (
-            <ScrollView>
+        return (g == true)
+            // Reached game over
+            ? <ScrollView>
+                {renderScore(s)}
+                <Text style={[styles.textStyle, styles.margin]}>
+                    You have reached the end of the game! Play again?
+                </Text>
+            </ScrollView>
+            // Still have more questions to go through
+            : <ScrollView>
                 {renderScore(s)}
                 {renderQuestion(q)}
-            </ScrollView>
-        );
+            </ScrollView>;
     }
 
-    return (
-        renderScreen()
-    );
+    return renderScreen();
 };
 
 const styles = StyleSheet.create({
