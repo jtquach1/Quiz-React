@@ -8,7 +8,7 @@ import TestAvatar from "../avatars/TestAvatar";
 // scenarios: array populated by question objects
 const ComicChoice = ({ scenarios }) => {
 
-    // Current question and score
+    // Current question, score, gameOver status
     const [q, setQuestion] = useState(scenarios[26]);
     const [s, setScore] = useState(0);
     const [g, setGameOver] = useState(false);
@@ -66,105 +66,77 @@ const ComicChoice = ({ scenarios }) => {
     }
 
     const renderWithChoices = (question) => {
+        // options
         return (
-            <View style={styles.column}>
-                {/* dialogue box */}
-                <View style={[styles.rowItem, styles.rowOne]}>
-                    <Text style={styles.text}>
-                        {question.speaker}: {question.dialogue}
-                    </Text>
-                </View>
-                {/* avatar */}
-                <View style={styles.rowItem}>
-                    {renderAvatar(question.speaker)}
-                </View>
-                {/* options */}
-                <View style={styles.rowItem}>
-                    {renderButton(question.c1, question.choices[0])}
-                    {renderButton(question.c2, question.choices[1])}
-                    {renderButton(question.c3, question.choices[2])}
-                    {renderButton(question.c4, question.choices[3])}
-                </View>
+            <View style={styles.rowItem}>
+                {renderButton(question.c1, question.choices[0])}
+                {renderButton(question.c2, question.choices[1])}
+                {renderButton(question.c3, question.choices[2])}
+                {renderButton(question.c4, question.choices[3])}
             </View>
         );
     }
 
     const renderWithoutChoices = (question) => {
+        // next
         return (
-            <View style={styles.column}>
-                {/* dialogue box */}
-                <View style={[styles.rowItem, styles.rowOne]}>
-                    <Text style={styles.text}>
-                        {question.speaker}: {question.dialogue}
-                    </Text>
-                </View>
-                {/* avatar */}
-                <View style={styles.rowItem}>
-                    {renderAvatar(question.speaker)}
-                </View>
-                {/* next */}
-                <View style={styles.rowItem}>
-                    {renderButton(question.next, "Next")}
-                </View>
+            <View style={styles.rowItem}>
+                {renderButton(question.next, "Next")}
             </View>
         );
     }
 
-    const renderFinal = (question) => {
+    const renderFinal = () => {
+        // results
         return (
-            <View style={styles.column}>
-                {/* dialogue box */}
-                <View style={[styles.rowItem, styles.rowOne]}>
-                    <Text style={styles.text}>
-                        {question.speaker}: {question.dialogue}
-                    </Text>
-                </View>
-                {/* avatar */}
-                <View style={styles.rowItem}>
-                    {renderAvatar(question.speaker)}
-                </View>
-                {/* results */}
-                <View style={styles.rowItem}>
-                    <Button 
-                        style={styles.margin}
-                        title={"See results"}
-                        onPress={() => {update(-1)}}
-                    />
-                </View>
+            <View style={styles.rowItem}>
+                <Button 
+                    style={styles.margin}
+                    title={"See results"}
+                    onPress={() => {update(-1)}}
+                />
             </View>
         );
+    }
+
+    const renderRow = (question) => {
+        return (question.gameOver == true)
+            ? renderFinal(question)
+            : (question.choices != undefined)
+                // Dialogue with choices
+                ? renderWithChoices(question)
+                // Dialogue without choices
+                : renderWithoutChoices(question);
     }
 
     const renderQuestion = (question) => {
-        if (question.gameOver == true) {
-            return (renderFinal(question));
-        }
-
-        // Background information, no dialogue
-        if (question.background != undefined) {
-            return (
-                <View style={styles.background}>
-                    {renderText(question.background, styles.text)}
-                    {renderButton(question.next, "Next")}
+        return (question.background != undefined)
+            // Background information, no dialogue
+            ? <View style={styles.background}>
+                {renderText(question.background, styles.text)}
+                {renderButton(question.next, "Next")}
+            </View>
+            // Scene text, no dialogue
+            : (question.text != undefined)
+            ? <View style={styles.background}>
+                {renderText(question.text, styles.text)}
+                {renderButton(question.next, "Next")}
+            </View>
+            // Render dialogue, avatar, buttons
+            : <View style={styles.column}>
+                {/* dialogue box */}
+                <View style={[styles.rowItem, styles.rowOne]}>
+                    <Text style={styles.text}>
+                        {question.speaker}: {question.dialogue}
+                    </Text>
                 </View>
-            );
-        }
-
-        // Scene text, no dialogue
-        if (question.text != undefined) {
-            return (
-                <View style={styles.background}>
-                    {renderText(question.text, styles.text)}
-                    {renderButton(question.next, "Next")}
+                {/* avatar */}
+                <View style={styles.rowItem}>
+                    {renderAvatar(question.speaker)}
                 </View>
-            );
-        }
-
-        return (question.choices != undefined)
-            // Dialogue with choices
-            ? renderWithChoices(question)
-            // Dialogue without choices
-            : renderWithoutChoices(question);
+                {/* buttons */}
+                {renderRow(question)}
+            </View>
     }
 
     const renderScreen = () => {
@@ -172,7 +144,7 @@ const ComicChoice = ({ scenarios }) => {
             // Reached game over
             ? <ScrollView>
                 {renderScore(s)}
-                <Text style={[styles.textStyle, styles.margin]}>
+                <Text style={[styles.text, styles.margin]}>
                     You have reached the end of the game! Play again?
                 </Text>
             </ScrollView>
@@ -198,15 +170,6 @@ const styles = StyleSheet.create({
         fontSize: 20,
         marginBottom: 20,
     },
-    headerStyle : {
-        fontSize: 20
-    }, 
-    textStyle: {
-        fontSize: 15
-    },
-    listStyle: {
-        fontSize: 15
-    },    
     scoreStyle: {
         fontSize: 25
     }, 
