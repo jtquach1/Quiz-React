@@ -10,7 +10,6 @@ const ComicChoice = ({ scenarios }) => {
 
     // Current question and score
     // const [q, setQuestion] = useState(scenarios[0]);
-    // const [q, setQuestion] = useState(scenarios[24]); // debugging purposes
     const [q, setQuestion] = useState(scenarios[56]); // debugging purposes
     const [s, setScore] = useState(0);
 
@@ -52,7 +51,6 @@ const ComicChoice = ({ scenarios }) => {
             />
         );    
     }
-    
 
     const renderScore = (score) => {
         return (
@@ -80,7 +78,9 @@ const ComicChoice = ({ scenarios }) => {
             <View style={styles.column}>
                 {/* dialogue box */}
                 <View style={[styles.rowItem, styles.rowOne]}>
-                    <Text style={styles.text}>{question.speaker}: {question.dialogue}</Text>
+                    <Text style={styles.text}>
+                        {question.speaker}: {question.dialogue}
+                    </Text>
                 </View>
                 {/* avatar */}
                 <View style={styles.rowItem}>
@@ -89,19 +89,10 @@ const ComicChoice = ({ scenarios }) => {
                 {/* options, next */}
                 <View style={styles.rowItem}>
                     <Text>renderWithChoices</Text>
-                    <View>
-                        {console.log("Inside renderButton")}
-                        {console.log("question.c2: ", question.c2)}
-                        {console.log("question.choices[1]: ", question.choices[1])}
-                        {console.log("scenarios[question.c2]: ", scenarios[question.c2])}
-
-
-                        {renderButton(question.c1, question.choices[0])}
-                        {renderButton(question.c2, question.choices[1])}
-                        {renderButton(question.c3, question.choices[2])}
-                        {renderButton(question.c4, question.choices[3])}
-                    </View>
-                    {renderButton(question.next, "Next")}
+                    {renderButton(question.c1, question.choices[0])}
+                    {renderButton(question.c2, question.choices[1])}
+                    {renderButton(question.c3, question.choices[2])}
+                    {renderButton(question.c4, question.choices[3])}
                 </View>
             </View>
         );
@@ -112,7 +103,9 @@ const ComicChoice = ({ scenarios }) => {
             <View style={styles.column}>
                 {/* dialogue box */}
                 <View style={[styles.rowItem, styles.rowOne]}>
-                    <Text style={styles.text}>{question.speaker}: {question.dialogue}</Text>
+                    <Text style={styles.text}>
+                        {question.speaker}: {question.dialogue}
+                    </Text>
                 </View>
                 {/* avatar */}
                 <View style={styles.rowItem}>
@@ -121,7 +114,6 @@ const ComicChoice = ({ scenarios }) => {
                 {/* options, next */}
                 <View style={styles.rowItem}>
                     <Text>renderWithoutChoices</Text>
-                    <View></View>
                     {renderButton(question.next, "Next")}
                 </View>
             </View>
@@ -151,15 +143,11 @@ const ComicChoice = ({ scenarios }) => {
 
         // Dialogue with choices
         if (question.choices != undefined) {
-            return (
-                renderWithChoices(question)
-            );
+            return (renderWithChoices(question));
         }
 
         // Dialogue without choices
-        return (
-            renderWithoutChoices(question)
-        );
+        return (renderWithoutChoices(question));
     }
 
     return (
@@ -202,10 +190,12 @@ const styles = StyleSheet.create({
     },
     column: {
         alignItems: 'center',
-        flexDirection: 'column',
+        // flexDirection: 'column',
+        justifyContent: 'space-between',
+        height: 400,
     },
     rowItem: {
-        flex: 1,
+        // flex: 1,
     },
     rowOne: {
         // flex: 1,
