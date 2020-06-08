@@ -10,7 +10,8 @@ const ComicChoice = ({ scenarios }) => {
 
     // Current question and score
     // const [q, setQuestion] = useState(scenarios[0]);
-    const [q, setQuestion] = useState(scenarios[24]); // debugging purposes
+    // const [q, setQuestion] = useState(scenarios[24]); // debugging purposes
+    const [q, setQuestion] = useState(scenarios[56]); // debugging purposes
     const [s, setScore] = useState(0);
 
     // Update the question listing based on the current question and the score
@@ -90,9 +91,9 @@ const ComicChoice = ({ scenarios }) => {
                     <Text>renderWithChoices</Text>
                     <View>
                         {console.log("Inside renderButton")}
-                        {console.log("question.c1: ", question.c1)}
-                        {console.log("question.choices[0]: ", question.choices[0])}
-                        {console.log("scenarios[c1]: ", scenarios[c1])}
+                        {console.log("question.c2: ", question.c2)}
+                        {console.log("question.choices[1]: ", question.choices[1])}
+                        {console.log("scenarios[question.c2]: ", scenarios[question.c2])}
 
 
                         {renderButton(question.c1, question.choices[0])}

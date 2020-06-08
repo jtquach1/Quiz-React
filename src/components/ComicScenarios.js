@@ -130,7 +130,7 @@ export const scenario_6D = [
         dialogue: "Well, it seems like her vaginal discharge has a bad smell. It also must be making her feel really uncomfortable, too. And since she's also sexually active, those are some probable signs that she has an STI.",
         choices: ["How do you get an STI?", "Never mind"],
         c1: 27,
-        c2: 63,
+        c2: 62,
     },
     // Option 1
     {
@@ -142,7 +142,7 @@ export const scenario_6D = [
     {
         speaker: "Mother",
         dialogue: "Sweetie, what do you know about chlamydia?",
-        choice: ["It comes from sex?", "I don't know"],
+        choices: ["It comes from sex?", "I don't know"],
         c1: 29,
         c2: 30,
     },
@@ -289,7 +289,7 @@ export const scenario_6D = [
         dialogue: "Did you have anything else on your mind?",
         choices: ["How can I help Jennie?", "Forget it"],
         c1: 57,
-        c2: 63,
+        c2: 62,
     },
     // Option 1a
     {
