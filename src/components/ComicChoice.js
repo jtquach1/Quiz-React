@@ -9,20 +9,26 @@ const ComicChoice = ({ scenarios }) => {
     // scenarios: array populated by question objects
 
     // Current question and score
-    // const [q, setQuestion] = useState(scenarios[0]);
-    const [q, setQuestion] = useState(scenarios[56]); // debugging purposes
+    const [q, setQuestion] = useState(scenarios[0]);
     const [s, setScore] = useState(0);
+    const [g, setGameOver] = useState(false);
 
     // Update the question listing based on the current question and the score
-    const update = (choice) => {
-        // Update score
-        // Score not defined in scenario object, then don't modify score
+    const update = (index) => {
+
+        // Update overall score if question score is defined
         if (q.score != undefined) {
             setScore(s + q.score);
         }
 
+        // Reached final question, do not update scenario
+        if (q.gameOver == true) {
+            setGameOver(true);
+            return;
+        }
+
         // Update question from scenarios
-        setQuestion(scenarios[choice]);
+        setQuestion(scenarios[index]);
         return;
     }
 
@@ -86,9 +92,8 @@ const ComicChoice = ({ scenarios }) => {
                 <View style={styles.rowItem}>
                     {renderAvatar(question.speaker)}
                 </View>
-                {/* options, next */}
+                {/* options */}
                 <View style={styles.rowItem}>
-                    <Text>renderWithChoices</Text>
                     {renderButton(question.c1, question.choices[0])}
                     {renderButton(question.c2, question.choices[1])}
                     {renderButton(question.c3, question.choices[2])}
@@ -111,16 +116,44 @@ const ComicChoice = ({ scenarios }) => {
                 <View style={styles.rowItem}>
                     {renderAvatar(question.speaker)}
                 </View>
-                {/* options, next */}
+                {/* next */}
                 <View style={styles.rowItem}>
-                    <Text>renderWithoutChoices</Text>
                     {renderButton(question.next, "Next")}
                 </View>
             </View>
         );
     }
 
+    const renderFinal = (question) => {
+        return (
+            <View style={styles.column}>
+                {/* dialogue box */}
+                <View style={[styles.rowItem, styles.rowOne]}>
+                    <Text style={styles.text}>
+                        {question.speaker}: {question.dialogue}
+                    </Text>
+                </View>
+                {/* avatar */}
+                <View style={styles.rowItem}>
+                    {renderAvatar(question.speaker)}
+                </View>
+                {/* results */}
+                <View style={styles.rowItem}>
+                    <Button 
+                        style={styles.margin}
+                        title={"See results"}
+                        onPress={() => {update(-1)}}
+                    />
+                </View>
+            </View>
+        );
+    }
+
     const renderQuestion = (question) => {
+        if (question.gameOver == true) {
+            return (renderFinal(question));
+        }
+
         // Background information, no dialogue
         if (question.background != undefined) {
             return (
@@ -150,11 +183,29 @@ const ComicChoice = ({ scenarios }) => {
         return (renderWithoutChoices(question));
     }
 
+    const renderScreen = () => {
+
+        if (g == true) {
+            return (
+                <ScrollView>
+                    {renderScore(s)}
+                    <Text style={[styles.textStyle, styles.margin]}>
+                        You have reached the end of the game! Play again?
+                    </Text>
+                </ScrollView>
+            );
+        }
+
+        return (
+            <ScrollView>
+                {renderScore(s)}
+                {renderQuestion(q)}
+            </ScrollView>
+        );
+    }
+
     return (
-        <ScrollView>
-            {renderScore(s)}
-            {renderQuestion(q)}
-        </ScrollView>
+        renderScreen()
     );
 };
 
