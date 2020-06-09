@@ -1,16 +1,18 @@
 import React from "react";
-import { Text, StyleSheet, View, Button, ScrollView, SafeAreaView } from "react-native";
+import { StyleSheet, View, Button, ScrollView } from "react-native";
+import Daughter from "../avatars/Daughter";
+import Mother from "../avatars/Mother";
 
 const HomeScreen = ({ navigation }) => {
-  const makeButton = (id) => {
+  const makeButton = (title, isMother) => {
     return (
       <Button 
         onPress={() => {
-          navigation.navigate("Quiz", {
-            itemId: id,
+          navigation.navigate("Menu", {
+            flag: isMother,
           });
         }}
-        title={"Scenario " + id} 
+        title={title} 
       />
     );
   }
@@ -18,30 +20,33 @@ const HomeScreen = ({ navigation }) => {
 
   // Generate scenarios based on id
   return (
-    <View style={styles.padding}>
-      <Text style={[styles.text, styles.margin]}>Quiz Demos</Text>
-      {makeButton(1)}
-      {makeButton(2)}
-      {makeButton(3)}
-      {makeButton(4)}
-      {makeButton(5)}
-      {makeButton(6)}
-      {makeButton(7)}
-    </View>
+    <ScrollView>
+        <View style={[styles.column, styles.margin]}>
+            <View style={styles.margin}>
+                {makeButton("Play as mother", true)}
+                <Mother />
+            </View>
+            <View style={styles.margin}>
+                {makeButton("Play as daughter", false)}
+                <Daughter />
+            </View>
+        </View>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
-  text: {
-    fontSize: 30
-  },
-  padding: {
-    paddingHorizontal: 20,
-    paddingVertical: 20
-  },
   margin: {
-    marginBottom: 20
-  }
+    marginVertical: 20,
+  },
+  row: {
+    alignItems: 'center',
+    flexDirection: 'row',
+  },
+  column: {
+    alignItems: 'center',
+    flexDirection: 'column',
+  },
 });
 
 export default HomeScreen;

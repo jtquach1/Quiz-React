@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ScrollView, SafeAreaView, View, Text, StyleSheet, Button, Linking } from 'react-native';
+import { ScrollView, SafeAreaView, View, Text, StyleSheet, Button } from 'react-native';
 import Inputs from './Inputs.js';
 
 const QuizChoice = ({ scenarios }) => {
