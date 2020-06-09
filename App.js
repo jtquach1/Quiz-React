@@ -6,18 +6,18 @@ import QuizScreen from "./src/screens/QuizScreen";
 import ComicScreen from './src/screens/ComicScreen';
 
 const navigator = createStackNavigator(
-  {
-    Home: HomeScreen,
-    Menu: MenuScreen,
-    Quiz: QuizScreen,
-    Comic: ComicScreen,
-  },
-  {
-    initialRouteName: "Home",
-    defaultNavigationOptions: {
-      title: "App"
+    {
+        Home: HomeScreen,
+        Menu: MenuScreen,
+        Quiz: QuizScreen,
+        Comic: ComicScreen,
+    },
+    {
+        initialRouteName: "Home",
+        defaultNavigationOptions: {
+            title: "App"
+        }
     }
-  }
 );
 
 export default createAppContainer(navigator);

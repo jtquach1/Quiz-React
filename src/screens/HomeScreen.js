@@ -4,15 +4,15 @@ import Daughter from "../avatars/Daughter";
 import Mother from "../avatars/Mother";
 
 const HomeScreen = ({ navigation }) => {
-  const makeButton = (id) => {
+  const makeButton = (title, isMother) => {
     return (
       <Button 
         onPress={() => {
-          navigation.navigate("Quiz", {
-            itemId: id,
+          navigation.navigate("Menu", {
+            flag: isMother,
           });
         }}
-        title={"Scenario " + id} 
+        title={title} 
       />
     );
   }
@@ -23,17 +23,11 @@ const HomeScreen = ({ navigation }) => {
     <ScrollView>
         <View style={[styles.column, styles.margin]}>
             <View style={styles.margin}>
-                <Button 
-                    style={styles.text} 
-                    title="Play as mother" 
-                    onPress={() => {navigation.navigate("Menu")}}/>
+                {makeButton("Play as mother", true)}
                 <Mother />
             </View>
             <View style={styles.margin}>
-                <Button 
-                    style={styles.text} 
-                    title="Play as daughter" 
-                    onPress={() => {navigation.navigate("Menu")}}/>
+                {makeButton("Play as daughter", false)}
                 <Daughter />
             </View>
         </View>
@@ -42,13 +36,6 @@ const HomeScreen = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  text: {
-    fontSize: 30
-  },
-  padding: {
-    paddingHorizontal: 20,
-    paddingVertical: 20
-  },
   margin: {
     marginVertical: 20,
   },

@@ -4,7 +4,7 @@ import QuizChoice from "../components/QuizChoice";
 import * as scenarios from "../components/Scenarios";
 
 const QuizScreen = ({ navigation }) => {
-    // from HomeScreen.js
+    // from MenuScreen.js
     const { params } = navigation.state;
     const itemId = params ? params.itemId : null;
 

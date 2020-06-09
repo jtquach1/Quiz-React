@@ -9,7 +9,7 @@ import TestAvatar from "../avatars/TestAvatar";
 const ComicChoice = ({ scenarios }) => {
 
     // Current question, score, gameOver status
-    const [q, setQuestion] = useState(scenarios[26]);
+    const [q, setQuestion] = useState(scenarios[0]);
     const [s, setScore] = useState(0);
     const [g, setGameOver] = useState(false);
 
