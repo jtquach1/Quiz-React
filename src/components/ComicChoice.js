@@ -171,5 +171,3 @@ const styles = StyleSheet.create({
 });
 
 export default ComicChoice;
-
-
