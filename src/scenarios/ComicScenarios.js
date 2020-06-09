@@ -342,7 +342,7 @@ export const M6 = [
         next: 3,
     },
     {
-        text: "They enter your daughter’s room and close the door. But since the cat likes going in and out, they crack the door.",
+        text: "They enter your daughter’s room and close the door. But since the cat likes going in and out, they crack open the door.",
         next: 4,
     },
     {

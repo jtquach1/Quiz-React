@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import ComicChoice from "../components/ComicChoice";
-import * as scenarios from "../components/ComicScenarios";
+import * as scenarios from "../scenarios/ComicScenarios";
 
 const ComicScreen = ({ navigation }) => {
     // From HomeScreen

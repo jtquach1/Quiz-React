@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import QuizChoice from "../components/QuizChoice";
-import * as scenarios from "../components/Scenarios";
+import * as scenarios from "../scenarios/Scenarios";
 
 const QuizScreen = ({ navigation }) => {
     // from MenuScreen.js
