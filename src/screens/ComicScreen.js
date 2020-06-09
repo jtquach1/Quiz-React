@@ -4,6 +4,7 @@ import ComicChoice from "../components/ComicChoice";
 import * as scenarios from "../components/ComicScenarios";
 
 const ComicScreen = ({ navigation }) => {
+    // From HomeScreen
     const { params } = navigation.state;
     const itemId = params ? params.itemId : null;
     const flag = params ? params.flag : null;
