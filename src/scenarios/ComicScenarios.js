@@ -646,3 +646,28 @@ export const M6 = [
         gameOver: true,
     },
 ];
+
+export const testScenario = [
+    // Question 0
+    {
+        speaker: "Mother",
+        dialogue: "What is the 7th planet?",
+        choices: ["Pluto", "Venus", "Saturn"],
+        c1: 1,
+        c2: 1,
+        c3: 1,
+    },
+    // Question 1
+    {
+        speaker: "Mother",
+        dialogue: "What is the 8th planet?",
+        choices: ["Earth", "Neptune"],
+        c1: 2,
+        c2: 2,
+    },
+    {
+        speaker: "Daughter",
+        dialogue: "Game over",
+        gameOver: true,
+    }
+];

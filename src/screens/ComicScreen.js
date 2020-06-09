@@ -10,11 +10,6 @@ const ComicScreen = ({ navigation }) => {
     const flag = params ? params.flag : null;
     const isMother = true;
 
-    console.log("itemId: ", itemId);
-    console.log("flag: ", flag);
-    console.log("isMother: ", isMother);
-
-
     const renderMother = (index) => {
         switch (index) {
             case 1:
