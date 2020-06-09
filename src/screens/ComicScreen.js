@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View} from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import ComicChoice from "../components/ComicChoice";
 import * as scenarios from "../components/ComicScenarios";
 
@@ -34,7 +34,7 @@ const ComicScreen = ({ navigation }) => {
         }
     }
 
-    const renderScenario = ( index ) => {
+    const renderScenario = (index) => {
         return (flag == isMother)
             ? renderMother(index)
             : renderDaughter(index);
