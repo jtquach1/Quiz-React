@@ -93,12 +93,14 @@ const ComicChoice = ({ scenarios }) => {
         return (question.background != undefined)
             // Background information, no dialogue
             ? <View style={styles.background}>
+                {renderText("Background", styles.text)}
                 {renderText(question.background, styles.text)}
                 {renderButton(question.next, "Next")}
             </View>
             // Scene text, no dialogue
             : (question.text != undefined)
             ? <View style={styles.background}>
+                {renderText("Scene text", styles.text)}
                 {renderText(question.text, styles.text)}
                 {renderButton(question.next, "Next")}
             </View>
@@ -163,6 +165,7 @@ const styles = StyleSheet.create({
     rowItem: {
         flex: 1,
         height: 150,
+        paddingHorizontal: 20,
     },
     rowOne: {
         // flex: 1,
