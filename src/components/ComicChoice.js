@@ -162,6 +162,7 @@ const styles = StyleSheet.create({
     },
     rowItem: {
         flex: 1,
+        height: 150,
     },
     rowOne: {
         // flex: 1,
