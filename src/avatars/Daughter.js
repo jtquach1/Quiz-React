@@ -4,35 +4,34 @@ import { StyleSheet, Image } from "react-native";
 // To destructure, use { arg1, arg2, ... } format, 
 // and in parent, do <Daughter arg1=... arg2=... /> 
 const Daughter = ({ emotion }) => {
-    const baseUrl = "../../assets/avatars/daughter/";
     switch (emotion) {
         case 1:
             return <Image 
-                source={require(baseUrl + "1.gif")}
+                source={require("../../assets/avatars/daughter/1.gif")}
                 style={[styles.image]} />;
         case 2:
             return <Image 
-                source={require(baseUrl + "2.gif")}
+                source={require("../../assets/avatars/daughter/2.gif")}
                 style={[styles.image]} />;
         case 3:
             return <Image 
-                source={require(baseUrl + "3.gif")}
+                source={require("../../assets/avatars/daughter/3.gif")}
                 style={[styles.image]} />;
         case 4:
             return <Image 
-                source={require(baseUrl + "4.gif")}
+                source={require("../../assets/avatars/daughter/4.gif")}
                 style={[styles.image]} />;
         case 5:
             return <Image 
-                source={require(baseUrl + "5.gif")}
+                source={require("../../assets/avatars/daughter/5.gif")}
                 style={[styles.image]} />;
         case 6:
             return <Image 
-                source={require(baseUrl + "6.gif")}
+                source={require("../../assets/avatars/daughter/6.gif")}
                 style={[styles.image]} />;
         default:
             return <Image 
-                source={require(baseUrl + "/png/1.png")}
+                source={require("../../assets/avatars/daughter/png/1.png")}
                 style={[styles.image]} />;
     }
 };
