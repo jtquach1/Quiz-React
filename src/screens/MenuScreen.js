@@ -54,8 +54,8 @@ const MenuScreen = ({ navigation }) => {
 
             <Text style={[styles.text, styles.marginVertical]}>Quiz Dialogue Demos</Text>
             {makeNew(1, "Scenario 1")}
-            {makeNew(2, "Scenario 2")}
-            {makeNew(3, "Scenario 3")}
+            {/* {makeNew(2, "Scenario 2")}
+            {makeNew(3, "Scenario 3")} */}
         </ScrollView>
     );
 };

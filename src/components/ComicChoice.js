@@ -52,16 +52,16 @@ const ComicChoice = ({ scenarios }) => {
         );
     }
 
-    const renderAvatar = (speaker) => {
+    const renderAvatar = (speaker, emotion) => {
         switch (speaker) {
             case 'Daughter':
-                return <Daughter />;
+                return <Daughter emotion={emotion} />;
             case 'Mother':
-                return <Mother />;
+                return <Mother emotion={emotion} />;
             case 'Friend':
-                return <Friend />;
+                return <Friend emotion={emotion} />;
             default:
-                return <TestAvatar />;
+                return <TestAvatar emotion={emotion} />;
         }
     }
 
@@ -110,7 +110,7 @@ const ComicChoice = ({ scenarios }) => {
                     </Text>
                 </View>
                 <View style={styles.rowItem}>
-                    {renderAvatar(question.speaker)}
+                    {renderAvatar(question.speaker, question.emotion)}
                 </View>
                 {renderRow(question)}
             </View>

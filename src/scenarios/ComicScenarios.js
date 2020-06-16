@@ -23,6 +23,7 @@ export const D6 = [
     },
     {
         speaker: "Daughter",
+        emotion: 2,
         dialogue: "Really? Have you seen anyone for that? Have you told your mom?",
         next: 6,
     },
@@ -33,6 +34,7 @@ export const D6 = [
     },
     {
         speaker: "Daughter",
+        emotion: 3,
         dialogue: "Why? What's wrong? When did it start?",
         next: 8,
     },
@@ -43,6 +45,7 @@ export const D6 = [
     },
     {
         speaker: "Daughter",
+        emotion: 2,
         dialogue: "Yeah, I remember.",
         next: 10,
     },
@@ -53,6 +56,7 @@ export const D6 = [
     },
     {
         speaker: "Daughter",
+        emotion: 3,
         dialogue: "And you started having this problem after that...",
         next: 12,
     },
@@ -72,6 +76,7 @@ export const D6 = [
     },
     {
         speaker: "Daughter",
+        emotion: 5,
         dialogue: "Hi mom. It was good.",
         next: 16,
     },
@@ -82,6 +87,7 @@ export const D6 = [
     },
     {
         speaker: "Daughter",
+        emotion: 3,
         dialogue: "Um... Mom, there's something with my friend I want to tell you about.",
         next: 18,
     },
@@ -92,6 +98,7 @@ export const D6 = [
     },
     {
         speaker: "Daughter",
+        emotion: 6,
         dialogue: "Mom, do you remember my friend Jennie? We were talking today during break, and she told me she is having her period, but its yellow. She said that it smells so bad and she has been having them for a week now.",
         next: 20,
     },
@@ -102,6 +109,7 @@ export const D6 = [
     },
     {
         speaker: "Daughter",
+        emotion: 6,
         dialogue: "No. She can't!",
         next: 22,
     },
@@ -112,6 +120,7 @@ export const D6 = [
     },
     {
         speaker: "Daughter",
+        emotion: 3,
         dialogue: "Because... A couple of weeks ago, the day I walked home alone, she was going out with her boyfriend. She told me they went to his grandmother's house and they had sex.",
         next: 24,
     },
@@ -122,6 +131,7 @@ export const D6 = [
     },
     {
         speaker: "Daughter",
+        emotion: 2,
         dialogue: "Huh? How do you know that?",
         next: 26,
     },
@@ -135,6 +145,7 @@ export const D6 = [
     // Option 1
     {
         speaker: "Daughter",
+        emotion: 6,
         dialogue: "Oh, OK. So, my friend might have an STI. How does one get STI? Will she be okay? Do I have STI now after hugging her because she was crying?",
         next: 28,
         score: +5,
@@ -148,11 +159,13 @@ export const D6 = [
     },
     {
         speaker: "Daughter",
+        emotion: 2,
         dialogue: "Um... It comes from sex? I'm guessing that since it's one of the most common STIs.",
         next: 31,
     },
     {
         speaker: "Daughter",
+        emotion: 2,
         dialogue: "I don't know anything about it.",
         next: 31,
     },
@@ -163,6 +176,7 @@ export const D6 = [
     },
     {
         speaker: "Daughter",
+        emotion: 3,
         dialogue: "That's scary mom. So how does one get chlamydia? Who is at risk of getting it?",
         next: 33,
     },
@@ -173,6 +187,7 @@ export const D6 = [
     },
     {
         speaker: "Daughter",
+        emotion: 2,
         dialogue: "So, is this like HIV? Does it last forever?!",
         next: 35,
     },
@@ -183,6 +198,7 @@ export const D6 = [
     },
     {
         speaker: "Daughter",
+        emotion: 2,
         dialogue: "Mom, who is at risk of getting chlamydia?",
         next: 37,
     },
@@ -196,16 +212,19 @@ export const D6 = [
     },
     {
         speaker: "Daughter",
+        emotion: 7,
         dialogue: "Everyone is at risk of getting chlamydia.",
         next: 41,
     },
     {
         speaker: "Daughter",
+        emotion: 2,
         dialogue: "Is it just people who have sex?",
         next: 41,
     },
     {
         speaker: "Daughter",
+        emotion: 2,
         dialogue: "Is it just people who have sex with infected partners?",
         next: 41,
     },
@@ -216,6 +235,7 @@ export const D6 = [
     },
     {
         speaker: "Daughter",
+        emotion: 2,
         dialogue: "Oh, okay. I have another question. How does one know that she has chlamydia? What are the symptoms?",
         next: 43,
     },
@@ -231,6 +251,7 @@ export const D6 = [
     },
     {
         speaker: "Daughter",
+        emotion: 1,
         dialogue: "Huh, I see. Having it doesn't necessarily mean showing symptoms, which is scary! So, how can we protect ourselves from getting it?",
         next: 46,
     },
@@ -246,6 +267,7 @@ export const D6 = [
     },
     {
         speaker: "Daughter",
+        emotion: 6,
         dialogue: "But mom, what should my friend do? How can she get tested? Is it a painful test?",
         next: 49,
     },
@@ -256,11 +278,13 @@ export const D6 = [
     },
     {
         speaker: "Daughter",
+        emotion: 1,
         dialogue: "That's a relief! At least she can get tested without pain, or having to have that exam!",
         next: 51,
     },
     {
         speaker: "Daughter",
+        emotion: 2,
         dialogue: "And what's the treatment? Should someone who has chlamydia be admitted to the hospital?",
         next: 52,
     },
@@ -271,6 +295,7 @@ export const D6 = [
     },
     {
         speaker: "Daughter",
+        emotion: 5,
         dialogue: "Okay. Mom, thank you so much for telling me about this. I had no idea this was what chlamydia was all about.",
         next: 54,
     },
@@ -281,6 +306,7 @@ export const D6 = [
     },
     {
         speaker: "Daughter",
+        emotion: 1,
         dialogue: "Thanks, mom!",
         next: 56,
     },
@@ -294,6 +320,7 @@ export const D6 = [
     // Option 1a
     {
         speaker: "Daughter",
+        emotion: 2,
         dialogue: "So mom, how can I help my friend? What can I do? What's wrong with her?",
         next: 58,
         score: +5,
@@ -305,6 +332,7 @@ export const D6 = [
     },
     {
         speaker: "Daughter",
+        emotion: 6,
         dialogue: "Hmm... is it something serious?!",
         next: 60,
     },
@@ -316,12 +344,14 @@ export const D6 = [
     // game over
     {
         speaker: "Daughter",
+        emotion: 1,
         dialogue: "Okay. I'll let her know. Thanks, mom!",
         gameOver: true,
     },
     // Option 2: Daughter refuses to help Jennie
     {
         speaker: "Daughter",
+        emotion: 4,
         dialogue: "Um... Actually, I guess I should focus on my studies and forget about her problems. It's almost the end of the year, and I need to be ready for exams.",
         gameOver: true,
         score: -10,

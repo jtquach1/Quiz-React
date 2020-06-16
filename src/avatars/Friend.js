@@ -4,7 +4,7 @@ import { StyleSheet, Image } from "react-native";
 const Friend = () => {
     return (
         <Image 
-            source={{uri: "http://avataaars.io/png?avatarStyle=Transparent&clotheColor=PastelRed&clotheType=ShirtCrewNeck&eyebrowType=SadConcerned&hairColor=Auburn&mouthType=Sad&skinColor=Brown&topType=LongHairStraight"}} 
+            source={require("../../assets/avatars/friend/1.png")} 
             style={[styles.image]}/>
     );
 };

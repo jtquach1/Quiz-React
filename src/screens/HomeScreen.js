@@ -24,11 +24,11 @@ const HomeScreen = ({ navigation }) => {
                 <View style={[styles.column, styles.margin]}>
                         <View style={styles.margin}>
                                 {makeButton("Play as mother", true)}
-                                <Mother />
+                                <Mother emotion={1} />
                         </View>
                         <View style={styles.margin}>
                                 {makeButton("Play as daughter", false)}
-                                <Daughter />
+                                <Daughter emotion={1} />
                         </View>
                 </View>
         </ScrollView>
