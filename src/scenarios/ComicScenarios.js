@@ -77,7 +77,7 @@ export const D6 = [
     },
     {
         speaker: "Daughter",
-        emotion: 5,
+        emotion: 4,
         dialogue: "Hi mom. It was good.",
         next: 16,
     },
@@ -101,7 +101,7 @@ export const D6 = [
     },
     {
         speaker: "Daughter",
-        emotion: 6,
+        emotion: 5,
         dialogue: "Mom, do you remember my friend Jennie? We were talking today during break, and she told me she is having her period, but its yellow. She said that it smells so bad and she has been having them for a week now.",
         next: 20,
     },
@@ -113,7 +113,7 @@ export const D6 = [
     },
     {
         speaker: "Daughter",
-        emotion: 6,
+        emotion: 5,
         dialogue: "No. She can't!",
         next: 22,
     },
@@ -152,7 +152,7 @@ export const D6 = [
     // Option 1
     {
         speaker: "Daughter",
-        emotion: 6,
+        emotion: 5,
         dialogue: "Oh, OK. So, my friend might have an STI. How does one get STI? Will she be okay? Do I have STI now after hugging her because she was crying?",
         next: 28,
         score: +5,
@@ -224,7 +224,7 @@ export const D6 = [
     },
     {
         speaker: "Daughter",
-        emotion: 7,
+        emotion: 6,
         dialogue: "Everyone is at risk of getting chlamydia.",
         next: 41,
     },
@@ -284,7 +284,7 @@ export const D6 = [
     },
     {
         speaker: "Daughter",
-        emotion: 6,
+        emotion: 5,
         dialogue: "But mom, what should my friend do? How can she get tested? Is it a painful test?",
         next: 49,
     },
@@ -314,7 +314,7 @@ export const D6 = [
     },
     {
         speaker: "Daughter",
-        emotion: 5,
+        emotion: 4,
         dialogue: "Okay. Mom, thank you so much for telling me about this. I had no idea this was what chlamydia was all about.",
         next: 54,
     },
@@ -354,7 +354,7 @@ export const D6 = [
     },
     {
         speaker: "Daughter",
-        emotion: 6,
+        emotion: 5,
         dialogue: "Hmm... is it something serious?!",
         next: 60,
     },
@@ -374,7 +374,7 @@ export const D6 = [
     // Option 2: Daughter refuses to help Jennie
     {
         speaker: "Daughter",
-        emotion: 4,
+        emotion: 3,
         dialogue: "Um... Actually, I guess I should focus on my studies and forget about her problems. It's almost the end of the year, and I need to be ready for exams.",
         gameOver: true,
         score: -10,
@@ -485,7 +485,7 @@ export const M6 = [
     },
     {
         speaker: "Daughter",
-        emotion: 7,
+        emotion: 6,
         dialogue: "Oh! Okay. Anything wrong?",
         next: 21,
     },    {
@@ -548,7 +548,7 @@ export const M6 = [
     },
     {
         speaker: "Daughter",
-        emotion: 7,
+        emotion: 6,
         dialogue: "Oh, OK. So, my friend might have an STI. How does one get STI? Will she be okay? Do I have STI now after hugging her because she was crying?",
         next: 31,
     },
@@ -560,7 +560,7 @@ export const M6 = [
     },
     {
         speaker: "Daughter",
-        emotion: 7,
+        emotion: 6,
         dialogue: "Um... Well, it comes from sex, right? It must be really common.",
         next: 33,
     },
@@ -572,7 +572,7 @@ export const M6 = [
     },
     {
         speaker: "Daughter",
-        emotion: 6,
+        emotion: 5,
         dialogue: "That's scary mom. So how does one get chlamydia? Who is at risk of getting it?",
         next: 35,
     },
@@ -585,7 +585,7 @@ export const M6 = [
     // Option 1a
     {
         speaker: "Daughter",
-        emotion: 6,
+        emotion: 5,
         dialogue: "So, is this like HIV? Does it last forever?!",
         choices: ["Yes", "No"],
         c1: 37,
@@ -609,13 +609,13 @@ export const M6 = [
     },
     {
         speaker: "Daughter",
-        emotion: 6,
+        emotion: 5,
         dialogue: "That's horrible! Mom, who is at risk of getting chlamydia?",
         next: 41,
     },
     {
         speaker: "Daughter",
-        emotion: 5,
+        emotion: 4,
         dialogue: "Oh... so that's good, then Jennie will be okay! Mom, who is at risk of getting chlamydia?",
         next: 41,
     },
@@ -743,7 +743,7 @@ export const M6 = [
     },
     {
         speaker: "Daughter",
-        emotion: 4,
+        emotion: 3,
         dialogue: "Okay mom. I agree that I should focus on my studies and forget about her problems since it is almost the end of the year and I need to be ready for the exams.",
         gameOver: true,
     },

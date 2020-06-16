@@ -4,7 +4,7 @@ import { StyleSheet, Image } from "react-native";
 const Friend = () => {
     return (
         <Image 
-            source={require("../../assets/avatars/friend/1.png")} 
+            source={require("../../assets/avatars/friend/1.gif")} 
             style={[styles.image]}/>
     );
 };

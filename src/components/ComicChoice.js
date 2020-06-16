@@ -164,7 +164,7 @@ const styles = StyleSheet.create({
     },
     rowItem: {
         flex: 1,
-        height: 150,
+        // height: 150,
         paddingHorizontal: 20,
     },
     rowOne: {
