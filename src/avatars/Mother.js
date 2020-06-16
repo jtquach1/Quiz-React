@@ -1,12 +1,30 @@
 import React from "react";
 import { StyleSheet, Image } from "react-native";
 
-const Mother = () => {
-    return (
-        <Image 
-            source={{uri: "http://avataaars.io/png?accessoriesType=Blank&avatarStyle=Transparent&clotheColor=Red&clotheType=CollarSweater&eyeType=Default&eyebrowType=Default&facialHairType=Blank&hairColor=Black&mouthType=Default&skinColor=DarkBrown&topType=LongHairCurly"}} 
-            style={[styles.image]}/>
-    );
+const Mother = ({ emotion }) => {
+    const baseUrl = "../../assets/avatars/mother/";
+    switch (emotion) {
+        case 1:
+            return <Image 
+                source={require(baseUrl + "1.png")}
+                style={[styles.image]} />;
+        case 2:
+            return <Image 
+                source={require(baseUrl + "2.png")}
+                style={[styles.image]} />;
+        case 3:
+            return <Image 
+                source={require(baseUrl + "3.png")}
+                style={[styles.image]} />;
+        case 4:
+            return <Image 
+                source={require(baseUrl + "4.png")}
+                style={[styles.image]} />;
+       default:
+            return <Image 
+                source={require(baseUrl + "1.png")}
+                style={[styles.image]} />;
+    }
 };
 
 const styles = StyleSheet.create({

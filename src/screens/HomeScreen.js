@@ -21,16 +21,16 @@ const HomeScreen = ({ navigation }) => {
     // Generate scenarios based on id
     return (
         <ScrollView>
-                <View style={[styles.column, styles.margin]}>
-                        <View style={styles.margin}>
-                                {makeButton("Play as mother", true)}
-                                <Mother emotion={1} />
-                        </View>
-                        <View style={styles.margin}>
-                                {makeButton("Play as daughter", false)}
-                                <Daughter emotion={1} />
-                        </View>
+            <View style={[styles.column, styles.margin]}>
+                <View style={styles.margin}>
+                    {makeButton("Play as mother", true)}
+                    <Mother emotion={1} />
                 </View>
+                <View style={styles.margin}>
+                    {makeButton("Play as daughter", false)}
+                    <Daughter emotion={1} />
+                </View>
+            </View>
         </ScrollView>
     );
 };
