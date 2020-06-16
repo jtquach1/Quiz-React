@@ -52,16 +52,16 @@ const ComicChoice = ({ scenarios }) => {
         );
     }
 
-    const renderAvatar = (speaker) => {
+    const renderAvatar = (speaker, emotion) => {
         switch (speaker) {
             case 'Daughter':
-                return <Daughter />;
+                return <Daughter emotion={emotion} />;
             case 'Mother':
-                return <Mother />;
+                return <Mother emotion={emotion} />;
             case 'Friend':
-                return <Friend />;
+                return <Friend emotion={emotion} />;
             default:
-                return <TestAvatar />;
+                return <TestAvatar emotion={emotion} />;
         }
     }
 
@@ -93,12 +93,14 @@ const ComicChoice = ({ scenarios }) => {
         return (question.background != undefined)
             // Background information, no dialogue
             ? <View style={styles.background}>
+                {renderText("Background", styles.text)}
                 {renderText(question.background, styles.text)}
                 {renderButton(question.next, "Next")}
             </View>
             // Scene text, no dialogue
             : (question.text != undefined)
             ? <View style={styles.background}>
+                {renderText("Scene text", styles.text)}
                 {renderText(question.text, styles.text)}
                 {renderButton(question.next, "Next")}
             </View>
@@ -110,7 +112,7 @@ const ComicChoice = ({ scenarios }) => {
                     </Text>
                 </View>
                 <View style={styles.rowItem}>
-                    {renderAvatar(question.speaker)}
+                    {renderAvatar(question.speaker, question.emotion)}
                 </View>
                 {renderRow(question)}
             </View>
@@ -162,6 +164,8 @@ const styles = StyleSheet.create({
     },
     rowItem: {
         flex: 1,
+        // height: 150,
+        paddingHorizontal: 20,
     },
     rowOne: {
         // flex: 1,
