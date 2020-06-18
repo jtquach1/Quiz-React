@@ -4,7 +4,6 @@ import { StyleSheet, Image } from "react-native";
 // To destructure, use { arg1, arg2, ... } format, 
 // and in parent, do <Daughter arg1=... arg2=... /> 
 const Daughter = ({ emotion }) => {
-    const baseUrl = "../../assets/avatars/daughter/";
     switch (emotion) {
         case 1:
             return <Image 
@@ -32,7 +31,7 @@ const Daughter = ({ emotion }) => {
                 style={[styles.image]} />;
         default:
             return <Image 
-                source={require(baseUrl + "/png/1.png")}
+                source={require("../../assets/avatars/daughter/png/1.png")}
                 style={[styles.image]} />;
     }
 };

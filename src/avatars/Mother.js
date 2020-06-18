@@ -2,7 +2,6 @@ import React from "react";
 import { StyleSheet, Image } from "react-native";
 
 const Mother = ({ emotion }) => {
-    const baseUrl = "../../assets/avatars/mother/";
     switch (emotion) {
         case 1:
             return <Image 
@@ -34,7 +33,7 @@ const Mother = ({ emotion }) => {
                 style={[styles.image]} />;
        default:
             return <Image 
-                source={require(baseUrl + "/png/1.png")}
+                source={require("../../assets/avatars/mother/png/1.png")}
                 style={[styles.image]} />;
     }
 };
