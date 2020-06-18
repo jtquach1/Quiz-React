@@ -19,7 +19,7 @@ const Daughter = ({ emotion }) => {
                 style={[styles.image]} />;
         case 4:
             return <Image 
-                source={require("../../assets/avatars/daughter/idle_2.gif")}
+                source={require("../../assets/avatars/daughter/idle_1.gif")}
                 style={[styles.image]} />;
         case 5:
             return <Image 
@@ -27,7 +27,7 @@ const Daughter = ({ emotion }) => {
                 style={[styles.image]} />;
         case 6:
             return <Image 
-                source={require("../../assets/avatars/daughter/idle_2.gif")}
+                source={require("../../assets/avatars/daughter/idle_1.gif")}
                 style={[styles.image]} />;
         default:
             return <Image 
@@ -39,7 +39,8 @@ const Daughter = ({ emotion }) => {
 const styles = StyleSheet.create({
     image: {
         width: 150, 
-        height: 150
+        height: 150,
+
     }
 });
 

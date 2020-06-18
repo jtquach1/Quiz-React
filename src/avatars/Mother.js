@@ -13,7 +13,7 @@ const Mother = ({ emotion }) => {
                 style={[styles.image]} />;
         case 3:
             return <Image 
-                source={require("../../assets/avatars/mother/idle_2.gif")}
+                source={require("../../assets/avatars/mother/idle_1.gif")}
                 style={[styles.image]} />;
         case 4:
             return <Image 
