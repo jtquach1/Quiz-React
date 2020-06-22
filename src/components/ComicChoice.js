@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { ScrollView, View, Text, StyleSheet, Button, ImageBackground, } from 'react-native';
+import { ScrollView, View, Text, StyleSheet, Button, } from 'react-native';
 import Daughter from "../avatars/Daughter";
 import Mother from "../avatars/Mother";
 import Friend from "../avatars/Friend";
 import TestAvatar from "../avatars/TestAvatar";
+import Video from "react-native-video";
 
 // scenarios: array populated by question objects
 const ComicChoice = ({ scenarios }) => {
@@ -90,15 +91,11 @@ const ComicChoice = ({ scenarios }) => {
     }
 
     const renderQuestion = (question) => {
-        const image = { uri: "https://images.all-free-download.com/images/graphiclarge/kitchen_decor_background_modern_design_6835820.jpg" };
-        const image_2 = { uri: "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/bfecda6c-9d92-43b7-9298-1adce731f786/d1yu2e4-f581f411-6fa7-46e6-886a-15ee8d88b27a.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwic3ViIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsImF1ZCI6WyJ1cm46c2VydmljZTpmaWxlLmRvd25sb2FkIl0sIm9iaiI6W1t7InBhdGgiOiIvZi9iZmVjZGE2Yy05ZDkyLTQzYjctOTI5OC0xYWRjZTczMWY3ODYvZDF5dTJlNC1mNTgxZjQxMS02ZmE3LTQ2ZTYtODg2YS0xNWVlOGQ4OGIyN2EuanBnIn1dXX0.knCqlyLquI2frFxqwj_elWH0s0YNWVgi7UmYByMOWBs" };
-
         return (question.background != undefined)
             // Background information, no dialogue
             ? <View style={styles.background}>
                 {renderText("Background", styles.text)}
                 {renderText(question.background, styles.text)}
-                <ImageBackground source={image_2} style={styles.image} />
                 {renderButton(question.next, "Next")}
             </View>
             // Scene text, no dialogue
@@ -106,22 +103,30 @@ const ComicChoice = ({ scenarios }) => {
             ? <View style={styles.background}>
                 {renderText("Scene text", styles.text)}
                 {renderText(question.text, styles.text)}
-                <ImageBackground source={image_2} style={styles.image} />
                 {renderButton(question.next, "Next")}
             </View>
             // Render dialogue, avatar, buttons
-            : <View style={styles.column}>
+            : (question.video == undefined)
+            ? <View style={styles.column}>
                 <View style={[styles.rowItem, styles.rowOne]}>
                     <Text style={styles.text}>
                         {question.speaker}: {question.dialogue}
                     </Text>
                 </View>
                 <View style={styles.rowItem}>
-                    <ImageBackground source={image_2} style={styles.image}>
-                        {renderAvatar(question.speaker, question.emotion)}
-                    </ImageBackground>
+                    {renderAvatar(question.speaker, question.emotion)}
                 </View>
                 {renderRow(question)}
+            </View>
+            // Render video and next button
+            : <View>
+                {console.log("question.video", question.video)}
+                <Video 
+                    source={{uri: question.video}}
+                    resizeMode="cover"
+                    style={StyleSheet.absoluteFill}
+                />
+                {renderButton(question.next, "Next")}
             </View>
     }
 
