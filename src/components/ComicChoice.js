@@ -4,7 +4,7 @@ import Daughter from "../avatars/Daughter";
 import Mother from "../avatars/Mother";
 import Friend from "../avatars/Friend";
 import TestAvatar from "../avatars/TestAvatar";
-import Video from "react-native-video";
+import { Video } from "expo-av";
 
 // scenarios: array populated by question objects
 const ComicChoice = ({ scenarios }) => {
@@ -105,8 +105,8 @@ const ComicChoice = ({ scenarios }) => {
                 {renderText(question.text, styles.text)}
                 {renderButton(question.next, "Next")}
             </View>
-            // Render dialogue, avatar, buttons
-            : (question.video == undefined)
+            // Render dialogue, avatar, and choices or next button
+            : (question.speaker != undefined)
             ? <View style={styles.column}>
                 <View style={[styles.rowItem, styles.rowOne]}>
                     <Text style={styles.text}>
@@ -119,16 +119,31 @@ const ComicChoice = ({ scenarios }) => {
                 {renderRow(question)}
             </View>
             // Render video and next button
-            : <View>
+            : (question.video != undefined) 
+            ? <View>
+                {/* Debugging to get uri of video */}
                 {console.log("question.video", question.video)}
                 <Video 
                     source={{uri: question.video}}
+                    rate={1.0}
+                    volume={1.0}
+                    isMuted={false}
                     resizeMode="cover"
-                    style={StyleSheet.absoluteFill}
+                    shouldPlay
+                    style={styles.video}
                 />
                 {renderButton(question.next, "Next")}
             </View>
-    }
+            // Render title, choices
+            : <View style={styles.column}>
+                <View style={[styles.rowItem, styles.rowOne]}>
+                    <Text style={styles.text}>
+                        {question.title}
+                    </Text>
+                </View>
+                {renderRow(question)}
+            </View>
+        }
 
     const renderScreen = () => {
         return (g == true)
@@ -190,6 +205,11 @@ const styles = StyleSheet.create({
         resizeMode: "cover",
         justifyContent: "center"
     },
+    video: { 
+        width: 300, 
+        height: 100, 
+    },
+
 });
 
 export default ComicChoice;

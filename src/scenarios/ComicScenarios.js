@@ -834,7 +834,7 @@ export const D6_1 = [
         next: 8,
     },
     {
-        text: "What would be the daughter's reaction?",
+        title: "What would be the daughter's reaction?",
         choices: ["Oh, okay. So, my friend might have an STI. How does one get an STI? Will she be okay? Do I have an STI now after hugging her because she was crying?", "Okay, mom. But how can I help my friend?", "I guess I should focus on my studies and forget about her problems. It is almost the end of the year and I need to be ready for exams."],
         c1: 9,
         c2: 39,
@@ -847,7 +847,7 @@ export const D6_1 = [
         score: +5,
     },
     {
-        text: "What would be the daughter's reaction?",
+        title: "What would be the daughter's reaction?",
         choices: ["It comes from sex?", "I don't know"],
         c1: 11,
         c2: 12,
