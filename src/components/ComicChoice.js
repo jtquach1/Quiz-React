@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ScrollView, View, Text, StyleSheet, Button, } from 'react-native';
+import { ScrollView, View, Text, StyleSheet, Button, touchableOpacity} from 'react-native';
 import Daughter from "../avatars/Daughter";
 import Mother from "../avatars/Mother";
 import Friend from "../avatars/Friend";
@@ -120,9 +120,10 @@ const ComicChoice = ({ scenarios }) => {
             </View>
             // Render video and next button
             : (question.video != undefined) 
-            ? <View>
+            ? <View style={styles.column}>
                 {/* Debugging to get uri of video */}
                 {console.log("question.video", question.video)}
+
                 <Video 
                     source={{uri: question.video}}
                     rate={1.0}
@@ -137,7 +138,7 @@ const ComicChoice = ({ scenarios }) => {
             // Render title, choices
             : <View style={styles.column}>
                 <View style={[styles.rowItem, styles.rowOne]}>
-                    <Text style={styles.text}>
+                    <Text style={styles.title}>
                         {question.title}
                     </Text>
                 </View>
@@ -156,7 +157,8 @@ const ComicChoice = ({ scenarios }) => {
             </ScrollView>
             // Still have more questions to go through
             : <ScrollView>
-                {renderScore(s)}
+                {/* Don't render score during game choices */}
+                {/* {renderScore(s)} */}
                 {renderQuestion(q)}
             </ScrollView>;
     }
@@ -175,6 +177,11 @@ const styles = StyleSheet.create({
     text: {
         fontSize: 20,
         marginBottom: 20,
+    },
+    title: {
+        fontSize: 20,
+        marginVertical: 20,
+        textAlign: "center",
     },
     scoreStyle: {
         fontSize: 25
@@ -206,8 +213,10 @@ const styles = StyleSheet.create({
         justifyContent: "center"
     },
     video: { 
-        width: 300, 
-        height: 100, 
+        width: 288, 
+        height: 512, 
+        flex: 1,
+        justifyContent: "center",
     },
 
 });
