@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ScrollView, View, Text, StyleSheet, Button, touchableOpacity} from 'react-native';
+import { ScrollView, View, Text, StyleSheet, Button, touchableOpacity } from 'react-native';
 import Daughter from "../avatars/Daughter";
 import Mother from "../avatars/Mother";
 import Friend from "../avatars/Friend";
@@ -39,10 +39,10 @@ const ComicChoice = ({ scenarios }) => {
         // are c1, c2, c3, c4 valid indices? 
         return (scenarios[index] == undefined || text == undefined)
             ? null
-            : <Button 
+            : <Button
                 style={styles.margin}
                 title={text}
-                onPress={() => {update(index)}} />;
+                onPress={() => { update(index) }} />;
     }
 
     const renderScore = (score) => {
@@ -70,24 +70,24 @@ const ComicChoice = ({ scenarios }) => {
         return (question.gameOver == true)
             // Final question -> results
             ? <View style={styles.rowItem}>
-                <Button 
+                <Button
                     style={styles.margin}
                     title={"See results"}
-                    onPress={() => {update(-1)}} 
+                    onPress={() => { update(-1) }}
                 />
             </View>
             // Dialogue with choices -> options
             : (question.choices != undefined)
-            ? <View style={styles.rowItem}>
-                {renderButton(question.c1, question.choices[0])}
-                {renderButton(question.c2, question.choices[1])}
-                {renderButton(question.c3, question.choices[2])}
-                {renderButton(question.c4, question.choices[3])}
-            </View>
-            // Dialogue without choices -> next
-            : <View style={styles.rowItem}>
-                {renderButton(question.next, "Next")}
-            </View>;
+                ? <View style={styles.rowItem}>
+                    {renderButton(question.c1, question.choices[0])}
+                    {renderButton(question.c2, question.choices[1])}
+                    {renderButton(question.c3, question.choices[2])}
+                    {renderButton(question.c4, question.choices[3])}
+                </View>
+                // Dialogue without choices -> next
+                : <View style={styles.rowItem}>
+                    {renderButton(question.next, "Next")}
+                </View>;
     }
 
     const renderQuestion = (question) => {
@@ -100,51 +100,49 @@ const ComicChoice = ({ scenarios }) => {
             </View>
             // Scene text, no dialogue
             : (question.text != undefined)
-            ? <View style={styles.background}>
-                {renderText("Scene text", styles.text)}
-                {renderText(question.text, styles.text)}
-                {renderButton(question.next, "Next")}
-            </View>
-            // Render dialogue, avatar, and choices or next button
-            : (question.speaker != undefined)
-            ? <View style={styles.column}>
-                <View style={[styles.rowItem, styles.rowOne]}>
-                    <Text style={styles.text}>
-                        {question.speaker}: {question.dialogue}
-                    </Text>
+                ? <View style={styles.background}>
+                    {renderText("Scene text", styles.text)}
+                    {renderText(question.text, styles.text)}
+                    {renderButton(question.next, "Next")}
                 </View>
-                <View style={styles.rowItem}>
-                    {renderAvatar(question.speaker, question.emotion)}
-                </View>
-                {renderRow(question)}
-            </View>
-            // Render video and next button
-            : (question.video != undefined) 
-            ? <View style={styles.column}>
-                {/* Debugging to get uri of video */}
-                {console.log("question.video", question.video)}
+                // Render dialogue, avatar, and choices or next button
+                : (question.speaker != undefined)
+                    ? <View style={styles.column}>
+                        <View style={[styles.rowItem, styles.rowOne]}>
+                            <Text style={styles.text}>
+                                {question.speaker}: {question.dialogue}
+                            </Text>
+                        </View>
+                        <View style={styles.rowItem}>
+                            {renderAvatar(question.speaker, question.emotion)}
+                        </View>
+                        {renderRow(question)}
+                    </View>
+                    // Render video and next button
+                    : (question.video != undefined)
+                        ? <View style={styles.column}>
+                            {/* Debugging to get uri of video */}
+                            {console.log("question.video", question.video)}
 
-                <Video 
-                    source={{uri: question.video}}
-                    rate={1.0}
-                    volume={1.0}
-                    isMuted={false}
-                    resizeMode="cover"
-                    shouldPlay
-                    style={styles.video}
-                />
-                {renderButton(question.next, "Next")}
-            </View>
-            // Render title, choices
-            : <View style={styles.column}>
-                <View style={[styles.rowItem, styles.rowOne]}>
-                    <Text style={styles.title}>
-                        {question.title}
-                    </Text>
-                </View>
-                {renderRow(question)}
-            </View>
-        }
+                            <Video
+                                source={{ uri: question.video }}
+                                rate={1.0}
+                                volume={1.0}
+                                isMuted={false}
+                                resizeMode="cover"
+                                shouldPlay
+                                style={styles.video}
+                            />
+                            {renderButton(question.next, "Next")}
+                        </View>
+                        // Render title, choices
+                        : <View style={styles.column}>
+                            <View style={[styles.rowItem, styles.rowOne]}>
+                                {renderText(question.title, styles.title)}
+                            </View>
+                            {renderRow(question)}
+                        </View>
+    }
 
     const renderScreen = () => {
         return (g == true)
@@ -185,12 +183,12 @@ const styles = StyleSheet.create({
     },
     scoreStyle: {
         fontSize: 25
-    }, 
+    },
     padding: {
         padding: 20,
     },
     margin: {
-        marginVertical: 20, 
+        marginVertical: 20,
     },
     column: {
         alignItems: 'center',
@@ -204,7 +202,7 @@ const styles = StyleSheet.create({
     rowOne: {
         // flex: 1,
         flexDirection: 'row',
-        flexWrap: 'wrap',    
+        flexWrap: 'wrap',
     },
     image: {
         padding: 80,
@@ -212,9 +210,9 @@ const styles = StyleSheet.create({
         resizeMode: "cover",
         justifyContent: "center"
     },
-    video: { 
-        width: 288, 
-        height: 512, 
+    video: {
+        width: 288,
+        height: 512,
         flex: 1,
         justifyContent: "center",
     },

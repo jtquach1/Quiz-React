@@ -13,7 +13,7 @@ const ComicScreen = ({ navigation }) => {
     const renderMother = (index) => {
         switch (index) {
             case 1:
-                return <ComicChoice scenarios={ scenarios.M6 } />;
+                return <ComicChoice scenarios={scenarios.M6} />;
             // For error handling
             default:
                 return <View><Text>Scenario not rendered</Text></View>
@@ -22,13 +22,14 @@ const ComicScreen = ({ navigation }) => {
 
     const renderDaughter = (index) => {
         switch (index) {
+            // Test out video
             case 1:
-                return <ComicChoice scenarios={ scenarios.D6_1 } />;
+                return <ComicChoice scenarios={scenarios.D6_1} />;
             // For testing scenarios
             case 2:
-                return <ComicChoice scenarios={ scenarios.test1 } />;
+                return <ComicChoice scenarios={scenarios.test1} />;
             case 3:
-                return <ComicChoice scenarios={ scenarios.test2 } />;
+                return <ComicChoice scenarios={scenarios.test2} />;
 
             // For error handling
             default:

@@ -466,7 +466,7 @@ export const M6 = [
         emotion: 1,
         dialogue: "Oh, hey mom. It was good.",
         next: 17,
-    },    {
+    }, {
         speaker: "Mother",
         emotion: 1,
         dialogue: "How were your classes? How’s your friend Jennie doing?",
@@ -477,7 +477,7 @@ export const M6 = [
         emotion: 1,
         dialogue: "Classes were good. I got A on biology. She's doing well.",
         next: 19,
-    },    {
+    }, {
         speaker: "Mother",
         emotion: 7,
         dialogue: "...Can we talk, sweetie? I want to tell you about something.",
@@ -488,7 +488,7 @@ export const M6 = [
         emotion: 6,
         dialogue: "Oh! Okay. Anything wrong?",
         next: 21,
-    },    {
+    }, {
         speaker: "Mother",
         emotion: 5,
         dialogue: "Sweetie, I overheard you the other day talking with Jennie about her problem.",
