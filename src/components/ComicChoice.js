@@ -4,7 +4,7 @@ import Daughter from "../avatars/Daughter";
 import Mother from "../avatars/Mother";
 import Friend from "../avatars/Friend";
 import TestAvatar from "../avatars/TestAvatar";
-import { Video } from "expo-av";
+import { Video, Audio } from "expo-av";
 import { AppLoading } from "expo";
 import {
   useFonts,
