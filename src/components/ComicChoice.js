@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ScrollView, View, Text, StyleSheet, Button, TouchableOpacity } from 'react-native';
+import { ScrollView, View, Text, StyleSheet, Button, TouchableOpacity, ImageBackground } from 'react-native';
 import Daughter from "../avatars/Daughter";
 import Mother from "../avatars/Mother";
 import Friend from "../avatars/Friend";
@@ -7,8 +7,8 @@ import TestAvatar from "../avatars/TestAvatar";
 import { Video } from "expo-av";
 import { AppLoading } from "expo";
 import {
-    useFonts,
-    Arvo_700Bold
+  useFonts,
+  Arvo_700Bold
 } from "@expo-google-fonts/arvo";
 import { LuckiestGuy_400Regular } from "@expo-google-fonts/luckiest-guy";
 
@@ -18,235 +18,243 @@ const FINAL = -1;
 // scenarios: array populated by question objects
 const ComicChoice = ({ scenarios }) => {
 
-    let [fontsLoaded] = useFonts({
-        Arvo_700Bold,
-        LuckiestGuy_400Regular,
-    });
+  // Hook to use imported fonts
+  let [fontsLoaded] = useFonts({
+    Arvo_700Bold,
+    LuckiestGuy_400Regular,
+  });
 
-    // Current question, score, gameOver status
-    const [q, setQuestion] = useState(scenarios[10]);
-    const [s, setScore] = useState(0);
-    const [g, setGameOver] = useState(false);
+  // Current question, score, gameOver status
+  const [q, setQuestion] = useState(scenarios[8]);
+  const [s, setScore] = useState(0);
+  const [g, setGameOver] = useState(false);
 
-    // Update the question listing based on the current question and the score
-    const update = (index) => {
+  // Update the question listing based on the current question and the score
+  const update = (index) => {
 
-        // Update overall score if question score is defined
-        q.score != undefined ? setScore(s + q.score) : null;
+    // Update overall score if question score is defined
+    q.score != undefined ? setScore(s + q.score) : null;
 
-        // Reached final question, do not update scenario
-        q.gameOver ? setGameOver(true) : null;
+    // Reached final question, do not update scenario
+    q.gameOver ? setGameOver(true) : null;
 
-        // Update question from scenarios
-        setQuestion(scenarios[index]);
-        return;
+    // Update question from scenarios
+    setQuestion(scenarios[index]);
+    return;
+  }
+
+  const renderText = (prop, style) => {
+    // if prop was defined, render it
+    return (prop != undefined)
+      ? <Text style={style}>{prop}</Text>
+      : null;
+  }
+
+  // Basic blue button
+  const renderButton = (index, text) => {
+    // are c1, c2, c3, c4 valid indices? 
+    return ((scenarios[index] == undefined && index != FINAL) || text == undefined)
+      ? null
+      : <Button
+        title={text}
+        onPress={() => { update(index) }} />;
+  }
+
+  // Stylized button for question choices
+  const renderButton2 = (index, text, option) => {
+    // are c1, c2, c3, c4 valid indices? 
+    return ((scenarios[index] == undefined && index != FINAL) || text == undefined)
+      ? null
+      : <View style={styles.rowItem}>
+        <TouchableOpacity
+          style={[styles.button]}
+          onPress={() => { update(index) }}>
+          <Text style={styles.buttonText}>Option {option}</Text>
+        </TouchableOpacity>
+        <Text style={styles.displayText}>{text}</Text>
+      </View>
+  }
+
+  const renderScore = (score) => {
+    return (
+      <Text style={[styles.scoreStyle]}>
+        Score: {score}
+      </Text>
+    );
+  }
+
+  const renderAvatar = (speaker, emotion) => {
+    switch (speaker) {
+      case 'Daughter':
+        return <Daughter emotion={emotion} />;
+      case 'Mother':
+        return <Mother emotion={emotion} />;
+      case 'Friend':
+        return <Friend emotion={emotion} />;
+      default:
+        return <TestAvatar emotion={emotion} />;
     }
+  }
 
-    const renderText = (prop, style) => {
-        // if prop was defined, render it
-        return (prop != undefined)
-            ? <Text style={style}>{prop}</Text>
-            : null;
-    }
+  const renderRow = (question) => {
+    return (question.gameOver == true)
+      // Final question -> results
+      ? <View style={styles.rowItem}>
+        {renderButton(FINAL, "See results")}
+      </View>
+      // Dialogue with choices -> options
+      : (question.choices != undefined)
+        ? <View style={styles.rowItem}>
+          {renderButton2(question.c1, question.choices[0], 1)}
+          {renderButton2(question.c2, question.choices[1], 2)}
+          {renderButton2(question.c3, question.choices[2], 3)}
+          {renderButton2(question.c4, question.choices[3], 4)}
+        </View>
+        // Dialogue without choices -> next
+        : <View style={styles.rowItem}>
+          {renderButton(question.next, "Next")}
+        </View>;
+  }
 
-    const renderButton = (index, text) => {
-        // are c1, c2, c3, c4 valid indices? 
-        return ((scenarios[index] == undefined && index != FINAL) || text == undefined)
-            ? null
-            : <Button
-                title={text}
-                onPress={() => { update(index) }} />;
-    }
-
-    const renderButton2 = (index, text) => {
-        // are c1, c2, c3, c4 valid indices? 
-        return ((scenarios[index] == undefined && index != FINAL) || text == undefined)
-            ? null
-            : <TouchableOpacity
-                style={styles.button}
-                onPress={() => { update(index) }}>
-                <Text style={styles.buttonText}>{text}</Text>
-            </TouchableOpacity>;
-    }
-
-    const renderScore = (score) => {
-        return (
-            <Text style={[styles.scoreStyle, styles.margin]}>
-                Score: {score}
-            </Text>
-        );
-    }
-
-    const renderAvatar = (speaker, emotion) => {
-        switch (speaker) {
-            case 'Daughter':
-                return <Daughter emotion={emotion} />;
-            case 'Mother':
-                return <Mother emotion={emotion} />;
-            case 'Friend':
-                return <Friend emotion={emotion} />;
-            default:
-                return <TestAvatar emotion={emotion} />;
-        }
-    }
-
-    const renderRow = (question) => {
-        return (question.gameOver == true)
-            // Final question -> results
-            ? <View style={styles.rowItem}>
-                {renderButton(FINAL, "See results")}
+  const renderQuestion = (question) => {
+    return (question.background != undefined)
+      // Background information, no dialogue
+      ? <View style={styles.background}>
+        {renderText("Background", styles.text)}
+        {renderText(question.background, styles.text)}
+        {renderRow(question)}
+      </View>
+      // Scene text, no dialogue
+      : (question.text != undefined)
+        ? <View style={styles.background}>
+          {renderText("Scene text", styles.text)}
+          {renderText(question.text, styles.text)}
+          {renderRow(question)}
+        </View>
+        // Render dialogue, avatar, and choices or next button
+        : (question.speaker != undefined)
+          ? <View style={styles.column}>
+            <View style={[styles.rowItem, styles.rowOne]}>
+              <Text style={styles.text}>
+                {question.speaker}: {question.dialogue}
+              </Text>
             </View>
-            // Dialogue with choices -> options
-            : (question.choices != undefined)
-                ? <View style={styles.rowItem}>
-                    {renderButton2(question.c1, question.choices[0])}
-                    {renderButton2(question.c2, question.choices[1])}
-                    {renderButton2(question.c3, question.choices[2])}
-                    {renderButton2(question.c4, question.choices[3])}
-                </View>
-                // Dialogue without choices -> next
-                : <View style={styles.rowItem}>
-                    {renderButton(question.next, "Next")}
-                </View>;
-    }
-
-    const renderQuestion = (question) => {
-        return (question.background != undefined)
-            // Background information, no dialogue
-            ? <View style={styles.background}>
-                {renderText("Background", styles.text)}
-                {renderText(question.background, styles.text)}
-                {renderButton(question.next, "Next")}
+            <View style={styles.rowItem}>
+              {renderAvatar(question.speaker, question.emotion)}
             </View>
-            // Scene text, no dialogue
-            : (question.text != undefined)
-                ? <View style={styles.background}>
-                    {renderText("Scene text", styles.text)}
-                    {renderText(question.text, styles.text)}
-                    {renderButton(question.next, "Next")}
-                </View>
-                // Render dialogue, avatar, and choices or next button
-                : (question.speaker != undefined)
-                    ? <View style={styles.column}>
-                        <View style={[styles.rowItem, styles.rowOne]}>
-                            <Text style={styles.text}>
-                                {question.speaker}: {question.dialogue}
-                            </Text>
-                        </View>
-                        <View style={styles.rowItem}>
-                            {renderAvatar(question.speaker, question.emotion)}
-                        </View>
-                        {renderRow(question)}
-                    </View>
-                    // Render video and next button
-                    : (question.video != undefined)
-                        ? <View style={styles.column}>
-                            {/* Debugging to get uri of video */}
-                            {console.log("question.video", question.video)}
+            {renderRow(question)}
+          </View>
+          // Render video and next button
+          : (question.video != undefined)
+            ? <View style={styles.column}>
+              <Video
+                source={{ uri: question.video }}
+                rate={1.0}
+                volume={1.0}
+                isMuted={false}
+                resizeMode="cover"
+                shouldPlay
+                style={styles.video} />
+              {renderRow(question)}
+            </View>
+            // Render title, choices
+            : <ImageBackground
+              style={[styles.column, { width: "100%", height: "100%" }]}
+              source={{ uri: question.bg }}>
+              <View style={[styles.rowItem, styles.rowOne]}>
+                {renderText(question.title, styles.titleText)}
+              </View>
+              {renderRow(question)}
+            </ImageBackground>
+  }
 
-                            <Video
-                                source={{ uri: question.video }}
-                                rate={1.0}
-                                volume={1.0}
-                                isMuted={false}
-                                resizeMode="cover"
-                                shouldPlay
-                                style={styles.video}
-                            />
-                            {renderButton(question.next, "Next")}
-                        </View>
-                        // Render title, choices
-                        : <View style={styles.column}>
-                            <View style={[styles.rowItem, styles.rowOne]}>
-                                {renderText(question.title, styles.title)}
-                            </View>
-                            {renderRow(question)}
-                        </View>
-    }
+  const renderScreen = () => {
+    return (g == true)
+      // Reached game over
+      ? <ScrollView>
+        {renderScore(s)}
+        <Text style={styles.text}>
+          You have reached the end of the game! Play again?
+        </Text>
+      </ScrollView>
+      // Still have more questions to go through
+      : <ScrollView>
+        {/* Don't render score during game choices */}
+        {/* {renderScore(s)} */}
+        {renderQuestion(q)}
+      </ScrollView>;
+  }
 
-    const renderScreen = () => {
-        return (g == true)
-            // Reached game over
-            ? <ScrollView>
-                {renderScore(s)}
-                <Text style={[styles.text, styles.margin]}>
-                    You have reached the end of the game! Play again?
-                </Text>
-            </ScrollView>
-            // Still have more questions to go through
-            : <ScrollView>
-                {/* Don't render score during game choices */}
-                {/* {renderScore(s)} */}
-                {renderQuestion(q)}
-            </ScrollView>;
-    }
-
-    return renderScreen();
+  return renderScreen();
 };
 
 const styles = StyleSheet.create({
-    background: {
-        borderWidth: 5,
-        padding: 20,
-        fontSize: 30,
-        fontStyle: 'italic',
-        flex: 1,
-    },
-    text: {
-        fontSize: 20,
-        marginBottom: 20,
-    },
-    title: {
-        fontSize: 20,
-        marginVertical: 20,
-        textAlign: "center",
-    },
-    scoreStyle: {
-        fontSize: 25
-    },
-    padding: {
-        padding: 20,
-    },
-    margin: {
-        marginVertical: 20,
-    },
-    column: {
-        alignItems: 'center',
-        flexDirection: 'column',
-    },
-    rowItem: {
-        flex: 1,
-        // height: 150,
-        paddingHorizontal: 20,
-    },
-    rowOne: {
-        // flex: 1,
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-    },
-    image: {
-        padding: 80,
-        flex: 1,
-        resizeMode: "cover",
-        justifyContent: "center"
-    },
-    video: {
-        width: 288,
-        height: 512,
-        flex: 1,
-        justifyContent: "center",
-    },
-    button: {
-        marginVertical: 20,
-        backgroundColor: "rgb(238,84,84)",
-        padding: 20,
-        borderRadius: 40,
-    },
-    buttonText: {
-        textAlign: "center",
-        color: "white",
-        fontFamily: "LuckiestGuy_400Regular",
-    }
+  background: {
+    borderWidth: 5,
+    padding: 20,
+    fontSize: 30,
+    fontStyle: 'italic',
+    flex: 1,
+  },
+  text: {
+    fontSize: 20,
+    marginBottom: 20,
+  },
+  scoreStyle: {
+    fontSize: 25,
+    marginVertical: 20,
+  },
+  column: {
+    alignItems: 'center',
+    flexDirection: 'column',
+  },
+  rowItem: {
+    flex: 1,
+    paddingHorizontal: 20,
+    marginBottom: 10,
+  },
+  rowOne: {
+    // flex: 1,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+  },
+  image: {
+    padding: 80,
+    flex: 1,
+    resizeMode: "cover",
+    justifyContent: "center"
+  },
+  video: {
+    width: 288,
+    height: 512,
+    flex: 1,
+    justifyContent: "center",
+  },
+  titleText: {
+    fontSize: 25,
+    marginTop: 10,
+    textAlign: "center",
+    color: "#2D2D2D",
+    fontFamily: "LuckiestGuy_400Regular",
+  },
+  button: {
+    backgroundColor: "rgb(238,84,84)",
+    padding: 20,
+    borderRadius: 40,
+  },
+  buttonText: {
+    textAlign: "center",
+    color: "white",
+    fontFamily: "LuckiestGuy_400Regular",
+    fontSize: 20,
+  },
+  displayText: {
+    textAlign: "center",
+    color: "#2D2D2D",
+    fontFamily: "Arvo_700Bold",
+    fontSize: 15,
+    marginVertical: 5,
+  },
 });
 
 export default ComicChoice;
