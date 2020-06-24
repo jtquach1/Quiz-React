@@ -836,7 +836,7 @@ export const D6_1 = [
     {
         title: "What would be the daughter's reaction?",
         choices: ["Oh, okay. So, my friend might have an STI. How does one get an STI? Will she be okay? Do I have an STI now after hugging her because she was crying?", "Okay, mom. But how can I help my friend?", "I guess I should focus on my studies and forget about her problems. It is almost the end of the year and I need to be ready for exams."],
-        background: "https://media.gettyimages.com/photos/luxury-white-kitchen-and-dining-room-in-a-large-beautiful-house-picture-id1165365520?b=1&k=6&m=1165365520&s=612x612&w=0&h=rSsMLhzat2WU96eFBIjsjSFwBRo12Dhr7-UykSq6PvM=",
+        background: "https://raw.githubusercontent.com/jtquach1/Quiz-React/master/assets/backgrounds/gettyimages-1165365520-612x612.jpg",
         c1: 9,
         c2: 39,
         c3: 44,
@@ -850,7 +850,7 @@ export const D6_1 = [
     {
         title: "What would be the daughter's reaction?",
         choices: ["It comes from sex?", "I don't know"],
-        background: "https://media.gettyimages.com/photos/luxury-white-kitchen-and-dining-room-in-a-large-beautiful-house-picture-id1165365520?b=1&k=6&m=1165365520&s=612x612&w=0&h=rSsMLhzat2WU96eFBIjsjSFwBRo12Dhr7-UykSq6PvM=",
+        background: "https://raw.githubusercontent.com/jtquach1/Quiz-React/master/assets/backgrounds/gettyimages-1165365520-612x612.jpg"
         c1: 11,
         c2: 12,
     },
