@@ -12,20 +12,20 @@ import {
 } from "@expo-google-fonts/arvo";
 import { LuckiestGuy_400Regular } from "@expo-google-fonts/luckiest-guy";
 
-// use index == -1 for button that leads to results page
-const FINAL = -1;
-
 // scenarios: array populated by question objects
 const ComicChoice = ({ scenarios }) => {
 
+  // use index == -1 for button that leads to results page
+  const FINAL = -1;
+
   // Hook to use imported fonts
-  let [fontsLoaded] = useFonts({
+  const [fontsLoaded] = useFonts({
     Arvo_700Bold,
     LuckiestGuy_400Regular,
   });
 
   // Current question, score, gameOver status
-  const [q, setQuestion] = useState(scenarios[8]);
+  const [q, setQuestion] = useState(scenarios[0]);
   const [s, setScore] = useState(0);
   const [g, setGameOver] = useState(false);
 
@@ -52,7 +52,11 @@ const ComicChoice = ({ scenarios }) => {
 
   // Basic blue button
   const renderButton = (index, text) => {
-    // are c1, c2, c3, c4 valid indices? 
+    /* 
+    * Are c1, c2, c3, c4 valid indices? 
+    * Does the button lead to the results screen?
+    * Is there no text at the given index in the scenario?
+    */
     return ((scenarios[index] == undefined && index != FINAL) || text == undefined)
       ? null
       : <Button
@@ -62,7 +66,6 @@ const ComicChoice = ({ scenarios }) => {
 
   // Stylized button for question choices
   const renderButton2 = (index, text, option) => {
-    // are c1, c2, c3, c4 valid indices? 
     return ((scenarios[index] == undefined && index != FINAL) || text == undefined)
       ? null
       : <View style={styles.rowItem}>
@@ -173,14 +176,13 @@ const ComicChoice = ({ scenarios }) => {
       // Reached game over
       ? <ScrollView>
         {renderScore(s)}
-        <Text style={styles.text}>
-          You have reached the end of the game! Play again?
-        </Text>
+        {renderText("You have reached the end of the game! Play again?", styles.text)}
       </ScrollView>
-      // Still have more questions to go through
+      /* 
+      * Still have more questions to go through. 
+      * Don't render score during game choices 
+      */
       : <ScrollView>
-        {/* Don't render score during game choices */}
-        {/* {renderScore(s)} */}
         {renderQuestion(q)}
       </ScrollView>;
   }
