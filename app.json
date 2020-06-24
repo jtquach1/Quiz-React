@@ -21,10 +21,16 @@
     "assetBundlePatterns": [
       "**/*"
     ],
-    "ios": {
-      "supportsTablet": true
-    },
     "description": "Test out app to play as mother or daughter on chlamydia scenario",
-    "githubUrl": "https://github.com/jtquach1/Quiz-React"
+    "githubUrl": "https://github.com/jtquach1/Quiz-React",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.hillmanteam.quizreact",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "package": "com.hillmanteam.quizreact",
+      "versionCode": 1
+    }
   }
 }

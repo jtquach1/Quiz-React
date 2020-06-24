@@ -1,16 +1,30 @@
 import React, { useState } from 'react';
-import { ScrollView, View, Text, StyleSheet, Button, touchableOpacity } from 'react-native';
+import { ScrollView, View, Text, StyleSheet, Button, TouchableOpacity } from 'react-native';
 import Daughter from "../avatars/Daughter";
 import Mother from "../avatars/Mother";
 import Friend from "../avatars/Friend";
 import TestAvatar from "../avatars/TestAvatar";
 import { Video } from "expo-av";
+import { AppLoading } from "expo";
+import {
+    useFonts,
+    Arvo_700Bold
+} from "@expo-google-fonts/arvo";
+import { LuckiestGuy_400Regular } from "@expo-google-fonts/luckiest-guy";
+
+// use index == -1 for button that leads to results page
+const FINAL = -1;
 
 // scenarios: array populated by question objects
 const ComicChoice = ({ scenarios }) => {
 
+    let [fontsLoaded] = useFonts({
+        Arvo_700Bold,
+        LuckiestGuy_400Regular,
+    });
+
     // Current question, score, gameOver status
-    const [q, setQuestion] = useState(scenarios[0]);
+    const [q, setQuestion] = useState(scenarios[10]);
     const [s, setScore] = useState(0);
     const [g, setGameOver] = useState(false);
 
@@ -37,12 +51,22 @@ const ComicChoice = ({ scenarios }) => {
 
     const renderButton = (index, text) => {
         // are c1, c2, c3, c4 valid indices? 
-        return (scenarios[index] == undefined || text == undefined)
+        return ((scenarios[index] == undefined && index != FINAL) || text == undefined)
             ? null
             : <Button
-                style={styles.margin}
                 title={text}
                 onPress={() => { update(index) }} />;
+    }
+
+    const renderButton2 = (index, text) => {
+        // are c1, c2, c3, c4 valid indices? 
+        return ((scenarios[index] == undefined && index != FINAL) || text == undefined)
+            ? null
+            : <TouchableOpacity
+                style={styles.button}
+                onPress={() => { update(index) }}>
+                <Text style={styles.buttonText}>{text}</Text>
+            </TouchableOpacity>;
     }
 
     const renderScore = (score) => {
@@ -70,19 +94,15 @@ const ComicChoice = ({ scenarios }) => {
         return (question.gameOver == true)
             // Final question -> results
             ? <View style={styles.rowItem}>
-                <Button
-                    style={styles.margin}
-                    title={"See results"}
-                    onPress={() => { update(-1) }}
-                />
+                {renderButton(FINAL, "See results")}
             </View>
             // Dialogue with choices -> options
             : (question.choices != undefined)
                 ? <View style={styles.rowItem}>
-                    {renderButton(question.c1, question.choices[0])}
-                    {renderButton(question.c2, question.choices[1])}
-                    {renderButton(question.c3, question.choices[2])}
-                    {renderButton(question.c4, question.choices[3])}
+                    {renderButton2(question.c1, question.choices[0])}
+                    {renderButton2(question.c2, question.choices[1])}
+                    {renderButton2(question.c3, question.choices[2])}
+                    {renderButton2(question.c4, question.choices[3])}
                 </View>
                 // Dialogue without choices -> next
                 : <View style={styles.rowItem}>
@@ -216,7 +236,17 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
     },
-
+    button: {
+        marginVertical: 20,
+        backgroundColor: "rgb(238,84,84)",
+        padding: 20,
+        borderRadius: 40,
+    },
+    buttonText: {
+        textAlign: "center",
+        color: "white",
+        fontFamily: "LuckiestGuy_400Regular",
+    }
 });
 
 export default ComicChoice;
