@@ -749,56 +749,6 @@ export const M6 = [
   },
 ];
 
-export const test1 = [
-  // Question 0
-  {
-    speaker: "Friend",
-    dialogue: "Hi, how are you?",
-    choices: ["I'm good", "Go away!"],
-    c1: 1,
-    c2: 2,
-  },
-  // Question 1
-  {
-    speaker: "Daughter",
-    dialogue: "I'm good. Let's hang out next time.",
-    gameOver: true,
-    score: +5,
-  },
-  // Question 2
-  {
-    speaker: "Daughter",
-    dialogue: "Don't talk to me! Go away!",
-    gameOver: true,
-    score: -5,
-  }
-];
-
-export const test2 = [
-  // Question 0
-  {
-    speaker: "Friend",
-    dialogue: "About last time we talked...",
-    choices: ["Let's hang out", "Can't be friends"],
-    c1: 1,
-    c2: 2,
-  },
-  // Question 1
-  {
-    speaker: "Daughter",
-    dialogue: "Hey, let's hang out!",
-    gameOver: true,
-    score: +5,
-  },
-  // Question 2
-  {
-    speaker: "Daughter",
-    dialogue: "I don't know if I want to be your friend...",
-    gameOver: true,
-    score: -5,
-  }
-];
-
 // edited to use videos
 export const D6_1 = [
   {
