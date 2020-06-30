@@ -379,7 +379,7 @@ export const D6_1 = [
   },
   {
     title: "What would be the daughter's reaction?",
-    choices: ["Oh, okay. So, my friend might have an STI. How does one get an STI? Will she be okay? Do I have an STI now after hugging her because she was crying?", "Okay, mom. But how can I help my friend?", "I guess I should focus on my studies and forget about her problems. It is almost the end of the year and I need to be ready for exams."],
+    choices: ["Oh, okay. So, my friend might have an STI. How does one get an STI? Will she be okay? Do I have an STI now after hugging her because she was crying?", "I guess I should focus on my studies and forget about her problems. It is almost the end of the year and I need to be ready for exams."],
     bg: "https://raw.githubusercontent.com/jtquach1/Quiz-React/master/assets/backgrounds/gettyimages-1165365520-612x612.jpg",
     c1: 3,
     c2: 14,
