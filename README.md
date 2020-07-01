@@ -93,13 +93,13 @@ Two-player learning module game on adolescent health for Android and iOS. Involv
 ### Detailed overview of app code
 #### /App.js
 Navigation imports, as explained in the Udemy tutorial. These allow for the user to go back a page by clicking the left arrow at the top of the screen. 
-```
+```js
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 ```
 
 Custom imports to different Screen components, which render multiples of Choice components.
-```
+```js
 import HomeScreen from "./src/screens/HomeScreen";
 import MenuScreen from './src/screens/MenuScreen';
 import QuizScreen from "./src/screens/QuizScreen";
@@ -107,7 +107,7 @@ import ComicScreen from './src/screens/ComicScreen';
 ```
 
 Supply the Screen components to navigate through and the Screen that appears when first starting up the app.
-```
+```js
 const navigator = createStackNavigator(
     {
         Home: HomeScreen,
@@ -130,24 +130,24 @@ export default createAppContainer(navigator);
 The starting screen, where the user presses on one of two buttons to play as the mother or the daughter. 
 
 Default imports. 
-```
+```js
 import React from "react";
 import { StyleSheet, View, Button, ScrollView } from "react-native";
 ```
 
 Custom imports. 
-```
+```js
 import Daughter from "../avatars/Daughter";
 import Mother from "../avatars/Mother";
 ```
 
 Only considers the navigation prop from HomeScreen's props. The {} inside the function arguments is used for destructuring. 
-```
+```js
 const HomeScreen = ({ navigation }) => {
 ```
 
 Takes in a String title and a boolean isMother. isMother is passed down to MenuScreen and is used to conditionally render the mother or the daughter scenarios based on what button the user clicks. 
-```
+```js
   const makeButton = (title, isMother) => {
 ```
 
@@ -159,7 +159,7 @@ Button and TouchableOpacity are introduced in Section 4 of the Udemy tutorial.
 * title is a prop of Button
     - title must be a String.
     - Props can be thought of as _arguments_ to the function Button, where it is supplied to generate a component on the screen.
-```
+```js
     return (
       <Button
         onPress={() => {
@@ -179,7 +179,7 @@ Other key features:
 * To make an inline call to JavaScript code, you can surround the code in {}, as demonstrated with the calls to `makeButton`. 
     - For debugging purposes, you can also do `{console.log("foo: ", foo)}` to keep track of the value of certain variables. 
 * Mother and Daughter components are used from the custom imports. 
-```
+```js
   // Generate scenarios based on id
   return (
     <ScrollView>
@@ -202,14 +202,15 @@ A StyleSheet containing multiple rules for styling the above rendered JSX.
 * The StyleSheet syntax is very similar to CSS.
 * Styling rules are separated by : and , like so
     - Because this is JavaScript, you can have a trailing comma following the last rule with no consequence.
-```
+```js
 style1: {
     key1: value1,
     key2: value2
 }
 ```
+
 * You can learn more about alignItems and flexDirection in Section 7 of the Udemy tutorial. 
-```
+```js
 const styles = StyleSheet.create({
   margin: {
     marginVertical: 20,
@@ -231,13 +232,13 @@ export default HomeScreen;
 The main menu for scenario listings. The current build only shows 1 scenario for the mother and daughter. 
 
 Default imports.
-```
+```js
 import React from "react";
 import { Text, StyleSheet, Button, ScrollView } from "react-native";
 ```
 
 MenuScreen, which contains parameters like HomeScreen.
-```
+```js
 const MenuScreen = ({ navigation }) => {
 ```
 
@@ -247,7 +248,7 @@ Logic for getting params from MenuScreen, based on the React Navigation guide.
 * Ternary statements, which is used: 
     - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator
     - Section 6 of the Udemy tutorial
-```
+```js
   // from HomeScreen.js
   const { params } = navigation.state;
   // Checks if player is mother or not
@@ -257,7 +258,7 @@ Logic for getting params from MenuScreen, based on the React Navigation guide.
 ```
 
 Currently unused in the current build, but this is for the scenarios listed in /src/scenarios/Scenarios.js
-```
+```js
   // Generic scenario, non-interactive
   const makeButton = (id) => {
     return (
@@ -274,7 +275,7 @@ Currently unused in the current build, but this is for the scenarios listed in /
 ```
 
 This is for the scenarios listed in /src/scenarios/ComicScenarios.js
-```
+```js
   // Interactive scenario, pass flag down
   const makeNew = (id, title) => {
     return (
@@ -293,7 +294,7 @@ This is for the scenarios listed in /src/scenarios/ComicScenarios.js
 ```
 
 The calls to makeButton are commented out. They can be recommented harmlessly. makeButton renders a button that navigates the user to an instance of the QuizScreen page.
-```
+```js
   // Generate scenarios based on id
   return (
     <ScrollView style={[styles.marginHorizontal]}>
@@ -308,7 +309,7 @@ The calls to makeButton are commented out. They can be recommented harmlessly. m
 ```
 
 Calling makeNew renders a button that navigates the user to an instance of the ComicScreen page.
-```
+```js
       <Text style={[styles.text, styles.marginVertical]}>Quiz Dialogue Demos</Text>
       {makeNew(1, "Scenario 1")}
       {/* {makeNew(2, "Scenario 2")}
@@ -319,7 +320,7 @@ Calling makeNew renders a button that navigates the user to an instance of the C
 ```
 
 The StyleSheet. 
-```
+```js
 const styles = StyleSheet.create({
   text: {
     fontSize: 30
@@ -345,19 +346,19 @@ export default MenuScreen;
 
 #### /src/screens/ComicScreen.js
 Default imports.
-```
+```js
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 ```
 
 Custom imports. The * refers to all the objects in the listed file.
-```
+```js
 import ComicChoice from "../components/ComicChoice";
 import * as scenarios from "../scenarios/ComicScenarios";
 ```
 
 Similar logic as shown in MenuScreen.js. The symbolic constant isMother is used to clarify the code. 
-```
+```js
 const ComicScreen = ({ navigation }) => {
   // From HomeScreen
   const { params } = navigation.state;
@@ -367,7 +368,7 @@ const ComicScreen = ({ navigation }) => {
 ```
 
 Calls ComicChoice with `scenarios` being the object M6 from ComicScenarios as
-```
+```js
   const renderMother = (index) => {
     switch (index) {
       case 1:
@@ -380,7 +381,7 @@ Calls ComicChoice with `scenarios` being the object M6 from ComicScenarios as
 ```
 
 Similar to above.
-```
+```js
   const renderDaughter = (index) => {
     switch (index) {
       // Test out video
@@ -394,7 +395,7 @@ Similar to above.
 ```
 
 Ternary statement to render a ComicChoice based on a particular object from ComicScenario. 
-```
+```js
   const renderScenario = (index) => {
     return (flag == isMother)
       ? renderMother(index)
@@ -408,7 +409,7 @@ Ternary statement to render a ComicChoice based on a particular object from Comi
 ```
 
 More boilerplate code.
-```
+```js
 const styles = StyleSheet.create({});
 
 export default ComicScreen;
@@ -416,13 +417,13 @@ export default ComicScreen;
 
 #### /src/components/ComicChoice.js
 Default imports.
-```
+```js
 import React, { useState } from 'react';
 import { ScrollView, View, Text, StyleSheet, Button, TouchableOpacity, ImageBackground } from 'react-native';
 ```
 
 Custom imports.
-```
+```js
 import Daughter from "../avatars/Daughter";
 import Mother from "../avatars/Mother";
 import Friend from "../avatars/Friend";
@@ -430,12 +431,12 @@ import TestAvatar from "../avatars/TestAvatar";
 ```
 
 Used to render a video on the screen for _both_ Android and iOS. 
-```
+```js
 import { Video, Audio } from "expo-av";
 ```
 
 Used to render Google fonts instead of manually downloading and writing code to render them. See https://github.com/expo/google-fonts for more information on importing and styling components that use Google Fonts.
-```
+```js
 import {
   useFonts,
   Arvo_700Bold
@@ -444,7 +445,7 @@ import { LuckiestGuy_400Regular } from "@expo-google-fonts/luckiest-guy";
 ```
 
 Takes in scenarios as supplied in ComicScreen.js. 
-```
+```js
 // scenarios: array populated by question objects
 const ComicChoice = ({ scenarios }) => {
 
@@ -453,7 +454,7 @@ const ComicChoice = ({ scenarios }) => {
 ```
 
 Using `const` instead of `let` got rid of the error stating the fonts were not loaded yet.
-```
+```js
   // Hook to use imported fonts
   const [fontsLoaded] = useFonts({
     Arvo_700Bold,
@@ -463,7 +464,7 @@ Using `const` instead of `let` got rid of the error stating the fonts were not l
 
 Hooks which let you initialize and modify state. 
 * Hooks are introduced and discussed in Section 6 of the Udemy tutorial. 
-```
+```js
   // Current question, score, gameOver status
   const [q, setQuestion] = useState(scenarios[0]);
   const [s, setScore] = useState(0);
@@ -471,7 +472,7 @@ Hooks which let you initialize and modify state.
 ```
 
 It is valid to return null in a ternary statement, and it shouldn't affect the state.
-```
+```js
   // Update the question listing based on the current question and the score
   const update = (index) => {
 
@@ -488,7 +489,7 @@ It is valid to return null in a ternary statement, and it shouldn't affect the s
 ```
 
 Takes in a String prop and a style, which is an object containing key value pairs. 
-```
+```js
   const renderText = (prop, style) => {
     // if prop was defined, render it
     return (prop != undefined)
@@ -503,7 +504,7 @@ The ternary statement's truthy condition asks:
 * AND Is the index the specified magic number FINAL, which indicates whether the next page should be a game over?
 * OR is there no supplied `text`?
 If the truthy condition returns true, then no button is rendered.
-```
+```js
   // Basic blue button
   const renderButton = (index, text) => {
     /* 
@@ -521,7 +522,7 @@ If the truthy condition returns true, then no button is rendered.
 ```
 
 Similar logic as above, but prettier, and you can play with the margin and padding. 
-```
+```js
   // Stylized button for question choices
   const renderButton2 = (index, text, option) => {
     return ((scenarios[index] == undefined && index != FINAL) || text == undefined)
@@ -538,7 +539,7 @@ Similar logic as above, but prettier, and you can play with the margin and paddi
 ```
 
 Renders a number `score` in a Text tag. 
-```
+```js
   const renderScore = (score) => {
     return (
       <Text style={[styles.scoreStyle]}>
@@ -549,7 +550,7 @@ Renders a number `score` in a Text tag.
 ```
 
 Currently used for the Mother version of the scenario, which is .gif based. 
-```
+```js
   const renderAvatar = (speaker, emotion) => {
     switch (speaker) {
       case 'Daughter':
@@ -565,7 +566,7 @@ Currently used for the Mother version of the scenario, which is .gif based.
 ```
 
 This contains lots of inline JavaScript and ternary statements. Common components are rendered. renderRow is then used in renderQuestion for easier reading.
-```
+```js
   const renderRow = (question) => {
     return (question.gameOver == true)
       // Final question -> results
@@ -588,13 +589,13 @@ This contains lots of inline JavaScript and ternary statements. Common component
 ```
 
 This contains even more inline JavaScript and ternary statements. renderQuestion renders everything important the user needs to see on the screen. `question` is one of many comma-separated objects within an object, e.g. D6, from ComicScenarios. 
-```
+```js
   const renderQuestion = (question) => {
     return (question.background != undefined)
 ```
 
 This renders background information. D6 does not have any questions that contain the background key, but M6 does. 
-```
+```js
       // Background information, no dialogue
       ? <View style={styles.background}>
         {renderText("Background", styles.text)}
@@ -611,7 +612,7 @@ This renders background information. D6 does not have any questions that contain
 ```
 
 This renders the speaker's name and their dialogue separated by a :, an Avatar from avataaars, and a series of blue buttons. 
-```
+```js
         // Render dialogue, avatar, and choices or next button
         : (question.speaker != undefined)
           ? <View style={styles.column}>
@@ -628,7 +629,7 @@ This renders the speaker's name and their dialogue separated by a :, an Avatar f
 ```
 
 This renders an autoplayed video on the screen, without play/pause options, and a blue Next/See Results button. The video uses fixed dimensions, which were found using https://aarmstrong.org/content/aspect_ratio_calc.php. 
-```
+```js
           // Render video and next button
           : (question.video != undefined)
             ? <View style={styles.column}>
@@ -645,7 +646,7 @@ This renders an autoplayed video on the screen, without play/pause options, and 
 ```
 
 This renders a background with a series of curved red buttons and bolded text. 
-```
+```js
             // Render title, choices
             : <ImageBackground
               style={[styles.column, { width: "100%", height: "100%" }]}
@@ -661,7 +662,7 @@ This renders a background with a series of curved red buttons and bolded text.
 renderScreen encapsulates the contents of renderScore, renderQuestion with a ScrollView. 
 * This allows the user to scroll down in case the contents go off the screen.
 If the player is not on a penultimate screen, then the score shall not be shown. `g` represents the game over state for a given scenario. 
-```
+```js
   const renderScreen = () => {
     return (g == true)
       // Reached game over
@@ -683,7 +684,7 @@ If the player is not on a penultimate screen, then the score shall not be shown.
 ```
 
 The StyleSheet. flex, flexDirection, and such are introduced in Section 7 of the Udemy tutorial. 
-```
+```js
 const styles = StyleSheet.create({
   background: {
     borderWidth: 5,
@@ -760,13 +761,13 @@ export default ComicChoice;
 __NOTE__: Friend.js, Mother.js, and TestAvatar.js share very similar code.
 
 Default imports
-```
+```js
 import React from "react";
 import { StyleSheet, Image } from "react-native";
 ```
 
 Function Daughter takes in a prop `emotion`, which is an integer. Daughter returns an `Image`, which uses an asset with a hardcoded filepath. The filepath cannot be passed in as an argument. 
-```
+```js
 // To destructure, use { arg1, arg2, ... } format, 
 // and in parent, do <Daughter arg1=... arg2=... /> 
 const Daughter = ({ emotion }) => {
@@ -804,7 +805,7 @@ const Daughter = ({ emotion }) => {
 ```
 
 Default styling for the Image, can modify height and width as desired.
-```
+```js
 const styles = StyleSheet.create({
   image: {
     width: 150,
