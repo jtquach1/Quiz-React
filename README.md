@@ -16,7 +16,7 @@ Two-player learning module game on adolescent health for Android and iOS. Involv
     - You can build a .apk for free for a real Android device.
 
 ## Important files
-### These files are _crucial_ to the current build's rendering of the daughter chlamydia scenario, which is newer:
+### These files are _crucial_ to the current build's rendering of the daughter chlamydia scenario, which is newer, but uses _statically created_ mp4s using Animaker:
 * /App.js
 * /src/components/ComicChoice.js
 * /src/scenarios/ComicScenarios.js
@@ -37,7 +37,7 @@ Two-player learning module game on adolescent health for Android and iOS. Involv
 * /assets/videos/scenario_6_9.mp4
 * /assets/videos/scenario_6_10.mp4
 
-### These files are _crucial_ to the current build's rendering of the mother chlamydia scenario, which is older:
+### These files and directories are _crucial_ to the current build's rendering of the mother chlamydia scenario, which is older, but may be useful to reference for _real-time rendering_:
 * /App.js
 * /src/avatars/Daughter.js
 * /src/avatars/Friend.js
@@ -48,6 +48,10 @@ Two-player learning module game on adolescent health for Android and iOS. Involv
 * /src/screens/ComicScreen.js
 * /src/screens/HomeScreen.js
 * /src/screens/MenuScreen.js
+* Directories, where the .gif have numbers (1-7) as their names:
+    - /assets/avatars/daughter
+    - /assets/avatars/mother
+    - /assets/avatars/friend
 
 ### These files and directories were used for a basic survey-like style of the original scenarios. The original scenarios are not rendered in the current build. 
 * /App.js
@@ -66,7 +70,18 @@ Two-player learning module game on adolescent health for Android and iOS. Involv
 * /assets/avatars/friend/png
     - As seen in Friend.js
 
-### These files were used to test that gifs may be embedded.
-* All .gif in /assets/avatars/daughter
-* All .gif in /assets/avatars/mother
-* All .gif in /assets/avatars/friend
+### These files were used to test that .gif may be embedded.
+* All non-numbered .gif in /assets/avatars/daughter
+* All non-numbered .gif in /assets/avatars/mother
+* All non-numbered .gif in /assets/avatars/friend
+
+## What resources did you use, and why?
+* Avatar .png: https://getavataaars.com
+    - Why: Initially used for the idea of rendering avatars based on options that the user supplies. However, it may be that avataaars won't be used anymore since they are just portraits and not full body models. 
+* Avatar .gif: Mixamo (free), Adobe Fuse (free)
+    - Why: Initially used for the idea of rendering moving avatars which use the avataaars .png as frames. 
+* Video .mp4: Animaker (free)
+    - Why: Used in current build, for showing a prerendered interaction between voiced mother/daughter full body avatars. This may be replaced in hopes for a real-time rendered interaction. 
+* React Native .js: Udemy (paid tutorial)
+    - Why: To learn the basics of React Native, for Android and iOS development, and Hooks for passing props from a parent component to a child component. The tutorial also emphasizes a function programming style by using the `const` keyword instead of `var`, `let` in object-oriented programming. 
+    - Link to course: https://www.udemy.com/course/the-complete-react-native-and-redux-course/
