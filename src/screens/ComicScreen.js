@@ -37,7 +37,6 @@ const ComicScreen = ({ navigation }) => {
       : renderDaughter(index);
   }
 
-
   return (
     renderScenario(itemId)
   );

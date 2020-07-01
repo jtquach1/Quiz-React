@@ -17,7 +17,6 @@ const HomeScreen = ({ navigation }) => {
     );
   }
 
-
   // Generate scenarios based on id
   return (
     <ScrollView>
