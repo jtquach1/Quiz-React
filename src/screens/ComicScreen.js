@@ -24,7 +24,7 @@ const ComicScreen = ({ navigation }) => {
     switch (index) {
       // Test out video
       case 1:
-        return <ComicChoice scenarios={scenarios.D6_1} />;
+        return <ComicChoice scenarios={scenarios.D6} />;
       // For testing scenarios
       case 2:
         return <ComicChoice scenarios={scenarios.test1} />;

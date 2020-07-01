@@ -368,7 +368,7 @@ export const M6 = [
 ];
 
 // edited to use videos
-export const D6_1 = [
+export const D6 = [
   {
     video: "https://github.com/jtquach1/Quiz-React/blob/master/assets/videos/scenario_6_1.mp4?raw=true",
     next: 1,
