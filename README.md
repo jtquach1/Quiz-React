@@ -430,7 +430,7 @@ import Friend from "../avatars/Friend";
 import TestAvatar from "../avatars/TestAvatar";
 ```
 
-Used to render a video on the screen for _both_ Android and iOS. 
+Used to render a video on the screen for _both_ Android and iOS. `Audio` was not used yet.
 ```js
 import { Video, Audio } from "expo-av";
 ```
@@ -448,7 +448,9 @@ Takes in scenarios as supplied in ComicScreen.js.
 ```js
 // scenarios: array populated by question objects
 const ComicChoice = ({ scenarios }) => {
-
+```
+Magic number.
+```js
   // use index == -1 for button that leads to results page
   const FINAL = -1;
 ```
@@ -462,8 +464,7 @@ Using `const` instead of `let` got rid of the error stating the fonts were not l
   });
 ```
 
-Hooks which let you initialize and modify state. 
-* Hooks are introduced and discussed in Section 6 of the Udemy tutorial. 
+These three lines of code refer to hooks. Hooks let you modify state like in OOP, and are introduced in Section 6 of the Udemy tutorial. 
 ```js
   // Current question, score, gameOver status
   const [q, setQuestion] = useState(scenarios[0]);
@@ -501,7 +502,7 @@ Takes in a String prop and a style, which is an object containing key value pair
 
 The ternary statement's truthy condition asks:
 * When we subscript the input `scenarios` with the given index, do we get an object back?
-* AND Is the index the specified magic number FINAL, which indicates whether the next page should be a game over?
+* AND is the index the specified magic number FINAL, which indicates whether the next page should be a game over?
 * OR is there no supplied `text`?
 If the truthy condition returns true, then no button is rendered.
 ```js
