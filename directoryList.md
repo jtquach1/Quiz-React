@@ -1,4 +1,4 @@
-|-- undefined
+|-- Quiz-React
     |-- .gitignore
     |-- App.js
     |-- app.json
@@ -541,7 +541,6 @@
     |   |-- splash.png
     |   |-- still.png
     |   |-- avatars
-    |   |   |-- blinking_man.gif
     |   |   |-- daughter
     |   |   |   |-- 1.gif
     |   |   |   |-- 2.gif

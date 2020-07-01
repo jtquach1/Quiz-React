@@ -25,12 +25,6 @@ const ComicScreen = ({ navigation }) => {
       // Test out video
       case 1:
         return <ComicChoice scenarios={scenarios.D6} />;
-      // For testing scenarios
-      case 2:
-        return <ComicChoice scenarios={scenarios.test1} />;
-      case 3:
-        return <ComicChoice scenarios={scenarios.test2} />;
-
       // For error handling
       default:
         return <View><Text>Scenario not rendered</Text></View>

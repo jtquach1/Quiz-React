@@ -3,7 +3,8 @@ Two-player learning module game on adolescent health for Android and iOS. Involv
 
 # Documentation
 ## File hierarchy
-* You can view the file hierarchy in /directoryList.md. That being said... 
+* You can view the file hierarchies in /directoryList.md and /directoryList_truncated.md. 
+    - View the file directly in a text editor, like VS Code. GitHub's Markdown renderer will show the contents as completely inline and untabbed. That being said...
 * __Feel free to ignore everything inside node_modules, .expo, .expo-shared, and web-build__. These folders came with project creation command `expo init`. 
     - node_modules contains all the dependencies used in the local build. These are not visible on GitHub repo, but you can find the dependencies in /package.json. 
     - /package.json is automatically modified whenever you add a package to the project using `npm install`. When you clone this repository, you can do `expo start` in the repository directory and view the error messages to determine which packages are needed for installation. 
@@ -76,8 +77,9 @@ Two-player learning module game on adolescent health for Android and iOS. Involv
 * All non-numbered .gif in /assets/avatars/friend
 
 ## What resources did you use, and why?
+### Brief overview
 * Avatar .png: https://getavataaars.com
-    - Why: Initially used for the idea of rendering avatars based on options that the user supplies. However, it may be that avataaars won't be used anymore since they are just portraits and not full body models. 
+    - Why: Initially used for the idea of rendering avatars based on user-inputted options. However, it may be that avataaars won't be used anymore since they are just portraits and not full body models. 
 * Avatar .gif: Mixamo (free), Adobe Fuse (free)
     - Why: Initially used for the idea of rendering moving avatars which use the avataaars .png as frames. 
 * Video .mp4: Animaker (free)
@@ -85,3 +87,6 @@ Two-player learning module game on adolescent health for Android and iOS. Involv
 * React Native .js: Udemy (paid tutorial)
     - Why: To learn the basics of React Native, for Android and iOS development, and Hooks for passing props from a parent component to a child component. The tutorial also emphasizes a function programming style by using the `const` keyword instead of `var`, `let` in object-oriented programming. 
     - Link to course: https://www.udemy.com/course/the-complete-react-native-and-redux-course/
+### Detailed overview of app code
+Hierarchy of React Native code:
+- A
