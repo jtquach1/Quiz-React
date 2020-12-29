@@ -11,8 +11,9 @@
     "@expo-google-fonts/arvo": "^0.1.0",
     "@expo-google-fonts/luckiest-guy": "^0.1.0",
     "@react-native-community/masked-view": "^0.1.10",
-    "expo": "~37.0.3",
+    "expo": "^40.0.0",
     "expo-av": "~8.1.0",
+    "expo-cli": "^4.0.17",
     "expo-font": "~8.1.0",
     "react": "~16.9.0",
     "react-dom": "~16.9.0",
@@ -25,8 +26,8 @@
     "react-navigation-stack": "^2.4.0"
   },
   "devDependencies": {
-    "babel-preset-expo": "~8.1.0",
-    "@babel/core": "^7.8.6"
+    "@babel/core": "^7.8.6",
+    "babel-preset-expo": "~8.1.0"
   },
   "private": true
 }
